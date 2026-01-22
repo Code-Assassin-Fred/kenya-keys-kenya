@@ -32,7 +32,7 @@ export default function Navbar() {
             className={`${isScrolled
                 ? 'fixed top-[52px] bg-black/80 backdrop-blur-md py-8 shadow-lg'
                 : 'absolute top-0 bg-transparent py-8'
-                } left-0 right-0 z-50 transition-all duration-300`}
+                } left-0 right-0 z-50 transition-all duration-300 font-outfit`}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between">

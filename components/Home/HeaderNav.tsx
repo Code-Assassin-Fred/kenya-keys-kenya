@@ -18,7 +18,7 @@ export default function HeaderNav() {
         <div className="h-[52px]">
             <header
                 className={`${isScrolled ? 'fixed top-0 shadow-md' : 'relative'
-                    } w-full bg-gray-200 border-b border-gray-300 z-[60] h-[52px] transition-all duration-300`}
+                    } w-full bg-gray-200 border-b border-gray-300 z-[60] h-[52px] transition-all duration-300 font-outfit`}
             >
                 <div className="flex items-center justify-between px-4 h-full">
                     {/* Left side - Language Selector */}
