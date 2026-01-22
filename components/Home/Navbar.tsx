@@ -1,14 +1,16 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isVisible, setIsVisible] = useState(true);
     const [isOpen, setIsOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+    const lastScrollY = useRef(0);
 
     const navItems = [
 
@@ -71,7 +73,20 @@ export default function Navbar() {
 
     useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
+            const currentScrollY = window.scrollY;
+
+            setIsScrolled(currentScrollY > 50);
+
+            // Determine scroll direction
+            if (currentScrollY > lastScrollY.current && currentScrollY > 50) {
+                // Scrolling down
+                setIsVisible(false);
+            } else if (currentScrollY < lastScrollY.current) {
+                // Scrolling up
+                setIsVisible(true);
+            }
+
+            lastScrollY.current = currentScrollY;
         };
 
         window.addEventListener('scroll', handleScroll);
@@ -89,7 +104,7 @@ export default function Navbar() {
     return (
         <nav
             className={`${isScrolled
-                ? 'fixed top-[52px] bg-black/80 backdrop-blur-md py-6 shadow-lg'
+                ? `fixed top-[52px] bg-black/80 backdrop-blur-md py-6 shadow-lg ${!isVisible ? '-translate-y-[250px]' : 'translate-y-0'}`
                 : 'absolute top-0 bg-transparent py-8'
                 } left-0 right-0 z-50 transition-all duration-300 font-outfit`}
         >

@@ -93,7 +93,7 @@ export default function Hero() {
                             boxShadow: "0 20px 25px -5px rgba(249, 115, 22, 0.3), 0 10px 10px -5px rgba(249, 115, 22, 0.2)"
                         }}
                         whileTap={{ scale: 0.95 }}
-                        className="bg-orange-500 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-orange-600 transition-all active:scale-95 cursor-pointer"
+                        className="bg-orange-500 text-white px-6 py-3 rounded-full font-bold text-base hover:bg-orange-600 transition-all active:scale-95 cursor-pointer"
                     >
                         Sponsor a Student
                     </motion.button>
@@ -104,7 +104,7 @@ export default function Hero() {
                             borderColor: "rgba(249, 115, 22, 1)"
                         }}
                         whileTap={{ scale: 0.95 }}
-                        className="border-2 border-white/50 text-white px-8 py-4 rounded-full font-bold text-lg hover:border-orange-500 transition-all active:scale-95 cursor-pointer backdrop-blur-sm"
+                        className="border-2 border-white/50 text-white px-6 py-3 rounded-full font-bold text-base hover:border-orange-500 transition-all active:scale-95 cursor-pointer backdrop-blur-sm"
                     >
                         Donate Now
                     </motion.button>

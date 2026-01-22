@@ -1,14 +1,29 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { ChevronDown, Phone, Mail } from 'lucide-react';
 
 export default function HeaderNav() {
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isVisible, setIsVisible] = useState(true);
+    const lastScrollY = useRef(0);
 
     useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
+            const currentScrollY = window.scrollY;
+
+            setIsScrolled(currentScrollY > 50);
+
+            // Determine scroll direction
+            if (currentScrollY > lastScrollY.current && currentScrollY > 50) {
+                // Scrolling down
+                setIsVisible(false);
+            } else if (currentScrollY < lastScrollY.current) {
+                // Scrolling up
+                setIsVisible(true);
+            }
+
+            lastScrollY.current = currentScrollY;
         };
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
@@ -18,7 +33,8 @@ export default function HeaderNav() {
         <div className="h-[52px]">
             <header
                 className={`${isScrolled ? 'fixed top-0 shadow-md' : 'relative'
-                    } w-full bg-gray-200 border-b border-gray-300 z-[60] h-[52px] transition-all duration-300 font-outfit`}
+                    } w-full bg-gray-200 border-b border-gray-300 z-[60] h-[52px] transition-all duration-300 font-outfit ${!isVisible && isScrolled ? '-translate-y-[250px]' : 'translate-y-0'
+                    }`}
             >
                 <div className="flex items-center justify-between px-4 h-full">
                     {/* Left side - Language Selector */}
