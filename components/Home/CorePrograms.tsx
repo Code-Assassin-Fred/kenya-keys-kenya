@@ -57,7 +57,7 @@ export default function CorePrograms() {
     const doubledPrograms = [...programs, ...programs];
 
     return (
-        <section className="relative py-16 bg-black">
+        <section className="relative py-16 bg-gray-950">
 
             {/* Content Container */}
             <div className="relative z-10 px-8 md:px-24">
@@ -65,14 +65,14 @@ export default function CorePrograms() {
                     <motion.span
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        className="text-orange-500 font-bold tracking-widest uppercase text-xs mb-2 block font-outfit"
+                        className="text-orange-500 font-bold tracking-widest uppercase text-sm mb-2 block font-outfit"
                     >
                         Our Initiatives
                     </motion.span>
                     <motion.h2
                         initial={{ opacity: 0, y: 15 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        className="text-3xl md:text-4xl font-playfair font-bold text-white mb-3"
+                        className="text-4xl md:text-5xl font-playfair font-bold text-white mb-3"
                     >
                         Core Programs for Change
                     </motion.h2>
@@ -95,17 +95,17 @@ export default function CorePrograms() {
                                 className="w-[300px] md:w-[380px] flex flex-col gap-4 transform transition-all duration-500 shrink-0"
                             >
                                 <div className="flex items-start">
-                                    <span className="text-[9px] font-black font-outfit uppercase tracking-widest text-blue-300 bg-blue-900/30 px-3 py-1.5 rounded-full">
+                                    <span className="text-xs font-black font-outfit uppercase tracking-widest text-blue-300 bg-blue-900/30 px-3 py-1.5 rounded-full">
                                         {program.category}
                                     </span>
                                 </div>
 
-                                <p className="text-gray-300 font-outfit text-sm leading-relaxed italic whitespace-normal line-clamp-3">
+                                <p className="text-gray-300 font-outfit text-base leading-relaxed italic whitespace-normal line-clamp-3">
                                     "{program.description}"
                                 </p>
 
                                 <div className="mt-auto">
-                                    <h4 className="font-bold text-white font-playfair text-sm leading-tight truncate">{program.title}</h4>
+                                    <h4 className="font-bold text-white font-playfair text-lg leading-tight truncate">{program.title}</h4>
                                 </div>
                             </div>
                         ))}
