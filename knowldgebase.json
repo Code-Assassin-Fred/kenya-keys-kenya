@@ -1,0 +1,131 @@
+{
+    "organization": {
+        "name": "Kenya Keys",
+        "type": "Nonprofit educational organization",
+        "primary_focus": "Education access and student empowerment in rural Kenya",
+        "core_belief": "Education is the foundation for improving lives, families, and communities"
+    },
+    "mission_and_vision": {
+        "mission": "To remove barriers to education by supporting students from low-income backgrounds with access to secondary and post-secondary education, while providing holistic support beyond school fees.",
+        "vision": "To create long-term, generational change by empowering educated individuals to become self-reliant leaders and contributors within their communities."
+    },
+    "target_population": {
+        "location": "Rural Kenya",
+        "beneficiaries": [
+            "Secondary school students",
+            "College and post-secondary students",
+            "Girls and boys facing economic hardship",
+            "Community members seeking educational resources"
+        ]
+    },
+    "core_programs": {
+        "education_sponsorship": {
+            "description": "Pairs students with sponsors to cover school fees and essential education-related costs.",
+            "coverage": [
+                "Secondary school tuition",
+                "College or post-secondary education",
+                "Educational materials"
+            ],
+            "duration": "Up to 3 years of secondary school and 1–4 years of post-secondary education",
+            "sponsor_engagement": [
+                "Student progress updates",
+                "Letters and photos",
+                "Long-term academic tracking"
+            ]
+        },
+        "student_support_services": {
+            "description": "Provides non-tuition support to ensure student retention and success.",
+            "services": [
+                "Transportation assistance",
+                "Food support",
+                "Feminine hygiene supplies",
+                "Mentorship and guidance",
+                "Life skills and leadership training"
+            ],
+            "special_programs": [
+                "Hope Springs",
+                "Save Our Sisters",
+                "Save Our Brothers"
+            ]
+        },
+        "community_programs": {
+            "description": "Community-based initiatives that promote education, literacy, and self-reliance.",
+            "initiatives": [
+                "Community libraries with full-time librarians",
+                "Adult education programs",
+                "Support for special needs schools",
+                "Literacy and skills development training"
+            ]
+        },
+        "learning_center_and_library": {
+            "name": "Community Education Center",
+            "purpose": "Serve as a regional hub for education, technology, and community learning.",
+            "features": [
+                "Public library",
+                "Computer learning lab with internet access",
+                "Meeting and conference hall",
+                "Space for higher-education learning opportunities"
+            ]
+        }
+    },
+    "impact": {
+        "students_supported": "Nearly 1,000 students supported over multiple years",
+        "graduation_outcomes": [
+            "High secondary school graduation rates",
+            "Strong transition from secondary to post-secondary education"
+        ],
+        "gender_focus": "Significant emphasis on supporting girls’ education",
+        "long_term_effects": [
+            "Graduates returning as professionals",
+            "Community leadership and mentorship",
+            "Improved local economic and social outcomes"
+        ]
+    },
+    "organizational_structure": {
+        "operations": "Led and implemented by local Kenyan leadership and staff",
+        "community_involvement": [
+            "Local educators",
+            "Program alumni",
+            "Community partners"
+        ]
+    },
+    "website_navigation_structure": {
+        "main_sections": [
+            "Support a Student",
+            "Programs",
+            "Impact",
+            "Donate",
+            "News",
+            "About",
+            "Contact"
+        ],
+        "support_a_student": [
+            "Sponsorship overview",
+            "Student profiles",
+            "Progress reports",
+            "Sponsor letters"
+        ],
+        "about_section": [
+            "Mission and vision",
+            "Leadership team",
+            "Partners",
+            "Frequently asked questions"
+        ]
+    },
+    "support_and_engagement": {
+        "ways_to_support": [
+            "Student sponsorship",
+            "General donations",
+            "Education fund contributions"
+        ],
+        "community_engagement": [
+            "News updates",
+            "Photo galleries",
+            "Impact stories"
+        ]
+    },
+    "geographic_presence": {
+        "primary_location": "Kenya",
+        "operational_area": "Kwale County and surrounding rural communities"
+    }
+}
