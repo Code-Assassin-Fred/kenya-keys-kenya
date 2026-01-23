@@ -45,62 +45,85 @@ export default function CorePrograms() {
     const doubledPrograms = [...programs, ...programs];
 
     return (
-        <section className="relative py-20 md:py-32 overflow-hidden" style={{ backgroundColor: '#fcfcfc' }}>
+        <section className="relative pt-28 md:pt-44 pb-20 md:pb-32 overflow-hidden" style={{ backgroundColor: '#fcfcfc' }}>
             {/* Content Container */}
             <div className="relative z-10 px-6 md:px-16 lg:px-24">
-                <div className="max-w-7xl mx-auto mb-16">
+                <div className="max-w-7xl mx-auto mb-10">
                     <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
-                        className="flex flex-col items-start"
+                        className="flex flex-col items-center text-center"
                     >
-                        <span className="text-orange-500 font-bold tracking-[0.3em] uppercase text-xs mb-4 font-outfit">
+                        {/* <span className="text-orange-500 font-bold tracking-[0.3em] uppercase text-[9px] mb-3 font-outfit">
                             Our Initiatives
-                        </span>
-                        <h2 className="text-5xl md:text-7xl font-playfair font-bold text-gray-950 leading-tight">
-                            Core Programs <br />
-                            <span className="text-gray-400">for Global Change</span>
+                        </span> */}
+                        <h2 className="text-3xl md:text-5xl font-playfair font-bold text-gray-950 leading-[1.1]">
+                            Core Programs <span className="text-emerald-600 font-medium">for Change</span>
                         </h2>
                     </motion.div>
                 </div>
 
                 {/* Marquee Section with fade edges */}
-                <div className="relative mt-8 mb-32">
+                <div className="relative mt-0 mb-24">
                     {/* Left fade */}
-                    <div className="absolute left-0 top-0 bottom-0 w-32 md:w-48 z-10 pointer-events-none" style={{ background: 'linear-gradient(to right, #fcfcfc, transparent)' }} />
+                    <div className="absolute left-0 top-0 bottom-0 w-32 md:w-64 z-10 pointer-events-none" style={{ background: 'linear-gradient(to right, #fcfcfc, transparent)' }} />
                     {/* Right fade */}
-                    <div className="absolute right-0 top-0 bottom-0 w-32 md:w-48 z-10 pointer-events-none" style={{ background: 'linear-gradient(to left, #fcfcfc, transparent)' }} />
+                    <div className="absolute right-0 top-0 bottom-0 w-32 md:w-64 z-10 pointer-events-none" style={{ background: 'linear-gradient(to left, #fcfcfc, transparent)' }} />
 
                     <motion.div
                         animate={{ x: ["0%", "-50%"] }}
                         transition={{
-                            duration: 45,
+                            duration: 60,
                             ease: "linear",
                             repeat: Infinity
                         }}
-                        className="flex gap-24 md:gap-40 items-baseline"
+                        className="flex gap-10 md:gap-14 items-stretch py-8"
                     >
                         {doubledPrograms.map((program, idx) => (
                             <div
                                 key={`${program.id}-${idx}`}
-                                className="flex flex-col gap-4 shrink-0 max-w-[450px]"
+                                className="relative shrink-0 w-[300px] md:w-[400px] group"
                             >
-                                {/* Title and Category in one line */}
-                                <div className="flex items-center gap-4">
-                                    <h4 className="font-bold text-gray-950 font-playfair text-2xl md:text-3xl whitespace-nowrap">
-                                        {program.title}
-                                    </h4>
-                                    <span className={`h-[1px] w-8 md:w-12 bg-gray-200`} />
-                                    <span className={`text-[10px] font-bold font-outfit uppercase tracking-widest ${program.color} shrink-0`}>
-                                        {program.category}
-                                    </span>
+                                {/* The "Thick White Border" Frame */}
+                                <div className="absolute inset-0 bg-white rounded-[32px] shadow-[0_0_0_1px_rgba(0,0,0,0.02),0_10px_30px_rgba(0,0,0,0.06)] z-0" />
+
+                                {/* Inner Content Area with substantial padding to create the "border" look */}
+                                <div className="relative z-10 m-[12px] bg-slate-50/50 rounded-[20px] p-5 h-full flex flex-col justify-center border border-white/50 min-h-[160px] md:min-h-[200px]">
+                                    {/* Decorative "Screws" at the corners of the FRAME */}
+                                    <div className="absolute -top-[6px] -left-[6px] w-1 h-1 rounded-full bg-gray-200" />
+                                    <div className="absolute -top-[6px] -right-[6px] w-1 h-1 rounded-full bg-gray-200" />
+                                    <div className="absolute -bottom-[6px] -left-[6px] w-1 h-1 rounded-full bg-gray-200" />
+                                    <div className="absolute -bottom-[6px] -right-[6px] w-1 h-1 rounded-full bg-gray-200" />
+
+                                    <div className="flex flex-col gap-3">
+                                        <div className="flex flex-col gap-1">
+                                            <span className={`text-[9px] font-bold font-outfit uppercase tracking-[0.2em] ${program.color}`}>
+                                                {program.category}
+                                            </span>
+                                            <h4 className="font-bold text-gray-950 font-playfair text-lg md:text-xl leading-tight">
+                                                {program.title}
+                                            </h4>
+                                        </div>
+
+                                        <p className="text-gray-500 font-outfit text-xs md:text-sm leading-relaxed line-clamp-3">
+                                            {program.description}
+                                        </p>
+
+                                        <div className="pt-3 border-t border-gray-100 flex items-center gap-2 group/btn cursor-pointer">
+                                            <span className="text-[10px] font-bold font-outfit uppercase tracking-wider text-gray-400 group-hover/btn:text-gray-900 transition-colors">Learn More</span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 text-gray-300 group-hover/btn:text-gray-900 group-hover/btn:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                            </svg>
+                                        </div>
+                                    </div>
                                 </div>
 
-                                {/* Minimal Description */}
-                                <p className="text-gray-500 font-outfit text-base md:text-lg leading-relaxed max-w-[400px]">
-                                    {program.description}
-                                </p>
+                                {/* Corner dots positioned relative to the outer container but visually on the "inner border" corners of the white frame */}
+                                <div className="absolute top-3 left-3 w-1 h-1 rounded-full bg-slate-200 z-20" />
+                                <div className="absolute top-3 right-3 w-1 h-1 rounded-full bg-slate-200 z-20" />
+                                <div className="absolute bottom-3 left-3 w-1 h-1 rounded-full bg-slate-200 z-20" />
+                                <div className="absolute bottom-3 right-3 w-1 h-1 rounded-full bg-slate-200 z-20" />
                             </div>
                         ))}
                     </motion.div>
