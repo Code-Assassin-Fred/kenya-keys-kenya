@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { motion } from "framer-motion";
-import Navbar from "./Navbar";
 
 const CountUp = ({ end, duration = 2000, suffix = "" }: { end: number; duration?: number; suffix?: string }) => {
     const [count, setCount] = React.useState(0);
@@ -89,10 +88,6 @@ export default function Hero() {
                 <div className="absolute inset-0 bg-gradient-to-b from-black/95 via-black/60 to-black/95" />
             </div>
 
-            {/* Navbar stays on top */}
-            <div className="absolute top-0 left-0 w-full z-50">
-                <Navbar />
-            </div>
 
             {/* Hero Content */}
             <motion.div

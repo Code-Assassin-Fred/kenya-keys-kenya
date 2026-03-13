@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Outfit, Playfair_Display } from "next/font/google";
+import { Geist, Geist_Mono, Outfit, Playfair_Display, Oswald } from "next/font/google";
 import "./globals.css";
 import Chatbot from "@/components/Chatbot";
+
+const oswald = Oswald({
+  variable: "--font-oswald",
+  subsets: ["latin"],
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,7 +41,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${outfit.variable} ${playfair.variable} font-outfit antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${outfit.variable} ${playfair.variable} ${oswald.variable} font-outfit antialiased`}
       >
         {children}
         <Chatbot />

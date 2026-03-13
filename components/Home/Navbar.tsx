@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, Search, Globe, Heart } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -13,7 +13,6 @@ export default function Navbar() {
     const lastScrollY = useRef(0);
 
     const navItems = [
-
         {
             label: 'Support a Student',
             href: '#',
@@ -38,16 +37,16 @@ export default function Navbar() {
             label: 'Impact',
             href: '#',
             children: [
-                { label: 'Metrics & Data', href: '/metrics' },
                 { label: 'Success Stories', href: '/success-stories' },
+                { label: 'Metrics & Data', href: '/metrics' },
             ],
         },
         {
             label: 'Donate',
             href: '#',
             children: [
-                { label: 'Ways to Give', href: '/ways-to-give' },
-                { label: 'Education Fund', href: '/education-fund' },
+                { label: 'Ways to Give', href: '/donate/ways-to-give' },
+                { label: 'Corporate Sponsorship', href: '/donate/corporate' },
             ],
         },
         {
@@ -68,7 +67,10 @@ export default function Navbar() {
                 { label: 'FAQ', href: '/faq' },
             ],
         },
-        { label: 'Contact', href: '/contact' },
+        {
+            label: 'Contact',
+            href: '/contact',
+        },
     ];
 
     useEffect(() => {
@@ -104,98 +106,105 @@ export default function Navbar() {
     return (
         <nav
             className={`${isScrolled
-                ? `fixed top-[52px] bg-black/80 backdrop-blur-md py-6 shadow-lg ${!isVisible ? '-translate-y-[250px]' : 'translate-y-0'}`
-                : 'absolute top-0 bg-transparent py-8'
-                } left-0 right-0 z-50 transition-all duration-300 font-outfit`}
+                ? `fixed top-0 bg-white py-0 shadow-lg ${!isVisible ? '-translate-y-full' : 'translate-y-0'}`
+                : 'relative bg-white py-0'
+                } left-0 right-0 z-50 transition-all duration-300 font-outfit border-b border-gray-100 uppercase`}
         >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex items-center justify-between">
-                    {/* Logo */}
-                    <div className="flex-shrink-0">
-                        <Link href="/" className="text-orange-500 text-2xl font-bold tracking-tight">
-                            KenyaKeys
-                        </Link>
+            <div className="max-w-[1440px] mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+                {/* Logo Section */}
+                <div className="flex items-center gap-2 flex-shrink-0 mr-8">
+                    <div className="bg-red-600 rounded-full p-1.5 flex items-center justify-center translate-y-[-1px]">
+                        <Heart className="w-5 h-5 text-white fill-white" />
                     </div>
+                    <Link href="/" className="text-[#333] text-2xl font-black tracking-tight">
+                        Kenya Keys
+                    </Link>
+                </div>
 
-                    {/* Desktop Navigation */}
-                    <div className="hidden xl:block">
-                        <div className="flex items-center space-x-6">
-                            {navItems.map((item) => (
-                                <div
-                                    key={item.label}
-                                    className="relative group h-full"
-                                >
-                                    {item.children ? (
-                                        <button className="flex items-center gap-1 text-gray-200 hover:text-orange-400 transition-colors duration-200 text-sm font-medium uppercase tracking-wider py-2 group-hover:text-orange-400">
-                                            {item.label}
-                                            <ChevronDown className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" />
-                                        </button>
-                                    ) : (
-                                        <Link
-                                            href={item.href}
-                                            className="text-gray-200 hover:text-orange-400 transition-colors duration-200 text-sm font-medium uppercase tracking-wider block py-2"
-                                        >
-                                            {item.label}
-                                        </Link>
-                                    )}
+                {/* Desktop Navigation */}
+                <div className="hidden lg:flex items-center space-x-1 h-full">
+                    {navItems.map((item) => (
+                        <div
+                            key={item.label}
+                            className="relative group h-full flex items-center px-4"
+                        >
+                            {item.children ? (
+                                <button className="flex items-center gap-1.5 text-[#333] hover:text-red-600 transition-colors duration-200 text-[14px] font-bold tracking-wider py-2 group-hover:text-red-600">
+                                    {item.label}
+                                    <ChevronDown className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180 text-red-600" />
+                                </button>
+                            ) : (
+                                <Link href={item.href || '#'} className="flex items-center gap-1.5 text-[#333] hover:text-red-600 transition-colors duration-200 text-[14px] font-bold tracking-wider py-2 group-hover:text-red-600">
+                                    {item.label}
+                                </Link>
+                            )}
 
-                                    {/* Dropdown Menu */}
-                                    {item.children && (
-                                        <div className="absolute top-full left-0 pt-4 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                                            <div className="bg-white rounded-xl shadow-xl overflow-hidden py-2 border border-blue-50">
-                                                {item.children.map((child) => (
-                                                    <Link
-                                                        key={child.label}
-                                                        href={child.href}
-                                                        className="block px-4 py-3 text-sm text-gray-600 hover:bg-orange-50 hover:text-orange-600 transition-colors"
-                                                    >
-                                                        {child.label}
-                                                    </Link>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    )}
+                            {/* Dropdown Menu */}
+                            {item.children && (
+                                <div className="absolute top-[calc(100%-1px)] left-0 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-0 z-50">
+                                    <div className="bg-white border-t-[3px] border-red-600 shadow-2xl py-0 mt-0 flex flex-col">
+                                        {item.children.map((child) => (
+                                            <Link
+                                                key={child.label}
+                                                href={child.href}
+                                                className="block px-6 py-4 text-[14px] text-[#333] hover:bg-gray-50 hover:text-red-600 transition-colors font-bold border-b border-gray-100 last:border-0"
+                                            >
+                                                {child.label}
+                                            </Link>
+                                        ))}
+                                    </div>
                                 </div>
-                            ))}
+                            )}
                         </div>
-                    </div>
+                    ))}
+                </div>
+
+                {/* Right Side Actions */}
+                <div className="flex items-center gap-0 h-full ml-auto">
+
+                    {/* Teal Donate Button */}
+                    <Link
+                        href="/donate"
+                        className="bg-[#009bba] hover:bg-[#00819c] text-white font-black px-8 h-full flex items-center gap-3 transition-colors tracking-widest text-base"
+                    >
+                        <Heart className="w-5 h-5 fill-white" />
+                        Donate
+                    </Link>
 
                     {/* Mobile menu button */}
-                    <div className="xl:hidden">
-                        <button
-                            onClick={() => setIsOpen(!isOpen)}
-                            className="text-white hover:text-orange-400 transition-colors duration-200 p-2"
-                        >
-                            {isOpen ? <X size={28} /> : <Menu size={28} />}
-                        </button>
-                    </div>
+                    <button
+                        onClick={() => setIsOpen(!isOpen)}
+                        className="lg:hidden p-4 text-[#333] hover:text-red-600 transition-colors border-l border-gray-100"
+                    >
+                        {isOpen ? <X size={24} /> : <Menu size={24} />}
+                    </button>
                 </div>
             </div>
 
             {/* Mobile Navigation */}
             <div
-                className={`xl:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-xl transition-all duration-300 overflow-hidden ${isOpen ? 'max-h-[85vh] opacity-100 py-6 border-b border-white/10 overflow-y-auto' : 'max-h-0 opacity-0'
+                className={`lg:hidden absolute top-full left-0 right-0 bg-white border-t border-gray-100 transition-all duration-300 overflow-hidden ${isOpen ? 'max-h-[85vh] opacity-100 border-b border-gray-200' : 'max-h-0 opacity-0'
                     }`}
             >
-                <div className="px-4 space-y-2 pt-2 pb-8">
+                <div className="p-4 space-y-0">
                     {navItems.map((item) => (
-                        <div key={item.label} className="border-b border-white/5 last:border-0 pb-2">
+                        <div key={item.label} className="border-b border-gray-100 last:border-0">
                             {item.children ? (
-                                <div>
+                                <>
                                     <button
                                         onClick={() => toggleDropdown(item.label)}
-                                        className="flex items-center justify-between w-full text-white hover:text-orange-400 py-3 text-lg font-medium transition-colors duration-200"
+                                        className="flex items-center justify-between w-full text-[#333] hover:text-red-600 py-4 text-base font-bold transition-colors duration-200"
                                     >
                                         {item.label}
-                                        <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${activeDropdown === item.label ? 'rotate-180 text-orange-500' : 'text-gray-400'}`} />
+                                        <ChevronDown className={`w-5 h-5 transition-transform duration-300 text-red-600 ${activeDropdown === item.label ? 'rotate-180' : ''}`} />
                                     </button>
-                                    <div className={`overflow-hidden transition-all duration-300 ease-in-out ${activeDropdown === item.label ? 'max-h-96 opacity-100 mb-2' : 'max-h-0 opacity-0'}`}>
-                                        <div className="pl-4 space-y-1 mt-1 border-l-2 border-orange-500/30 ml-2">
+                                    <div className={`overflow-hidden transition-all duration-300 ease-in-out ${activeDropdown === item.label ? 'max-h-[400px] pb-4' : 'max-h-0'}`}>
+                                        <div className="space-y-0 border-t border-gray-50 mt-1">
                                             {item.children.map((child) => (
                                                 <Link
                                                     key={child.label}
                                                     href={child.href}
-                                                    className="block text-gray-300 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg text-sm transition-all"
+                                                    className="block text-[#555] hover:text-red-600 hover:bg-gray-50 px-4 py-4 text-[14px] font-bold border-b border-gray-50 last:border-0"
                                                     onClick={() => setIsOpen(false)}
                                                 >
                                                     {child.label}
@@ -203,11 +212,11 @@ export default function Navbar() {
                                             ))}
                                         </div>
                                     </div>
-                                </div>
+                                </>
                             ) : (
                                 <Link
-                                    href={item.href}
-                                    className="block text-white hover:text-orange-400 py-3 text-lg font-medium transition-colors duration-200"
+                                    href={item.href || '#'}
+                                    className="flex items-center justify-between w-full text-[#333] hover:text-red-600 py-4 text-base font-bold transition-colors duration-200"
                                     onClick={() => setIsOpen(false)}
                                 >
                                     {item.label}
