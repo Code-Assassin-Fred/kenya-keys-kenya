@@ -71,15 +71,15 @@ export default function Hero() {
     ];
 
     return (
-        <section id="home" className="relative md:h-[750px] w-full flex items-center bg-white overflow-hidden">
+        <section id="home" className="relative md:h-[600px] w-full flex items-center bg-white overflow-hidden">
             {/* SVG ClipPath Definition */}
             <svg width="0" height="0" className="absolute">
                 <defs>
                     <clipPath id="heroCurve" clipPathUnits="objectBoundingBox">
-                        <path d="M 0,0 L 0.4,0 C 0.6,0.02 0.8,0.3 0.8,0.6 C 0.8,0.85 0.65,1 0.45,1 L 0,1 Z" />
+                        <path d="M 0,0 L 0.4,0 C 0.6,0.02 0.8,0.3 0.8,0.6 C 0.8,0.8 0.8,1 0.8,1 L 0,1 Z" />
                     </clipPath>
                     <clipPath id="blueCurve" clipPathUnits="objectBoundingBox">
-                        <path d="M 0,0 L 0.55,0 C 0.8,0.02 1,0.35 1,0.7 C 1,0.95 0.85,1 0.65,1 L 0,1 Z" />
+                        <path d="M 0,0 L 0.55,0 C 0.8,0.02 1,0.35 1,0.7 C 1,0.9 1,1 1,1 L 0,1 Z" />
                     </clipPath>
                 </defs>
             </svg>
@@ -114,26 +114,19 @@ export default function Hero() {
                         </div>
                     </motion.div>
                 </div>
-                {/* Right Side: Content */}
-                <div className="w-full md:w-[45%] flex items-start justify-start px-6 md:px-12 pt-8 md:pt-24 pb-12 md:pb-0 z-10">
+                {/* Right Side: Content - Overlapping the blue area */}
+                <div className="w-full md:w-[50%] flex items-start justify-start px-6 md:pl-10 pt-10 md:pt-16 pb-12 md:pb-0 z-20 md:-ml-[6%]">
                     <motion.div
                         variants={containerVariants}
                         initial="hidden"
                         animate="visible"
-                        className="max-w-2xl text-left"
+                        className="max-w-3xl text-left"
                     >
-                        <motion.h1 
-                            className="text-4xl md:text-[55px] lg:text-[70px] font-[900] text-[#001D4A] tracking-[-0.04em] font-oswald uppercase leading-[0.85] mb-6"
+                        <motion.h1
+                            variants={itemVariants}
+                            className="text-2xl md:text-[32px] lg:text-[40px] font-[900] text-[#001D4A] tracking-[-0.01em] font-oswald uppercase leading-[1.1] mb-8"
                         >
-                            {headlineLines.map((line, i) => (
-                                <motion.span
-                                    key={i}
-                                    variants={itemVariants}
-                                    className="block"
-                                >
-                                    {line}
-                                </motion.span>
-                            ))}
+                            United is the way to help communities in need
                         </motion.h1>
 
                         <motion.p
