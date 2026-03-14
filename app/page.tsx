@@ -1,4 +1,5 @@
 import Hero from "@/components/Home/Hero";
+import ImpactStats from "@/components/Home/ImpactStats";
 import Footer from "@/components/Home/Footer";
 import Navbar from "@/components/Home/Navbar";
 import CorePrograms from "@/components/Home/CorePrograms";
@@ -11,6 +12,7 @@ export default function Home() {
       <Navbar />
       <main className="bg-black">
         <Hero />
+        <ImpactStats />
         <CorePrograms />
         <GalleryOverview />
         <Closure />
