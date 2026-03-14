@@ -110,12 +110,9 @@ export default function Navbar() {
                 : 'relative bg-white py-0'
                 } left-0 right-0 z-50 transition-all duration-300 font-outfit border-b border-gray-100 uppercase`}
         >
-            <div className="max-w-[1440px] mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+            <div className="max-w-[1440px] mx-auto px-4 sm:px-6 h-24 flex items-center justify-between">
                 {/* Logo Section */}
                 <div className="flex items-center gap-2 flex-shrink-0 mr-8">
-                    <div className="bg-red-600 rounded-full p-1.5 flex items-center justify-center translate-y-[-1px]">
-                        <Heart className="w-5 h-5 text-white fill-white" />
-                    </div>
                     <Link href="/" className="text-[#333] text-2xl font-black tracking-tight">
                         Kenya Keys
                     </Link>
@@ -167,7 +164,6 @@ export default function Navbar() {
                         href="/donate"
                         className="bg-[#009bba] hover:bg-[#00819c] text-white font-black px-8 h-full flex items-center gap-3 transition-colors tracking-widest text-base"
                     >
-                        <Heart className="w-5 h-5 fill-white" />
                         Donate
                     </Link>
 
