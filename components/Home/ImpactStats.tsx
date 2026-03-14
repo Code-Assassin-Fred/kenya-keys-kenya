@@ -37,7 +37,7 @@ const CountUp = ({ end, duration = 2000, suffix = "" }: { end: number | string; 
     return (
         <motion.span
             onViewportEnter={() => setIsInView(true)}
-            className="text-5xl md:text-7xl font-black text-[#FFB800] font-oswald"
+            className="text-4xl md:text-5xl font-black text-[#FFB800] font-oswald"
         >
             {formattedCount}{suffix}
         </motion.span>
@@ -77,51 +77,51 @@ export default function ImpactStats() {
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.8 }}
-                            className="text-4xl md:text-[80px] font-bold text-white font-oswald uppercase leading-[0.95] mb-8 tracking-tighter"
+                            className="text-3xl md:text-5xl font-bold text-white font-oswald uppercase leading-[1.1] mb-6 tracking-tight"
                         >
-                            United Way is a <br />
-                            global network for <br />
-                            community action
+                            Unlocking potential <br />
+                            through education <br />
+                            in rural Kenya
                         </motion.h2>
                         <motion.p
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.8, delay: 0.2 }}
-                            className="text-lg md:text-xl text-white font-outfit font-light max-w-sm leading-tight opacity-90"
+                            className="text-base md:text-lg text-white font-outfit font-light max-w-sm leading-snug opacity-90"
                         >
-                            We bring people and resources together to tackle our communities' toughest challenges.
+                            Removing barriers to success by providing students with the resources they need to thrive.
                         </motion.p>
                     </div>
 
                     {/* Right Side Stats */}
-                    <div className="flex flex-col gap-14 md:pl-20">
+                    <div className="flex flex-col gap-10 md:pl-20">
                         {/* Stat 1 */}
-                        <div className="flex items-center gap-8">
-                            <div className="min-w-[160px]">
-                                <CountUp end={30} suffix="+" />
+                        <div className="flex items-center gap-6">
+                            <div className="min-w-[140px]">
+                                <CountUp end="1,000" suffix="+" />
                             </div>
-                            <p className="text-white font-outfit text-base md:text-lg font-bold uppercase leading-tight tracking-wide">
-                                countries make up our <br /> worldwide network
+                            <p className="text-white font-outfit text-sm md:text-base font-bold uppercase leading-tight tracking-wide">
+                                students sponsored for a <br /> brighter future
                             </p>
                         </div>
 
                         {/* Stat 2 */}
-                        <div className="flex items-center gap-8">
-                            <div className="min-w-[160px]">
-                                <CountUp end={48} suffix="M" />
+                        <div className="flex items-center gap-6">
+                            <div className="min-w-[140px]">
+                                <CountUp end={100} suffix="%" />
                             </div>
-                            <p className="text-white font-outfit text-base md:text-lg font-bold uppercase leading-tight tracking-wide">
-                                lives United Way changes annually
+                            <p className="text-white font-outfit text-sm md:text-base font-bold uppercase leading-tight tracking-wide">
+                                secondary school graduation <br /> rate since 2022
                             </p>
                         </div>
 
                         {/* Stat 3 */}
-                        <div className="flex items-center gap-8">
-                            <div className="min-w-[160px]">
-                                <CountUp end="1,100" suffix="+" />
+                        <div className="flex items-center gap-6">
+                            <div className="min-w-[140px]">
+                                <CountUp end="5,000" suffix="+" />
                             </div>
-                            <p className="text-white font-outfit text-base md:text-lg font-bold uppercase leading-tight tracking-wide">
-                                United Ways serve thousands of communities <br /> globally
+                            <p className="text-white font-outfit text-sm md:text-base font-bold uppercase leading-tight tracking-wide">
+                                volunteer hours dedicated to <br /> student success
                             </p>
                         </div>
                     </div>
