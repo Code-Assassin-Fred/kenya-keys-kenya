@@ -108,10 +108,7 @@ export default function Hero() {
                             clipPath: "url(#heroCurve)",
                         }}
                     >
-                        {/* Logo/Icon Overlay */}
-                        <div className="absolute top-16 left-10 z-20 w-32 md:w-56">
-                            <img src="/logo.png" alt="Kenya Keys Logo" className="w-full h-auto brightness-0 invert" />
-                        </div>
+
                     </motion.div>
                 </div>
                 {/* Right Side: Content - Overlapping the blue area */}
