@@ -5,6 +5,7 @@ import Navbar from "@/components/Home/Navbar";
 import CorePrograms from "@/components/Home/CorePrograms";
 import Closure from "@/components/Home/Closure";
 import AnniversaryBanner from "@/components/Home/AnniversaryBanner";
+import Contact from "@/components/Home/Contact";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <CorePrograms />
         <AnniversaryBanner />
         <Closure />
+        <Contact />
       </main>
       <Footer />
     </div>
