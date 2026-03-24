@@ -3,7 +3,6 @@ import ImpactStats from "@/components/Home/ImpactStats";
 import Footer from "@/components/Home/Footer";
 import Navbar from "@/components/Home/Navbar";
 import CorePrograms from "@/components/Home/CorePrograms";
-import { GalleryOverview } from "@/components/Home/GalleryOverview";
 import Closure from "@/components/Home/Closure";
 import AnniversaryBanner from "@/components/Home/AnniversaryBanner";
 
@@ -16,7 +15,6 @@ export default function Home() {
         <ImpactStats />
         <CorePrograms />
         <AnniversaryBanner />
-        <GalleryOverview />
         <Closure />
       </main>
       <Footer />
