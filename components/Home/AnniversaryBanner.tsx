@@ -52,24 +52,20 @@ const TriangleConfetti = ({ color, style, delay = 0 }: { color: string; style: R
 export default function AnniversaryBanner() {
     return (
         <section className="relative w-full max-w-[1100px] mx-auto px-4 md:px-0 py-16 overflow-visible">
-            {/* Main Container - Now just a wrapper, not the background provider */}
-            <div className="relative flex flex-col md:flex-row min-h-[380px] md:min-h-[420px]">
+            {/* Outer Section Background Pattern (replacing white) */}
+            <div className="absolute inset-0 pointer-events-none -mx-4 md:-mx-[100vw] md:px-[100vw] z-0 overflow-hidden">
+                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1440 600" preserveAspectRatio="none">
+                    <path d="M0 0H600L400 600H0V0Z" fill="#1D366D" />
+                    <path d="M600 0H1000L800 600H400L600 0Z" fill="#00529B" />
+                    <path d="M1000 0H1440V600H800L1000 0Z" fill="#0072CE" />
+                </svg>
+            </div>
+
+            {/* Main Content Container */}
+            <div className="relative flex flex-col md:flex-row min-h-[380px] md:min-h-[420px] z-10">
                 
-                {/* Background Layer with Deep Blue and Patterns */}
-                <div className="absolute inset-y-0 left-0 w-full md:w-[55%] bg-[#1D366D] overflow-hidden z-0">
-                    <svg className="absolute inset-0 w-full h-full opacity-30" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <pattern id="dotPattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                                <circle cx="3" cy="3" r="1.5" fill="#0072CE" />
-                            </pattern>
-                            <pattern id="linePattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-                                <rect width="2" height="40" fill="#00529B" />
-                            </pattern>
-                        </defs>
-                        <rect width="100%" height="100%" fill="url(#linePattern)" />
-                        <rect width="100%" height="100%" fill="url(#dotPattern)" />
-                    </svg>
-                </div>
+                {/* Banner Internal Background - Lighter Color as requested */}
+                <div className="absolute inset-y-0 left-0 w-full md:w-[55%] bg-[#DBE4FF] z-0" />
 
                 {/* Left Side Content */}
                 <div className="relative w-full md:w-[55%] p-8 md:p-14 flex flex-col justify-center items-start z-20">
@@ -78,47 +74,30 @@ export default function AnniversaryBanner() {
                         whileInView={{ x: 0, opacity: 1 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <div className="mb-4">
-                            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 2L14.5 9.5H22L16 14L18.5 21.5L12 17L5.5 21.5L8 14L2 9.5H9.5L12 2Z" fill="#FFD700" stroke="white" strokeWidth="1" />
-                            </svg>
-                        </div>
-                        <h2 className="text-3xl md:text-[44px] font-bold font-playfair text-white leading-[1.15] mb-4">
+                        {/* Icons and Circles Removed as requested */}
+                        <h2 className="text-3xl md:text-[44px] font-bold font-playfair text-[#001D4A] leading-[1.15] mb-4">
                             Kiron at 10 – <br />
                             Celebrating a <br />
                             decade of impact
                         </h2>
-                        <p className="text-base md:text-lg font-outfit text-white opacity-90 mb-8 max-w-sm">
+                        <p className="text-base md:text-lg font-outfit text-[#001D4A] opacity-90 mb-8 max-w-sm">
                             Join our <strong>10-year celebration</strong> by exploring our story, spreading the word, and giving in honor of this milestone.
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-                            <button className="bg-white text-[#001D4A] px-6 py-3.5 rounded-full font-bold font-outfit text-sm md:text-base hover:bg-opacity-90 transition-all cursor-pointer whitespace-nowrap shadow-lg">
+                            <button className="bg-[#001D4A] text-white px-8 py-3.5 rounded-full font-bold font-outfit text-sm md:text-base hover:bg-opacity-90 transition-all cursor-pointer whitespace-nowrap shadow-lg">
                                 Discover our anniversary story
                             </button>
-                            <button className="border-2 border-white text-white px-6 py-3.5 rounded-full font-bold font-outfit text-sm md:text-base hover:bg-white hover:text-[#001D4A] transition-all cursor-pointer whitespace-nowrap">
+                            <button className="border-2 border-[#001D4A] text-[#001D4A] px-8 py-3.5 rounded-full font-bold font-outfit text-sm md:text-base hover:bg-[#001D4A] hover:text-white transition-all cursor-pointer whitespace-nowrap">
                                 Start learning
                             </button>
                         </div>
                     </motion.div>
-
-                    {/* Cookie Icon in Corner */}
-                    <div className="absolute bottom-4 left-4 opacity-50">
-                        <svg width="45" height="45" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="50" cy="50" r="45" fill="#f4f4f4" stroke="white" strokeWidth="2" />
-                            <circle cx="35" cy="35" r="5" fill="#5D4037" />
-                            <circle cx="65" cy="40" r="4" fill="#5D4037" />
-                            <circle cx="50" cy="65" r="6" fill="#5D4037" />
-                            <circle cx="70" cy="60" r="5" fill="#5D4037" />
-                            <circle cx="30" cy="65" r="4" fill="#5D4037" />
-                            <circle cx="55" cy="20" r="3" fill="#5D4037" />
-                        </svg>
-                    </div>
                 </div>
 
                 {/* Right Side Image with Protrusion */}
                 <div className="relative w-full md:w-[45%] mt-8 md:mt-0">
-                    <div className="absolute top-[-30px] bottom-[-30px] left-0 right-0 bg-black p-2 overflow-hidden z-10">
+                    <div className="absolute top-[-30px] bottom-[-30px] left-0 right-0 bg-black p-2 overflow-hidden z-20">
                         <div className="relative w-full h-full overflow-hidden">
                             {/* Floating Confetti over Image */}
                             <Confetti color="#40e0d0" style={{ top: '20%', left: '10%' }} delay={0.2} />
@@ -137,22 +116,7 @@ export default function AnniversaryBanner() {
                                 priority
                             />
                         </div>
-
-                        {/* Flag Icon overlapping split */}
-                        <div className="absolute bottom-6 left-0 -translate-x-1/2 z-30">
-                            <div className="relative w-14 h-20 md:w-16 md:h-24">
-                                <motion.div 
-                                    animate={{ rotate: [-2, 2, -2] }}
-                                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                                >
-                                    <svg width="100%" height="100%" viewBox="0 0 100 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M10 0V140M10 10L90 40L10 70Z" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                                        <path d="M10 5L85 35L10 65V5Z" fill="#003594" />
-                                        <text x="25" y="45" fill="white" fontSize="30" fontWeight="bold" fontFamily="serif">k</text>
-                                    </svg>
-                                </motion.div>
-                            </div>
-                        </div>
+                        {/* Flag Icon Removed as requested */}
                     </div>
                 </div>
             </div>
