@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 
 export default function Closure() {
     return (
-        <section className="relative bg-black">
-            <div className="relative w-full h-screen overflow-hidden rounded-tl-3xl rounded-tr-[120px] md:rounded-tr-[240px]">
+        <section className="relative bg-[#0072CE]">
+            <div className="relative w-full h-screen overflow-hidden rounded-tr-[120px] md:rounded-tr-[240px]">
                 {/* Background Image */}
                 <div
                     className="absolute inset-0 bg-cover bg-center"
