@@ -14,13 +14,26 @@ export default function Navbar() {
 
     const navItems = [
         {
-            label: 'Support a Student',
+            label: 'Who We Are',
             href: '#',
             children: [
-                { label: 'Sponsorship Overview', href: '/sponsorship-overview' },
+                { label: 'Our Mission', href: '/mission' },
+                { label: 'Leadership Team', href: '/team' },
+                { label: 'Our Partners', href: '/partners' },
+                { label: 'FAQ', href: '/faq' },
+            ],
+        },
+        {
+            label: 'Get Involved',
+            href: '#',
+            children: [
+                { label: 'Donate', href: '/donate' },
+                { label: 'Sponsor a Student', href: '/sponsorship-overview' },
                 { label: 'Student Catalog', href: '/student-catalog' },
                 { label: 'Progress Reports', href: '/progress-reports' },
                 { label: 'Sponsor Letters', href: '/sponsor-letters' },
+                { label: 'Ways to Give', href: '/donate/ways-to-give' },
+                { label: 'Corporate Sponsorship', href: '/donate/corporate' },
             ],
         },
         {
@@ -42,29 +55,11 @@ export default function Navbar() {
             ],
         },
         {
-            label: 'Donate',
-            href: '#',
-            children: [
-                { label: 'Ways to Give', href: '/donate/ways-to-give' },
-                { label: 'Corporate Sponsorship', href: '/donate/corporate' },
-            ],
-        },
-        {
             label: 'News',
             href: '#',
             children: [
                 { label: 'Latest Updates', href: '/updates' },
                 { label: 'Photo Gallery', href: '/gallery' },
-            ],
-        },
-        {
-            label: 'About',
-            href: '#',
-            children: [
-                { label: 'Our Mission', href: '/mission' },
-                { label: 'Leadership Team', href: '/team' },
-                { label: 'Our Partners', href: '/partners' },
-                { label: 'FAQ', href: '/faq' },
             ],
         },
         {
@@ -119,7 +114,7 @@ export default function Navbar() {
                 </div>
 
                 {/* Desktop Navigation */}
-                <div className="hidden lg:flex items-center space-x-1 h-full">
+                <div className="hidden lg:flex flex-1 justify-end items-center space-x-1 h-full mr-6">
                     {navItems.map((item) => (
                         <div
                             key={item.label}
