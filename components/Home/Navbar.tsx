@@ -15,11 +15,11 @@ export default function Navbar() {
     const navItems = [
         {
             label: 'Who We Are',
-            href: '#',
+            href: '/who-we-are',
             children: [
-                { label: 'Our Mission', href: '/mission' },
-                { label: 'Leadership Team', href: '/team' },
-                { label: 'Our Partners', href: '/partners' },
+                { label: 'Our Mission', href: '/who-we-are#journey' },
+                { label: 'Leadership Team', href: '/who-we-are' },
+                { label: 'Our Partners', href: '/who-we-are' },
             ],
         },
         {
@@ -37,28 +37,28 @@ export default function Navbar() {
         },
         {
             label: 'Programs',
-            href: '#',
+            href: '/programs',
             children: [
                 { label: 'Programs Overview', href: '/programs' },
-                { label: 'Student Support Services', href: '/student-support' },
-                { label: 'Community Learning', href: '/community-learning' },
-                { label: 'Learning Center / Library', href: '/learning-center' },
+                { label: 'Student Support Services', href: '/programs#support' },
+                { label: 'Community Learning', href: '/programs#cec' },
+                { label: 'Learning Center / Library', href: '/programs#cec' },
             ],
         },
         {
             label: 'Impact',
-            href: '#',
+            href: '/impact',
             children: [
-                { label: 'Success Stories', href: '/success-stories' },
-                { label: 'Metrics & Data', href: '/metrics' },
+                { label: 'Success Stories', href: '/impact#stories' },
+                { label: 'Metrics & Data', href: '/impact#stats' },
             ],
         },
         {
             label: 'News',
-            href: '#',
+            href: '/news',
             children: [
-                { label: 'Latest Updates', href: '/updates' },
-                { label: 'Photo Gallery', href: '/gallery' },
+                { label: 'Latest Updates', href: '/news#latest' },
+                { label: 'Photo Gallery', href: '/news' },
             ],
         },
         {
