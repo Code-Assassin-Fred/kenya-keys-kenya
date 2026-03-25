@@ -21,7 +21,6 @@ export default function Footer() {
                             <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Our Mission</a></li>
                             <li><a href="#" className="text-gray-400 hover:text-white transition-colors transition-all">Leadership Team</a></li>
                             <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Our Partners</a></li>
-                            <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Frequently Asked Questions</a></li>
                         </ul>
                     </div>
 

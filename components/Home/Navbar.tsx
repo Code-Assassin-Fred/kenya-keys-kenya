@@ -20,7 +20,6 @@ export default function Navbar() {
                 { label: 'Our Mission', href: '/mission' },
                 { label: 'Leadership Team', href: '/team' },
                 { label: 'Our Partners', href: '/partners' },
-                { label: 'FAQ', href: '/faq' },
             ],
         },
         {
