@@ -20,7 +20,6 @@ export default function Footer() {
                         <ul className="space-y-3 font-outfit">
                             <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Our Mission</a></li>
                             <li><a href="#" className="text-gray-400 hover:text-white transition-colors transition-all">Leadership Team</a></li>
-                            <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Our Partners</a></li>
                         </ul>
                     </div>
 

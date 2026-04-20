@@ -19,7 +19,6 @@ export default function Navbar() {
             children: [
                 { label: 'Our Mission', href: '/who-we-are#journey' },
                 { label: 'Leadership Team', href: '/who-we-are' },
-                { label: 'Our Partners', href: '/who-we-are' },
             ],
         },
         {
@@ -63,7 +62,7 @@ export default function Navbar() {
         },
         {
             label: 'Contact',
-            href: '/contact',
+            href: '#contact',
         },
     ];
 
