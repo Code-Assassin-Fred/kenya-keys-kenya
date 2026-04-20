@@ -3,102 +3,127 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const team = [
-    {
-        name: "Rinda Hayes",
-        title: "Founder & US Director",
-        bio: "Founded Kenya Keys in 2005 after a life-changing visit to Taru. She leads our US operations and strategic vision.",
-        image: "/image1.png",
-        location: "US Team"
-    },
-    {
-        name: "Joseph Mwengea",
-        title: "Kenya Director",
-        bio: "A retired principal who has been instrumental in identifying the most vulnerable and high-achieving students since the beginning.",
-        image: "/image2.png",
-        location: "Kenya Team"
-    },
-    {
-        name: "Clemence Mulandi",
-        title: "Programs Manager",
-        bio: "Oversees student student success, sponsorship tracking, and our local mentoring programs in Kwale County.",
-        image: "/image3.png",
-        location: "Kenya Team"
-    },
-    {
-        name: "Linda Smith",
-        title: "Board Chair",
-        bio: "Brings decades of experience in non-profit management and educational advocacy to our leadership team.",
-        image: "/image4.png",
-        location: "US Team"
-    },
-    {
-        name: "Esther Mwachia",
-        title: "Student Support",
-        bio: "A Kenya Keys alumni who returned to the organization to lead our girls' empowerment and mentorship initiatives.",
-        image: "/image18.png",
-        location: "Kenya Team"
-    },
-    {
-        name: "David Wright",
-        title: "Financial Director",
-        bio: "Ensures our low admin cost promise stays true and manages transparent financial reporting to our donors.",
-        image: "/image19.png",
-        location: "US Team"
-    }
+const boardMembers = [
+    { name: "Eunice Kioko", role: "Board Chairperson", image: "/Leadership and Staff/Eunice Kioko.webp" },
+    { name: "Elias Tsuma", role: "Board Member", image: "/Leadership and Staff/Tsuma.webp" },
+    { name: "Joseph Mwengea", role: "Founder and Director", image: "/Leadership and Staff/Joseph Mwengea Director.png" },
+    { name: "Mike Mutua", role: "Board Member", image: "/Leadership and Staff/Mike.webp" },
+    { name: "Emmanuel Mwengi", role: "Board Member", image: "/Leadership and Staff/Mwengi.webp" },
+    { name: "Alice Mwaka", role: "Board Member", image: "/Leadership and Staff/Alice.webp" },
+    { name: "Marstela Tesha", role: "Board Member", image: "/Leadership and Staff/Marstela.webp" },
+    { name: "Linah Mjomba", role: "Board Member", image: "/Leadership and Staff/Linah.webp" },
+    { name: "Hope G Mwanyuma", role: "Board Member and Alumnus", image: "/Leadership and Staff/Hope.png" },
+    { name: "Luvuno Lung'anzi Chai", role: "Board Member", image: "/Leadership and Staff/Luvuno.webp" },
+    { name: "Raphael Mangisi", role: "Board Member", image: "/Leadership and Staff/Mangisi.webp" },
 ];
+
+const staffMembers = [
+    { name: "Joseph Mwengea", role: "Founder & Executive Director", image: "/Leadership and Staff/Joseph Mwengea Director.png" },
+    { name: "Franciscah Kamene", role: "Senior Director of Operations", image: "/Leadership and Staff/Francisca.webp" },
+    { name: "Alex Mutuku", role: "Finance Director", image: "/Leadership and Staff/Mutuku.webp" },
+    { name: "Stephen Kabani", role: "Sponsorship Director", image: "/Leadership and Staff/Stephen+Kabani.webp" },
+    { name: "Winnie Seche", role: "Program Manager", image: "/Leadership and Staff/Winnie Seche.webp" },
+    { name: "Clemence Budala", role: "Program Director", image: "/Leadership and Staff/Clemence.webp" },
+    { name: "Mariam Omar", role: "Assistant Sponsorship Director", image: "/Leadership and Staff/Mariam+Omar.webp" },
+    { name: "James Julo", role: "Program Coordinator", image: "/Leadership and Staff/james Julo.webp" },
+    { name: "Nelson Mangale", role: "Program Coordinator", image: "/Leadership and Staff/Nelson.webp" },
+    { name: "Beatrice Mnazi", role: "Program Coordinator", image: "/Leadership and Staff/Mnazi.webp" },
+    { name: "Mwanaisha Mwayama", role: "Librarian", image: "/Leadership and Staff/Mwanaisha+Mwayama.webp" },
+];
+
+const MemberCard = ({ member, index }: { member: any, index: number }) => (
+    <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: index * 0.05 }}
+        className="group relative"
+    >
+        <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-gray-100 shadow-md group-hover:shadow-xl transition-all duration-500">
+            {/* Image styling: grayscale to color on hover */}
+            <img
+                src={member.image}
+                alt={member.name}
+                className="w-full h-full object-cover grayscale brightness-110 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
+                onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = "https://via.placeholder.com/400x500?text=No+Image";
+                }}
+            />
+
+            {/* Gradient Overlay */}
+            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
+
+            {/* Text Overlay */}
+            <div className="absolute inset-x-0 bottom-0 p-6 flex flex-col justify-end">
+                <h4 className="text-white font-oswald text-xl uppercase tracking-tight leading-none mb-1 group-hover:text-[#FFB800] transition-colors duration-300">
+                    {member.name}
+                </h4>
+                <p className="text-gray-300 font-outfit text-[11px] uppercase tracking-[0.2em] font-bold group-hover:text-white transition-colors">
+                    {member.role}
+                </p>
+            </div>
+
+            {/* Decorative Corner */}
+            <div className="absolute top-0 right-0 w-12 h-12 bg-white/10 backdrop-blur-md flex items-center justify-center rounded-bl-2xl transition-all duration-300 group-hover:bg-[#009bba]">
+                <div className="w-1 h-1 bg-white rounded-full group-hover:scale-150 transition-transform" />
+            </div>
+        </div>
+    </motion.div>
+);
 
 export default function LeadershipTeam() {
     return (
-        <section className="py-24 bg-white overflow-hidden">
+        <section id="leadership" className="py-24 bg-white">
             <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
-                <div className="text-center mb-20">
-                    <h2 className="text-3xl md:text-5xl font-black text-[#333] font-oswald uppercase tracking-tight mb-6">
-                        OUR <span className="text-[#00529B]">LEADERSHIP</span>
-                    </h2>
-                    <p className="text-xl text-gray-600 font-outfit max-w-2xl mx-auto font-light">
-                        Kenya Keys is powered by a dedicated team of educators, leaders, and former students across the US and Kenya.
-                    </p>
-                </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-16">
-                    {team.map((member, idx) => (
+                {/* Board of Directors Section */}
+                <div className="mb-32">
+                    <div className="text-center mb-16">
                         <motion.div
-                            key={idx}
-                            initial={{ opacity: 0, y: 30 }}
+                            initial={{ opacity: 0, y: 10 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: idx * 0.1 }}
-                            className="group relative"
+                            transition={{ duration: 0.6 }}
                         >
-                            {/* Member Image Card */}
-                            <div className="relative aspect-square rounded-[40px] overflow-hidden mb-8 shadow-lg group-hover:shadow-2xl transition-all duration-500">
-                                <img 
-                                    src={member.image} 
-                                    alt={member.name} 
-                                    className="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" 
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#00529B]/80 via-[#00529B]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
-                                    <p className="text-white text-sm font-outfit leading-relaxed translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                                        {member.bio}
-                                    </p>
-                                </div>
-                                <div className="absolute top-6 right-6 bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest text-[#00529B] font-outfit">
-                                    {member.location}
-                                </div>
-                            </div>
-
-                            {/* Name & Title */}
-                            <div className="text-center">
-                                <h3 className="text-2xl font-black text-[#333] font-oswald uppercase tracking-tight mb-1 group-hover:text-[#00529B] transition-colors">
-                                    {member.name}
-                                </h3>
-                                <p className="text-sm font-bold font-outfit text-gray-500 uppercase tracking-widest">
-                                    {member.title}
-                                </p>
-                            </div>
+                            <h2 className="text-[#00529B] font-black text-sm uppercase tracking-[0.4em] font-outfit mb-4">Kenya Leadership</h2>
+                            <h3 className="text-3xl md:text-5xl font-black text-[#1A1A1A] font-oswald uppercase tracking-tight">Board of <span className="text-[#009bba]">Directors</span></h3>
+                            <div className="w-24 h-1 bg-red-600 mx-auto mt-6 rounded-full" />
+                            <p className="mt-8 text-gray-600 font-outfit max-w-2xl mx-auto text-lg leading-relaxed">
+                                We believe in local leadership. Essential decisions are made by the Kenyan Board of Directors and staff, giving the community crucial ownership, accountability, and leadership.
+                            </p>
                         </motion.div>
-                    ))}
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                        {boardMembers.map((member, idx) => (
+                            <MemberCard key={member.name + idx} member={member} index={idx} />
+                        ))}
+                    </div>
                 </div>
+
+                {/* Staff Section */}
+                <div>
+                    <div className="text-center mb-16">
+                        <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6 }}
+                        >
+                            <h2 className="text-[#00529B] font-black text-sm uppercase tracking-[0.4em] font-outfit mb-4">Our Dedicated Team</h2>
+                            <h3 className="text-3xl md:text-5xl font-black text-[#1A1A1A] font-oswald uppercase tracking-tight">Meet Our <span className="text-[#009bba]">Staff</span></h3>
+                            <div className="w-24 h-1 bg-[#FFB800] mx-auto mt-6 rounded-full" />
+                            <p className="mt-8 text-gray-600 font-outfit max-w-2xl mx-auto text-lg leading-relaxed">
+                                Our Kenyan staff make essential decisions about and implement our student services, giving the community crucial ownership, accountability, and leadership.
+                            </p>
+                        </motion.div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                        {staffMembers.map((member, idx) => (
+                            <MemberCard key={member.name + idx} member={member} index={idx} />
+                        ))}
+                    </div>
+                </div>
+
             </div>
         </section>
     );

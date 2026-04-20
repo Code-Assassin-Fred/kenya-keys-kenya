@@ -28,7 +28,7 @@ export default function Hero() {
     };
 
     return (
-        <section className="relative h-[500px] w-full flex items-center bg-[#00529B] overflow-hidden">
+        <section id="hero" className="relative h-[500px] w-full flex items-center bg-[#00529B] overflow-hidden">
             {/* Background Pattern/Overlay */}
             <div className="absolute inset-0 opacity-20">
                 <div className="absolute inset-0 bg-[url('/hero.png')] bg-cover bg-center mix-blend-overlay" />

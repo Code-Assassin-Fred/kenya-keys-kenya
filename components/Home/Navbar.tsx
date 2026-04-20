@@ -17,8 +17,8 @@ export default function Navbar() {
             label: 'Who We Are',
             href: '/who-we-are',
             children: [
-                { label: 'Our Mission', href: '/who-we-are#journey' },
-                { label: 'Leadership Team', href: '/who-we-are' },
+                { label: 'Our Mission', href: '/who-we-are#hero' },
+                { label: 'Leadership Team', href: '/who-we-are#leadership' },
             ],
         },
         {
