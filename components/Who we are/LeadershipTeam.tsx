@@ -86,7 +86,6 @@ export default function LeadershipTeam() {
                         >
                             <h2 className="text-[#00529B] font-black text-sm uppercase tracking-[0.4em] font-outfit mb-4">Kenya Leadership</h2>
                             <h3 className="text-3xl md:text-5xl font-black text-[#1A1A1A] font-oswald uppercase tracking-tight">Board of <span className="text-[#009bba]">Directors</span></h3>
-                            <div className="w-24 h-1 bg-red-600 mx-auto mt-6 rounded-full" />
                             <p className="mt-8 text-gray-600 font-outfit max-w-2xl mx-auto text-lg leading-relaxed">
                                 We believe in local leadership. Essential decisions are made by the Kenyan Board of Directors and staff, giving the community crucial ownership, accountability, and leadership.
                             </p>
@@ -110,7 +109,6 @@ export default function LeadershipTeam() {
                         >
                             <h2 className="text-[#00529B] font-black text-sm uppercase tracking-[0.4em] font-outfit mb-4">Our Dedicated Team</h2>
                             <h3 className="text-3xl md:text-5xl font-black text-[#1A1A1A] font-oswald uppercase tracking-tight">Meet Our <span className="text-[#009bba]">Staff</span></h3>
-                            <div className="w-24 h-1 bg-[#FFB800] mx-auto mt-6 rounded-full" />
                             <p className="mt-8 text-gray-600 font-outfit max-w-2xl mx-auto text-lg leading-relaxed">
                                 Our Kenyan staff make essential decisions about and implement our student services, giving the community crucial ownership, accountability, and leadership.
                             </p>

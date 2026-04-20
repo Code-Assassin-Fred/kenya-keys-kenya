@@ -35,14 +35,14 @@ export default function Mission() {
                                 Kenya Keys is a <span className="font-bold text-[#333]">grassroots organization</span> dedicated to unlocking the potential of bright, motivated students in rural Kenya through education and holistic support.
                             </p>
                             
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8">
-                                <div className="border-l-4 border-red-600 pl-6 py-2">
-                                    <p className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-1 italic">Our Promise</p>
-                                    <p className="text-lg text-gray-800 font-medium">To keep admin costs low so your donation reaches students directly.</p>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 pt-10">
+                                <div className="space-y-2">
+                                    <p className="text-sm font-bold text-[#00529B] uppercase tracking-widest italic">Our Educational Promise</p>
+                                    <p className="text-lg text-gray-800 font-medium leading-relaxed">Providing direct access to quality education by removing financial barriers for every sponsored student.</p>
                                 </div>
-                                <div className="border-l-4 border-[#009bba] pl-6 py-2">
-                                    <p className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-1 italic">Our Focus</p>
-                                    <p className="text-lg text-gray-800 font-medium">Empowering local leadership to ensure sustainable community impact.</p>
+                                <div className="space-y-2">
+                                    <p className="text-sm font-bold text-[#009bba] uppercase tracking-widest italic">Our Academic Focus</p>
+                                    <p className="text-lg text-gray-800 font-medium leading-relaxed">Fostering a culture of excellence and empowering students to become the next generation of Kenyan leaders.</p>
                                 </div>
                             </div>
                         </div>
