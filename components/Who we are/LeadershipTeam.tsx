@@ -5,9 +5,9 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 const boardMembers = [
+    { name: "Joseph Mwengea", role: "Founder, CEO & Director", image: "/Leadership and Staff/Joseph Mwengea Director.png", slug: "joseph-mwengea" },
     { name: "Eunice Kioko", role: "Board Chairperson", image: "/Leadership and Staff/Eunice Kioko.webp", slug: "eunice-kioko" },
     { name: "Elias Tsuma", role: "Board Member", image: "/Leadership and Staff/Tsuma.webp", slug: "elias-tsuma" },
-    { name: "Joseph Mwengea", role: "Founder and Director", image: "/Leadership and Staff/Joseph Mwengea Director.png", slug: "joseph-mwengea" },
     { name: "Mike Mutua", role: "Board Member", image: "/Leadership and Staff/Mike.webp", slug: "mike-mutua" },
     { name: "Emmanuel Mwengi", role: "Board Member", image: "/Leadership and Staff/Mwengi.webp", slug: "emmanuel-mwengi" },
     { name: "Alice Mwaka", role: "Board Member", image: "/Leadership and Staff/Alice.webp", slug: "alice-mwaka" },
