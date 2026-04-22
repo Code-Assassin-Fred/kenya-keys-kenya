@@ -4,78 +4,22 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, Filter, BookOpen, GraduationCap, Heart } from 'lucide-react';
 
-const students = [
-    {
-        id: 1,
-        name: "Amani",
-        age: 14,
-        grade: "Form 1",
-        interests: "Science, Math",
-        story: "Amani is a top-performing student who dreams of becoming a doctor. Her family relies on subsistence farming and cannot afford secondary school fees.",
-        image: "/image1.png",
-        gender: "Female",
-        sponsorship: "Urgent"
-    },
-    {
-        id: 2,
-        name: "Bahati",
-        age: 15,
-        grade: "Form 2",
-        interests: "Languages, History",
-        story: "Bahati walks 6 miles each day to reach the nearest library. He is determined to become a teacher to help others in his village.",
-        image: "/image2.png",
-        gender: "Male",
-        sponsorship: "Needed"
-    },
-    {
-        id: 3,
-        name: "Chacha",
-        age: 13,
-        grade: "Form 1",
-        interests: "Agriculture, Sports",
-        story: "Chacha is the eldest of five children. His primary school teacher describes him as the most hardworking student in a decade.",
-        image: "/image3.png",
-        gender: "Male",
-        sponsorship: "Urgent"
-    },
-    {
-        id: 4,
-        name: "Dada",
-        age: 16,
-        grade: "Form 3",
-        interests: "Art, Chemistry",
-        story: "Dada has consistently ranked in the top 5% of her class despite having no electricity at home to study at night.",
-        image: "/image18.png",
-        gender: "Female",
-        sponsorship: "Needed"
-    },
-    {
-        id: 5,
-        name: "Ekeno",
-        age: 14,
-        grade: "Form 1",
-        interests: "Math, Physics",
-        story: "Ekeno loves puzzles and logic. He hopes to study engineering to bring clean water solutions to rural communities.",
-        image: "/image4.png",
-        gender: "Male",
-        sponsorship: "Urgent"
-    },
-    {
-        id: 6,
-        name: "Faiza",
-        age: 15,
-        grade: "Form 2",
-        interests: "Biology, English",
-        story: "Faiza is a leader in our Hope Springs program. She dreams of working in healthcare to support maternal health in her region.",
-        image: "/image19.png",
-        gender: "Female",
-        sponsorship: "Needed"
-    }
-];
+import { getStudentsAction } from '@/lib/actions/admin-actions';
 
 export default function StudentGrid() {
+    const [students, setStudents] = useState<any[]>([]);
+    const [loading, setLoading] = useState(true);
     const [filter, setFilter] = useState('All');
     const [searchQuery, setSearchQuery] = useState('');
+
+    useEffect(() => {
+        async function load() {
+            const data = await getStudentsAction();
+            setStudents(data);
+            setLoading(false);
+        }
+        load();
+    }, []);
 
     const filteredStudents = students.filter(student => {
         const matchesFilter = filter === 'All' || student.gender === filter || student.sponsorship === filter;

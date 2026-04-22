@@ -4,56 +4,28 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 
-const tiers = [
-    {
-        title: "University Education",
-        amount: "1,000",
-        period: "/year",
-        description: "Covers the full tuition fees for a university student to earn a degree and transform their future.",
-        features: ["Full Tuition Fees", "Degree Path Support", "Mentorship Access"],
-        quote: "University sponsorship means I can finally pursue my medical degree and give back to my community.",
-        student: "Sarah, Medical Student",
-        popular: true
-    },
-    {
-        title: "College Education",
-        amount: "750",
-        period: "/year",
-        description: "Provides essential tuition support for a student pursuing a college diploma or vocational training.",
-        features: ["Tuition Fees", "Vocational/Diploma Path", "Career Coaching"],
-        quote: "Thanks to college support, I am getting the practical skills needed to secure a lasting career.",
-        student: "David, IT Diploma Student"
-    },
-    {
-        title: "Landing Kit (Vital Student Needs)",
-        amount: "235",
-        period: " one-time",
-        description: "A one-time foundational package completely outfitting a student joining in with uniforms and essential gear.",
-        features: ["New Uniforms", "Joining Essentials", "Basic Supplies"],
-        quote: "Just putting on the uniform for the first time made me feel like I truly belonged.",
-        student: "Mercy, Form 1"
-    },
-    {
-        title: "Transport Support (Vital Needs)",
-        amount: "154",
-        period: "/year",
-        description: "Ensures students have reliable and safe transportation to and from their educational institutions.",
-        features: ["Termly Transport", "Safe Travel Logistics", "Accessibility Support"],
-        quote: "I used to walk miles; now I can focus all my energy on my studies.",
-        student: "John, High School"
-    },
-    {
-        title: "Accommodation & Food (Vital Needs)",
-        amount: "385",
-        period: "/year",
-        description: "Covers College Accommodation, Food Upkeep, and Subsistence Living for a student in need.",
-        features: ["Safe Accommodation", "Nutritious Meals", "Subsistence Living"],
-        quote: "Having a safe place to sleep and enough to eat allows me to study late into the night.",
-        student: "Grace, College Student"
-    }
-];
+import { getPackagesAction } from '@/lib/actions/admin-actions';
 
 export default function DonationTiers() {
+    const [tiers, setTiers] = useState<any[]>([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        async function load() {
+            const data = await getPackagesAction();
+            setTiers(data);
+            setLoading(false);
+        }
+        load();
+    }, []);
+
+    if (loading) {
+        return (
+            <div className="py-24 text-center">
+                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#00529B] mx-auto"></div>
+            </div>
+        );
+    }
     return (
         <section className="py-24 bg-white relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
