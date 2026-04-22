@@ -29,9 +29,15 @@ export default function StudentManagement() {
 
     async function loadStudents() {
         setLoading(true);
-        const data = await getStudentsAction();
-        setStudents(data);
-        setLoading(false);
+        try {
+            const res = await fetch('/api/admin/students');
+            const data = await res.json();
+            setStudents(data);
+        } catch (err) {
+            console.error("Failed to load students", err);
+        } finally {
+            setLoading(false);
+        }
     }
 
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -39,15 +45,24 @@ export default function StudentManagement() {
         const formData = new FormData(e.currentTarget);
         const data = Object.fromEntries(formData.entries());
         
-        if (editingStudent) {
-            await updateStudentAction(editingStudent.id, data);
-        } else {
-            await addStudentAction(data);
+        try {
+            const url = editingStudent ? `/api/admin/students/${editingStudent.id}` : '/api/admin/students';
+            const method = editingStudent ? 'PUT' : 'POST';
+            
+            const res = await fetch(url, {
+                method,
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data),
+            });
+            
+            if (res.ok) {
+                setIsModalOpen(false);
+                setEditingStudent(null);
+                loadStudents();
+            }
+        } catch (err) {
+            console.error("Save failed", err);
         }
-        
-        setIsModalOpen(false);
-        setEditingStudent(null);
-        loadStudents();
     }
 
     return (

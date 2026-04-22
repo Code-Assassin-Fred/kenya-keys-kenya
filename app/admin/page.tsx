@@ -21,9 +21,15 @@ export default function AdminDashboard() {
 
     useEffect(() => {
         async function loadStats() {
-            const data = await getAdminStatsAction();
-            setStats(data);
-            setLoading(false);
+            try {
+                const res = await fetch('/api/admin/stats');
+                const data = await res.json();
+                setStats(data);
+            } catch (err) {
+                console.error("Failed to load stats", err);
+            } finally {
+                setLoading(false);
+            }
         }
         loadStats();
     }, []);
