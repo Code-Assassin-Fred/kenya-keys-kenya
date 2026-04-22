@@ -2,23 +2,24 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 const boardMembers = [
-    { name: "Eunice Kioko", role: "Board Chairperson", image: "/Leadership and Staff/Eunice Kioko.webp" },
-    { name: "Elias Tsuma", role: "Board Member", image: "/Leadership and Staff/Tsuma.webp" },
-    { name: "Joseph Mwengea", role: "Founder and Director", image: "/Leadership and Staff/Joseph Mwengea Director.png" },
-    { name: "Mike Mutua", role: "Board Member", image: "/Leadership and Staff/Mike.webp" },
-    { name: "Emmanuel Mwengi", role: "Board Member", image: "/Leadership and Staff/Mwengi.webp" },
-    { name: "Alice Mwaka", role: "Board Member", image: "/Leadership and Staff/Alice.webp" },
-    { name: "Marstela Tesha", role: "Board Member", image: "/Leadership and Staff/Marstela.webp" },
-    { name: "Linah Mjomba", role: "Board Member", image: "/Leadership and Staff/Linah.webp" },
-    { name: "Hope G Mwanyuma", role: "Board Member and Alumnus", image: "/Leadership and Staff/Hope.png" },
-    { name: "Luvuno Lung'anzi Chai", role: "Board Member", image: "/Leadership and Staff/Luvuno.webp" },
-    { name: "Raphael Mangisi", role: "Board Member", image: "/Leadership and Staff/Mangisi.webp" },
+    { name: "Eunice Kioko", role: "Board Chairperson", image: "/Leadership and Staff/Eunice Kioko.webp", slug: "eunice-kioko" },
+    { name: "Elias Tsuma", role: "Board Member", image: "/Leadership and Staff/Tsuma.webp", slug: "elias-tsuma" },
+    { name: "Joseph Mwengea", role: "Founder and Director", image: "/Leadership and Staff/Joseph Mwengea Director.png", slug: "joseph-mwengea" },
+    { name: "Mike Mutua", role: "Board Member", image: "/Leadership and Staff/Mike.webp", slug: "mike-mutua" },
+    { name: "Emmanuel Mwengi", role: "Board Member", image: "/Leadership and Staff/Mwengi.webp", slug: "emmanuel-mwengi" },
+    { name: "Alice Mwaka", role: "Board Member", image: "/Leadership and Staff/Alice.webp", slug: "alice-mwaka" },
+    { name: "Marstela Tesha", role: "Board Member", image: "/Leadership and Staff/Marstela.webp", slug: "marstela-tesha" },
+    { name: "Linah Mjomba", role: "Board Member", image: "/Leadership and Staff/Linah.webp", slug: "linah-mjomba" },
+    { name: "Hope G Mwanyuma", role: "Board Member and Alumnus", image: "/Leadership and Staff/Hope.png", slug: "hope-mwanyuma" },
+    { name: "Luvuno Lung'anzi Chai", role: "Board Member", image: "/Leadership and Staff/Luvuno.webp", slug: "luvuno-chai" },
+    { name: "Raphael Mangisi", role: "Board Member", image: "/Leadership and Staff/Mangisi.webp", slug: "raphael-mangisi" },
 ];
 
 const staffMembers = [
-    { name: "Joseph Mwengea", role: "Founder & Executive Director", image: "/Leadership and Staff/Joseph Mwengea Director.png" },
+    { name: "Joseph Mwengea", role: "Founder & Executive Director", image: "/Leadership and Staff/Joseph Mwengea Director.png", slug: "joseph-mwengea" },
     { name: "Franciscah Kamene", role: "Senior Director of Operations", image: "/Leadership and Staff/Francisca.webp" },
     { name: "Alex Mutuku", role: "Finance Director", image: "/Leadership and Staff/Mutuku.webp" },
     { name: "Stephen Kabani", role: "Sponsorship Director", image: "/Leadership and Staff/Stephen+Kabani.webp" },
@@ -31,45 +32,61 @@ const staffMembers = [
     { name: "Mwanaisha Mwayama", role: "Librarian", image: "/Leadership and Staff/Mwanaisha+Mwayama.webp" },
 ];
 
-const MemberCard = ({ member, index }: { member: any, index: number }) => (
-    <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: index * 0.05 }}
-        className="group relative"
-    >
-        <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-gray-100 shadow-md group-hover:shadow-xl transition-all duration-500">
-            {/* Image styling: grayscale to color on hover */}
-            <img
-                src={member.image}
-                alt={member.name}
-                className="w-full h-full object-cover grayscale brightness-110 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
-                onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.src = "https://via.placeholder.com/400x500?text=No+Image";
-                }}
-            />
+const MemberCard = ({ member, index }: { member: any, index: number }) => {
+    const cardContent = (
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.05 }}
+            className={`group relative ${member.slug ? 'cursor-pointer' : ''}`}
+        >
+            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-gray-100 shadow-md group-hover:shadow-xl transition-all duration-500">
+                {/* Image styling: grayscale to color on hover */}
+                <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full object-cover grayscale brightness-110 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
+                    onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.src = "https://via.placeholder.com/400x500?text=No+Image";
+                    }}
+                />
 
-            {/* Gradient Overlay */}
-            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
+                {/* Gradient Overlay */}
+                <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
 
-            {/* Text Overlay */}
-            <div className="absolute inset-x-0 bottom-0 p-6 flex flex-col justify-end">
-                <h4 className="text-white font-oswald text-xl uppercase tracking-tight leading-none mb-1 group-hover:text-[#FFB800] transition-colors duration-300">
-                    {member.name}
-                </h4>
-                <p className="text-gray-300 font-outfit text-[11px] uppercase tracking-[0.2em] font-bold group-hover:text-white transition-colors">
-                    {member.role}
-                </p>
+                {/* Text Overlay */}
+                <div className="absolute inset-x-0 bottom-0 p-6 flex flex-col justify-end">
+                    <h4 className="text-white font-oswald text-xl uppercase tracking-tight leading-none mb-1 group-hover:text-[#FFB800] transition-colors duration-300">
+                        {member.name}
+                    </h4>
+                    <p className="text-gray-300 font-outfit text-[11px] uppercase tracking-[0.2em] font-bold group-hover:text-white transition-colors">
+                        {member.role}
+                    </p>
+                </div>
+
+                {/* Decorative Corner */}
+                <div className="absolute top-0 right-0 w-12 h-12 bg-white/10 backdrop-blur-md flex items-center justify-center rounded-bl-2xl transition-all duration-300 group-hover:bg-[#009bba]">
+                    {member.slug ? (
+                        <div className="w-1 h-1 bg-white rounded-full group-hover:scale-150 transition-transform" />
+                    ) : (
+                        <div className="w-1 h-1 bg-gray-400 rounded-full" />
+                    )}
+                </div>
             </div>
+        </motion.div>
+    );
 
-            {/* Decorative Corner */}
-            <div className="absolute top-0 right-0 w-12 h-12 bg-white/10 backdrop-blur-md flex items-center justify-center rounded-bl-2xl transition-all duration-300 group-hover:bg-[#009bba]">
-                <div className="w-1 h-1 bg-white rounded-full group-hover:scale-150 transition-transform" />
-            </div>
-        </div>
-    </motion.div>
-);
+    if (member.slug) {
+        return (
+            <Link href={`/who-we-are/leadership/${member.slug}`}>
+                {cardContent}
+            </Link>
+        );
+    }
+
+    return cardContent;
+};
 
 export default function LeadershipTeam() {
     return (

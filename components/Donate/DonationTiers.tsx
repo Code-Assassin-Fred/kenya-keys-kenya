@@ -6,32 +6,50 @@ import { Check } from 'lucide-react';
 
 const tiers = [
     {
-        title: "Education Essential",
-        amount: "35",
-        period: "/month",
-        description: "Covers the essential costs of books, uniforms, and mentorship for one student.",
-        features: ["School Uniforms", "Core Textbooks", "Mentorship Access"],
-        quote: "Having my own books for the first time made me feel like anything is possible.",
-        student: "Asha, Form 2"
-    },
-    {
-        title: "Full Sponsorship",
-        amount: "65",
-        period: "/month",
-        description: "The gold standard: covers full tuition, room, and board for a high school student.",
-        features: ["Full Tuition Fees", "Boarding & Meals", "Emergency Support", "Letter Exchange"],
-        quote: "Sponsorship was the key that finally opened the door to my dream of being a nurse.",
-        student: "Samuel, University Alumni",
+        title: "University Education",
+        amount: "1,000",
+        period: "/year",
+        description: "Covers the full tuition fees for a university student to earn a degree and transform their future.",
+        features: ["Full Tuition Fees", "Degree Path Support", "Mentorship Access"],
+        quote: "University sponsorship means I can finally pursue my medical degree and give back to my community.",
+        student: "Sarah, Medical Student",
         popular: true
     },
     {
-        title: "University Path",
-        amount: "150",
-        period: "/month",
-        description: "Empowers a student to pursue a university degree or advanced vocational training.",
-        features: ["University Tuition", "Living Stipend", "Laptop Access", "Career Coaching"],
-        quote: "Now I am building classrooms in my own village thanks to the path Kenya Keys gave me.",
-        student: "Kennedy, Alumni"
+        title: "College Education",
+        amount: "750",
+        period: "/year",
+        description: "Provides essential tuition support for a student pursuing a college diploma or vocational training.",
+        features: ["Tuition Fees", "Vocational/Diploma Path", "Career Coaching"],
+        quote: "Thanks to college support, I am getting the practical skills needed to secure a lasting career.",
+        student: "David, IT Diploma Student"
+    },
+    {
+        title: "Landing Kit (Vital Needs)",
+        amount: "235",
+        period: " one-time",
+        description: "A one-time foundational package completely outfitting a student joining in with uniforms and essential gear.",
+        features: ["New Uniforms", "Joining Essentials", "Basic Supplies"],
+        quote: "Just putting on the uniform for the first time made me feel like I truly belonged.",
+        student: "Mercy, Form 1"
+    },
+    {
+        title: "Transport Support (Vital Needs)",
+        amount: "154",
+        period: "/year",
+        description: "Ensures students have reliable and safe transportation to and from their educational institutions.",
+        features: ["Termly Transport", "Safe Travel Logistics", "Accessibility Support"],
+        quote: "I used to walk miles; now I can focus all my energy on my studies.",
+        student: "John, High School"
+    },
+    {
+        title: "Accommodation & Food (Vital Needs)",
+        amount: "385",
+        period: "/year",
+        description: "Covers College Accommodation, Food Upkeep, and Subsistence Living for a student in need.",
+        features: ["Safe Accommodation", "Nutritious Meals", "Subsistence Living"],
+        quote: "Having a safe place to sleep and enough to eat allows me to study late into the night.",
+        student: "Grace, College Student"
     }
 ];
 
