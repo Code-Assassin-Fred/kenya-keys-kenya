@@ -25,7 +25,7 @@ const tiers = [
         student: "David, IT Diploma Student"
     },
     {
-        title: "Landing Kit (Vital Needs)",
+        title: "Landing Kit (Vital Student Needs)",
         amount: "235",
         period: " one-time",
         description: "A one-time foundational package completely outfitting a student joining in with uniforms and essential gear.",
@@ -73,9 +73,8 @@ export default function DonationTiers() {
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: idx * 0.1 }}
-                            className={`relative flex flex-col p-8 md:p-10 rounded-3xl border-2 transition-all hover:shadow-2xl ${
-                                tier.popular ? 'border-[#00529B] bg-blue-50/30' : 'border-gray-100 bg-white'
-                            }`}
+                            className={`relative flex flex-col p-8 md:p-10 rounded-3xl border-2 transition-all hover:shadow-2xl ${tier.popular ? 'border-[#00529B] bg-blue-50/30' : 'border-gray-100 bg-white'
+                                }`}
                         >
                             {tier.popular && (
                                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#00529B] text-white px-6 py-1.5 rounded-full text-xs font-black uppercase tracking-widest font-outfit">
@@ -116,11 +115,10 @@ export default function DonationTiers() {
                                     </p>
                                 </div>
 
-                                <button className={`w-full py-4 rounded-full font-black font-outfit text-sm uppercase tracking-widest transition-all ${
-                                    tier.popular 
-                                        ? 'bg-[#00529B] text-white hover:bg-[#003d75] shadow-lg' 
+                                <button className={`w-full py-4 rounded-full font-black font-outfit text-sm uppercase tracking-widest transition-all ${tier.popular
+                                        ? 'bg-[#00529B] text-white hover:bg-[#003d75] shadow-lg'
                                         : 'border-2 border-[#1D366D] text-[#1D366D] hover:bg-[#1D366D] hover:text-white'
-                                }`}>
+                                    }`}>
                                     Choose {tier.title}
                                 </button>
                             </div>
