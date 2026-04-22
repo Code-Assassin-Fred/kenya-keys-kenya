@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, Filter, BookOpen, GraduationCap, Heart } from 'lucide-react';
 
@@ -64,7 +64,7 @@ export default function StudentGrid() {
                 {/* Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
                     <AnimatePresence mode="popLayout">
-                        {filteredStudents.map((student) => (
+                        {filteredStudents.map((student: any) => (
                             <motion.div
                                 key={student.id}
                                 layout

@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 
@@ -39,7 +39,7 @@ export default function DonationTiers() {
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
-                    {tiers.map((tier, idx) => (
+                    {tiers.map((tier: any, idx: number) => (
                         <motion.div
                             key={idx}
                             initial={{ opacity: 0, y: 30 }}
@@ -69,7 +69,7 @@ export default function DonationTiers() {
                             </p>
 
                             <ul className="space-y-4 mb-10">
-                                {tier.features.map((feature, i) => (
+                                {tier.features.map((feature: string, i: number) => (
                                     <li key={i} className="flex gap-3 items-start font-outfit text-sm font-bold text-[#333]">
                                         <Check className="w-5 h-5 text-[#009bba] flex-shrink-0" />
                                         <span>{feature}</span>
