@@ -7,7 +7,9 @@ export default function StudentManagement() {
     const [students, setStudents] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
     const [editingStudent, setEditingStudent] = useState<any>(null);
+    const [studentToDelete, setStudentToDelete] = useState<any>(null);
 
     useEffect(() => {
         loadStudents();
@@ -48,6 +50,24 @@ export default function StudentManagement() {
             }
         } catch (err) {
             console.error("Save failed", err);
+        }
+    }
+
+    async function confirmDelete() {
+        if (!studentToDelete) return;
+        
+        try {
+            const res = await fetch(`/api/admin/students/${studentToDelete.id}`, {
+                method: 'DELETE',
+            });
+            
+            if (res.ok) {
+                setIsDeleteModalOpen(false);
+                setStudentToDelete(null);
+                loadStudents();
+            }
+        } catch (err) {
+            console.error("Delete failed", err);
         }
     }
 
@@ -136,7 +156,10 @@ export default function StudentManagement() {
                                                 >
                                                     Edit
                                                 </button>
-                                                <button className="text-xs font-bold text-red-600 hover:text-red-700 transition-all">
+                                                <button 
+                                                    onClick={() => {setStudentToDelete(student); setIsDeleteModalOpen(true);}}
+                                                    className="text-xs font-bold text-red-600 hover:text-red-700 transition-all"
+                                                >
                                                     Delete
                                                 </button>
                                             </div>
@@ -218,6 +241,46 @@ export default function StudentManagement() {
                                     {editingStudent ? 'Save Changes' : 'Create Profile'}
                                 </button>
                             </form>
+                        </motion.div>
+                    </div>
+                )}
+            </AnimatePresence>
+
+            {/* Delete Confirmation Modal */}
+            <AnimatePresence>
+                {isDeleteModalOpen && (
+                    <div className="fixed inset-0 z-[110] flex items-center justify-center p-6">
+                        <motion.div 
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            onClick={() => setIsDeleteModalOpen(false)}
+                            className="absolute inset-0 bg-[#101828]/60 backdrop-blur-sm"
+                        />
+                        <motion.div 
+                            initial={{ scale: 0.95, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.95, opacity: 0 }}
+                            className="relative w-full max-w-sm bg-white rounded-2xl shadow-2xl p-8 text-center"
+                        >
+                            <h3 className="text-xl font-bold text-[#101828] font-outfit mb-2">Delete Student Profile?</h3>
+                            <p className="text-[#667085] font-outfit text-sm mb-8">
+                                Are you sure you want to delete <span className="font-bold text-[#101828]">{studentToDelete?.name}</span>? This action cannot be undone.
+                            </p>
+                            <div className="grid grid-cols-2 gap-3">
+                                <button 
+                                    onClick={() => setIsDeleteModalOpen(false)}
+                                    className="px-4 py-3 rounded-lg bg-gray-50 text-[#344054] font-bold font-outfit text-sm hover:bg-gray-100 transition-all"
+                                >
+                                    Cancel
+                                </button>
+                                <button 
+                                    onClick={confirmDelete}
+                                    className="px-4 py-3 rounded-lg bg-red-600 text-white font-bold font-outfit text-sm hover:bg-red-700 transition-all shadow-sm"
+                                >
+                                    Delete
+                                </button>
+                            </div>
                         </motion.div>
                     </div>
                 )}

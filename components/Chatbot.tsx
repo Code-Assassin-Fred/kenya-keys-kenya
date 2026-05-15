@@ -9,8 +9,14 @@ interface Message {
     content: string;
 }
 
+import { usePathname } from "next/navigation";
+
 export default function Chatbot() {
+    const pathname = usePathname();
     const [isOpen, setIsOpen] = useState(false);
+    
+    if (pathname.startsWith('/admin')) return null;
+
     const [messages, setMessages] = useState<Message[]>([
         { role: "assistant", content: "Hello! How can I help you today regarding Kenya Keys?" },
     ]);
