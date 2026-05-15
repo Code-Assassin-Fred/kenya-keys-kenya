@@ -2,16 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { 
-    Package, 
-    Edit2, 
-    Save, 
-    Check, 
-    DollarSign, 
-    Clock, 
-    Plus,
-    X
-} from 'lucide-react';
 import { getPackagesAction, updatePackageAction } from '@/lib/actions/admin-actions';
 
 export default function PackageManagement() {
@@ -48,18 +38,17 @@ export default function PackageManagement() {
             {/* Header */}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
                 <div>
-                    <h1 className="text-3xl font-black text-[#1D366D] font-oswald uppercase tracking-tight">Donation Packages</h1>
-                    <p className="text-gray-500 font-outfit mt-1">Configure tiered sponsorship and impact levels.</p>
+                    <h1 className="text-2xl font-bold text-[#101828] font-outfit tracking-tight">Donation Packages</h1>
+                    <p className="text-[#667085] font-outfit mt-1 text-sm">Configure tiered sponsorship and impact levels.</p>
                 </div>
-                <button className="flex items-center gap-2 px-8 py-4 bg-[#1D366D] text-white rounded-2xl font-black font-outfit uppercase tracking-widest text-sm hover:bg-[#00529B] transition-all shadow-xl">
-                    <Plus size={18} className="text-[#FFB800]" />
+                <button className="px-6 py-3 bg-[#101828] text-white rounded-lg font-bold font-outfit text-sm hover:bg-[#1d2939] transition-all shadow-sm">
                     New Package
                 </button>
             </div>
 
             {loading ? (
                 <div className="py-20 text-center">
-                    <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#00529B] mx-auto"></div>
+                    <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-[#32D583] mx-auto"></div>
                 </div>
             ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -67,91 +56,87 @@ export default function PackageManagement() {
                         <motion.div 
                             key={pkg.id}
                             layout
-                            className={`bg-white rounded-[40px] border-2 transition-all p-8 flex flex-col ${
-                                editingId === pkg.id ? 'border-[#00529B] shadow-2xl' : 'border-gray-50 shadow-sm'
+                            className={`bg-white rounded-xl border-2 transition-all p-6 flex flex-col ${
+                                editingId === pkg.id ? 'border-[#32D583] shadow-lg scale-[1.01]' : 'border-[#EAECF0] shadow-sm'
                             }`}
                         >
                             {editingId === pkg.id ? (
-                                <div className="space-y-6 flex-1 flex flex-col">
-                                    <div className="space-y-1">
-                                        <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest pl-2">Title</label>
+                                <div className="space-y-5 flex-1 flex flex-col">
+                                    <div className="space-y-1.5">
+                                        <label className="text-xs font-bold text-[#344054]">Title</label>
                                         <input 
                                             value={formData.title} 
                                             onChange={(e) => setFormData({...formData, title: e.target.value})}
-                                            className="w-full px-4 py-3 rounded-xl bg-gray-50 border-none font-bold text-[#1D366D] font-outfit text-lg"
+                                            className="w-full px-3 py-2 rounded-lg bg-gray-50 border border-[#D0D5DD] font-bold text-[#101828] font-outfit text-base outline-none focus:border-[#32D583]"
                                         />
                                     </div>
                                     <div className="grid grid-cols-2 gap-4">
-                                        <div className="space-y-1">
-                                            <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest pl-2">Amount ($)</label>
-                                            <div className="relative">
-                                                <DollarSign size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-                                                <input 
-                                                    value={formData.amount} 
-                                                    onChange={(e) => setFormData({...formData, amount: e.target.value})}
-                                                    className="w-full pl-8 pr-4 py-3 rounded-xl bg-gray-50 border-none font-black text-[#00529B] font-oswald"
-                                                />
-                                            </div>
+                                        <div className="space-y-1.5">
+                                            <label className="text-xs font-bold text-[#344054]">Amount ($)</label>
+                                            <input 
+                                                value={formData.amount} 
+                                                onChange={(e) => setFormData({...formData, amount: e.target.value})}
+                                                className="w-full px-3 py-2 rounded-lg bg-gray-50 border border-[#D0D5DD] font-bold text-[#101828] font-outfit outline-none focus:border-[#32D583]"
+                                            />
                                         </div>
-                                        <div className="space-y-1">
-                                            <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest pl-2">Period</label>
+                                        <div className="space-y-1.5">
+                                            <label className="text-xs font-bold text-[#344054]">Period</label>
                                             <input 
                                                 value={formData.period} 
                                                 onChange={(e) => setFormData({...formData, period: e.target.value})}
-                                                className="w-full px-4 py-3 rounded-xl bg-gray-50 border-none font-bold text-gray-500 font-outfit"
+                                                className="w-full px-3 py-2 rounded-lg bg-gray-50 border border-[#D0D5DD] font-medium text-[#667085] font-outfit outline-none focus:border-[#32D583]"
                                             />
                                         </div>
                                     </div>
-                                    <div className="space-y-1">
-                                        <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest pl-2">Description</label>
+                                    <div className="space-y-1.5">
+                                        <label className="text-xs font-bold text-[#344054]">Description</label>
                                         <textarea 
                                             value={formData.description} 
                                             onChange={(e) => setFormData({...formData, description: e.target.value})}
                                             rows={3}
-                                            className="w-full px-4 py-3 rounded-xl bg-gray-50 border-none font-medium text-gray-600 font-outfit text-sm resize-none"
+                                            className="w-full px-3 py-2 rounded-lg bg-gray-50 border border-[#D0D5DD] font-medium text-[#667085] font-outfit text-sm resize-none outline-none focus:border-[#32D583]"
                                         />
                                     </div>
-                                    <div className="mt-auto pt-6 flex gap-3">
+                                    <div className="mt-auto pt-4 flex gap-2">
                                         <button 
                                             onClick={handleSave}
-                                            className="flex-1 py-3 bg-[#00529B] text-white rounded-xl font-black font-outfit uppercase tracking-widest text-xs flex items-center justify-center gap-2 hover:bg-[#1D366D] transition-all"
+                                            className="flex-1 py-2 bg-[#101828] text-white rounded-lg font-bold font-outfit text-xs hover:bg-[#1d2939] transition-all"
                                         >
-                                            <Save size={14} /> Save
+                                            Save Changes
                                         </button>
                                         <button 
                                             onClick={() => setEditingId(null)}
-                                            className="p-3 bg-gray-100 text-gray-500 rounded-xl hover:bg-gray-200 transition-all"
+                                            className="px-4 py-2 bg-gray-100 text-[#344054] rounded-lg hover:bg-gray-200 transition-all font-bold text-xs"
                                         >
-                                            <X size={18} />
+                                            Cancel
                                         </button>
                                     </div>
                                 </div>
                             ) : (
                                 <div className="flex-1 flex flex-col">
-                                    <div className="flex items-center justify-between mb-6">
-                                        <div className="p-3 bg-blue-50 text-[#00529B] rounded-2xl">
-                                            <Package size={24} />
+                                    <div className="flex items-center justify-between mb-4">
+                                        <div className="px-2.5 py-0.5 rounded-full bg-[#ECFDF3] text-[#027A48] text-[10px] font-bold uppercase tracking-wider">
+                                            Active
                                         </div>
                                         <button 
                                             onClick={() => startEdit(pkg)}
-                                            className="p-2 text-gray-300 hover:text-[#00529B] transition-all"
+                                            className="text-xs font-bold text-[#101828] hover:text-[#32D583] transition-all"
                                         >
-                                            <Edit2 size={18} />
+                                            Edit
                                         </button>
                                     </div>
-                                    <h3 className="text-xl font-black text-[#1D366D] font-oswald uppercase tracking-tight mb-2">
+                                    <h3 className="text-lg font-bold text-[#101828] font-outfit mb-1">
                                         {pkg.title}
                                     </h3>
-                                    <div className="flex items-baseline gap-1 mb-6">
-                                        <span className="text-3xl font-black text-[#00529B] font-oswald">${pkg.amount}</span>
-                                        <span className="text-xs font-bold text-gray-400 font-outfit uppercase tracking-widest">{pkg.period}</span>
+                                    <div className="flex items-baseline gap-1 mb-4">
+                                        <span className="text-2xl font-bold text-[#101828] font-outfit">${pkg.amount}</span>
+                                        <span className="text-[10px] font-bold text-[#667085] uppercase tracking-wider">{pkg.period}</span>
                                     </div>
-                                    <p className="text-sm text-gray-500 font-outfit leading-relaxed flex-1">
+                                    <p className="text-sm text-[#667085] font-outfit leading-relaxed flex-1">
                                         {pkg.description}
                                     </p>
-                                    <div className="mt-8 pt-6 border-t border-gray-50 flex items-center gap-2 text-[10px] font-black text-[#FFB800] uppercase tracking-widest font-outfit">
-                                        <Check size={12} className="text-[#009bba]" />
-                                        Active Tier
+                                    <div className="mt-6 pt-4 border-t border-[#EAECF0] text-[10px] font-bold text-[#32D583] uppercase tracking-widest font-outfit">
+                                        Available for selection
                                     </div>
                                 </div>
                             )}
@@ -159,17 +144,8 @@ export default function PackageManagement() {
                     ))}
 
                     {!loading && packages.length === 0 && (
-                        <div className="lg:col-span-3 py-20 text-center bg-white rounded-[40px] border border-dashed border-gray-200">
-                            <p className="text-gray-400 font-outfit italic">No packages found. Seed the initial tiers to begin.</p>
-                            <button 
-                                onClick={async () => {
-                                    // Normally we'd seed data here
-                                    console.log('Seeding needed...');
-                                }}
-                                className="mt-4 text-[#00529B] font-black font-outfit uppercase tracking-widest text-xs border-b-2 border-[#00529B] pb-1"
-                            >
-                                Seed Default Tiers
-                            </button>
+                        <div className="lg:col-span-3 py-20 text-center bg-white rounded-xl border border-dashed border-[#EAECF0]">
+                            <p className="text-[#667085] font-outfit italic">No packages found.</p>
                         </div>
                     )}
                 </div>

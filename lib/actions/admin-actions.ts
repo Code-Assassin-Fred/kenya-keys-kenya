@@ -123,6 +123,7 @@ export async function getPackagesAction() {
     } catch (error) {
         return [];
     }
+}
 
 export async function loginAdminAction(formData: FormData) {
     const email = formData.get('email') as string;
@@ -158,7 +159,7 @@ export async function loginAdminAction(formData: FormData) {
     }
 }
 
-}
+
 
 export async function updatePackageAction(id: string, data: any) {
     try {

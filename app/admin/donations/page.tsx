@@ -1,17 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { 
-    Heart, 
-    Search, 
-    Download, 
-    Filter, 
-    Calendar,
-    ArrowUpRight,
-    TrendingUp,
-    Users
-} from 'lucide-react';
 
 export default function DonationOversight() {
     const [data, setData] = useState<any>(null);
@@ -35,7 +25,7 @@ export default function DonationOversight() {
     if (loading) {
         return (
             <div className="h-full flex items-center justify-center py-20">
-                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#3B82F6]"></div>
+                <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-[#32D583]"></div>
             </div>
         );
     }
@@ -47,77 +37,67 @@ export default function DonationOversight() {
             {/* Header */}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
                 <div>
-                    <h1 className="text-3xl font-black text-[#2B4C9B] font-oswald uppercase tracking-tight">Donation Oversight</h1>
-                    <p className="text-gray-500 font-outfit mt-1 text-sm font-medium">Monitor all incoming support and sponsorship funds from Firestore.</p>
+                    <h1 className="text-2xl font-bold text-[#101828] font-outfit tracking-tight">Donation Oversight</h1>
+                    <p className="text-[#667085] font-outfit mt-1 text-sm">Monitor all incoming support and sponsorship funds.</p>
                 </div>
-                <button className="flex items-center gap-2 px-8 py-4 bg-white border border-gray-100 text-[#2B4C9B] rounded-2xl font-black font-outfit uppercase tracking-widest text-sm hover:shadow-xl transition-all">
-                    <Download size={18} className="text-[#3B82F6]" />
+                <button className="px-5 py-2.5 bg-white border border-[#EAECF0] text-[#344054] rounded-lg font-bold font-outfit text-sm hover:bg-gray-50 transition-all shadow-sm">
                     Export Report
                 </button>
             </div>
 
             {/* Quick Stats */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="bg-[#3B82F6] p-8 rounded-[40px] text-white overflow-hidden relative shadow-xl shadow-blue-500/10">
-                    <div className="relative z-10">
-                        <TrendingUp className="text-[#FFB800] mb-4" size={32} />
-                        <h3 className="text-xs font-black uppercase tracking-[0.2em] opacity-80 mb-2">Total Managed Revenue</h3>
-                        <p className="text-4xl font-black font-oswald">${data?.totalRevenue?.toLocaleString() || '0'}.00</p>
-                    </div>
+                <div className="bg-[#101828] p-6 rounded-xl text-white border border-[#1d2939] shadow-sm">
+                    <h3 className="text-xs font-bold uppercase tracking-wider text-[#94A3B8] mb-2">Total Managed Revenue</h3>
+                    <p className="text-3xl font-bold font-outfit">${data?.totalRevenue?.toLocaleString() || '0'}.00</p>
                 </div>
-                <div className="bg-white p-8 rounded-[40px] border border-gray-100 shadow-sm">
-                    <Users className="text-[#009bba] mb-4" size={32} />
-                    <h3 className="text-xs font-black text-gray-400 uppercase tracking-[0.2em] mb-2">Unique Donors</h3>
-                    <p className="text-4xl font-black font-oswald text-[#2B4C9B]">{data?.donorCount || '0'}</p>
+                <div className="bg-white p-6 rounded-xl border border-[#EAECF0] shadow-sm">
+                    <h3 className="text-xs font-bold text-[#667085] uppercase tracking-wider mb-2">Unique Donors</h3>
+                    <p className="text-3xl font-bold font-outfit text-[#101828]">{data?.donorCount || '0'}</p>
                 </div>
-                <div className="bg-white p-8 rounded-[40px] border border-gray-100 shadow-sm">
-                    <Heart className="text-red-500 mb-4" size={32} />
-                    <h3 className="text-xs font-black text-gray-400 uppercase tracking-[0.2em] mb-2">Total Transactions</h3>
-                    <p className="text-4xl font-black font-oswald text-[#2B4C9B]">{donations.length}</p>
+                <div className="bg-white p-6 rounded-xl border border-[#EAECF0] shadow-sm">
+                    <h3 className="text-xs font-bold text-[#667085] uppercase tracking-wider mb-2">Total Transactions</h3>
+                    <p className="text-3xl font-bold font-outfit text-[#101828]">{donations.length}</p>
                 </div>
             </div>
 
             {/* Main Table Area */}
-            <div className="bg-white rounded-[40px] border border-gray-100 shadow-sm overflow-hidden">
-                <div className="p-8 border-b border-gray-50 flex flex-col md:flex-row gap-4 items-center justify-between">
-                    <div className="relative w-full md:w-96">
-                        <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
+            <div className="bg-white rounded-xl border border-[#EAECF0] shadow-sm overflow-hidden">
+                <div className="p-6 border-b border-[#EAECF0] flex flex-col md:flex-row gap-4 items-center justify-between">
+                    <div className="relative w-full md:w-80">
                         <input 
                             type="text" 
                             placeholder="Search donors..."
-                            className="w-full pl-12 pr-6 py-3 rounded-2xl bg-gray-50 border-none font-outfit text-sm"
+                            className="w-full px-4 py-2.5 rounded-lg bg-gray-50 border border-[#EAECF0] focus:bg-white focus:border-[#32D583] outline-none font-outfit text-sm transition-all"
                         />
                     </div>
                 </div>
 
                 <div className="overflow-x-auto">
                     {donations.length > 0 ? (
-                        <table className="w-full border-collapse">
+                        <table className="w-full border-collapse text-left">
                             <thead>
-                                <tr className="bg-gray-50/50 border-b border-gray-100 text-left">
-                                    <th className="px-8 py-6 text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">Donor</th>
-                                    <th className="px-8 py-6 text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">Email</th>
-                                    <th className="px-8 py-6 text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">Amount</th>
-                                    <th className="px-8 py-6 text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">Date</th>
-                                    <th className="px-8 py-6 text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">Status</th>
+                                <tr className="bg-gray-50 border-b border-[#EAECF0]">
+                                    <th className="px-6 py-4 text-xs font-bold text-[#667085] uppercase tracking-wider">Donor</th>
+                                    <th className="px-6 py-4 text-xs font-bold text-[#667085] uppercase tracking-wider">Email</th>
+                                    <th className="px-6 py-4 text-xs font-bold text-[#667085] uppercase tracking-wider">Amount</th>
+                                    <th className="px-6 py-4 text-xs font-bold text-[#667085] uppercase tracking-wider">Date</th>
+                                    <th className="px-6 py-4 text-xs font-bold text-[#667085] uppercase tracking-wider">Status</th>
                                 </tr>
                             </thead>
-                            <tbody className="divide-y divide-gray-50">
+                            <tbody className="divide-y divide-[#EAECF0]">
                                 {donations.map((donation: any) => (
-                                    <tr key={donation.id} className="hover:bg-blue-50/30 transition-all">
-                                        <td className="px-8 py-6 font-bold text-[#2B4C9B] font-outfit">{donation.donor}</td>
-                                        <td className="px-8 py-6 text-xs text-gray-500 font-medium">{donation.email || 'N/A'}</td>
-                                        <td className="px-8 py-6">
-                                            <div className="flex items-center gap-1">
-                                                <span className="font-black text-[#3B82F6] font-oswald">${donation.amount}</span>
-                                                <ArrowUpRight size={12} className="text-green-500" />
-                                            </div>
+                                    <tr key={donation.id} className="hover:bg-gray-50/50 transition-all">
+                                        <td className="px-6 py-4 font-semibold text-[#101828] font-outfit text-sm">{donation.donor}</td>
+                                        <td className="px-6 py-4 text-xs text-[#667085] font-medium">{donation.email || 'N/A'}</td>
+                                        <td className="px-6 py-4">
+                                            <span className="font-bold text-[#101828] font-outfit text-sm">${donation.amount}</span>
                                         </td>
-                                        <td className="px-8 py-6">
-                                            <div className="text-xs font-bold text-gray-400 font-outfit">{donation.date}</div>
+                                        <td className="px-6 py-4">
+                                            <div className="text-xs font-medium text-[#667085] font-outfit">{donation.date}</div>
                                         </td>
-                                        <td className="px-8 py-6">
-                                            <span className="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest bg-green-50 text-green-600">
+                                        <td className="px-6 py-4">
+                                            <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#ECFDF3] text-[#027A48]">
                                                 COMPLETED
                                             </span>
                                         </td>
@@ -127,8 +107,7 @@ export default function DonationOversight() {
                         </table>
                     ) : (
                         <div className="p-20 text-center">
-                            <Heart className="w-12 h-12 text-gray-200 mx-auto mb-4" />
-                            <p className="text-gray-400 font-outfit font-bold">No donation records found in the database.</p>
+                            <p className="text-[#667085] font-outfit font-medium">No donation records found.</p>
                         </div>
                     )}
                 </div>
