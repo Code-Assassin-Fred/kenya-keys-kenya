@@ -72,47 +72,44 @@ export default function StudentGrid() {
                                 animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 0.9 }}
                                 transition={{ duration: 0.4 }}
-                                className="group relative flex flex-col bg-white rounded-[40px] overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-500"
+                                className="group relative flex flex-col bg-white rounded-lg overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-500"
                             >
-                                {/* Student Image */}
-                                <div className="relative aspect-[4/5] overflow-hidden">
-                                    <img 
-                                        src={student.image} 
-                                        alt={student.name} 
-                                        className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60" />
-                                    
-                                    <div className="absolute bottom-8 left-8 text-white">
-                                        <h3 className="text-3xl font-black font-oswald uppercase tracking-tight leading-none mb-1">
-                                            {student.name}
-                                        </h3>
-                                        <p className="text-sm font-bold font-outfit opacity-80 uppercase tracking-widest">
-                                            {student.grade} • Age {student.age}
-                                        </p>
+                                {/* Card Header with Initials Avatar */}
+                                <div className="pt-10 pb-4 px-6 flex flex-col items-center text-center bg-gray-50/50 border-b border-gray-100">
+                                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#1D366D] to-[#00529B] flex items-center justify-center text-white text-2xl font-black font-oswald shadow-lg mb-4 ring-4 ring-white">
+                                        {student.name.split(' ').map((n: string) => n[0]).join('').toUpperCase().slice(0, 2)}
                                     </div>
+                                    
+                                    <h3 className="text-xl font-black font-oswald uppercase tracking-tight leading-none mb-2 text-[#1D366D]">
+                                        {student.name.split(' ')[0]}
+                                    </h3>
+                                    <p className="text-[10px] font-bold font-outfit text-[#009bba] uppercase tracking-widest">
+                                        {student.grade} • Age {student.age}
+                                    </p>
                                 </div>
 
-                                {/* Content */}
-                                <div className="p-8 pb-10 flex flex-col flex-1">
-                                    <div className="flex gap-4 mb-6">
-                                        <div className="flex items-center gap-2 text-[#00529B] font-bold text-xs uppercase tracking-wider font-outfit">
-                                            <BookOpen className="w-4 h-4" />
+                                {/* Content Body */}
+                                <div className="p-6 flex flex-col flex-1">
+                                    <div className="flex justify-center gap-4 mb-6">
+                                        <div className="flex items-center gap-2 text-gray-500 font-bold text-[9px] uppercase tracking-wider font-outfit">
+                                            <BookOpen className="w-3 h-3 text-[#00529B]" />
                                             {student.interests.split(',')[0]}
                                         </div>
-                                        <div className="flex items-center gap-2 text-[#009bba] font-bold text-xs uppercase tracking-wider font-outfit">
-                                            <GraduationCap className="w-4 h-4" />
+                                        <div className="flex items-center gap-2 text-gray-500 font-bold text-[9px] uppercase tracking-wider font-outfit">
+                                            <GraduationCap className="w-3 h-3 text-[#009bba]" />
                                             {student.gender}
                                         </div>
                                     </div>
 
-                                    <p className="text-gray-600 font-outfit leading-relaxed mb-10 line-clamp-3">
-                                        {student.story}
-                                    </p>
+                                    <div className="relative mb-8">
+                                        <p className="text-gray-600 font-outfit leading-relaxed text-[13px] text-center line-clamp-4 italic">
+                                            "{student.story}"
+                                        </p>
+                                    </div>
 
-                                    <button className="mt-auto w-full py-4 rounded-full bg-[#1D366D] text-white font-black font-outfit text-sm uppercase tracking-widest hover:bg-[#001D4A] transition-all shadow-xl flex items-center justify-center gap-3 group/btn">
-                                        <Heart className="w-4 h-4 group-hover/btn:fill-current transition-all" />
-                                        Sponsor {student.name}
+                                    <button className="mt-auto w-full py-3.5 rounded-full bg-[#1D366D] text-white font-black font-outfit text-[10px] uppercase tracking-widest hover:bg-[#001D4A] transition-all shadow-xl flex items-center justify-center gap-3 group/btn">
+                                        <Heart className="w-3.5 h-3.5 group-hover/btn:fill-current transition-all" />
+                                        Sponsor {student.name.split(' ')[0]}
                                     </button>
                                 </div>
                             </motion.div>

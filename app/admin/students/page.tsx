@@ -126,14 +126,8 @@ export default function StudentManagement() {
                                     <tr key={student.id} className="hover:bg-gray-50/50 transition-all group">
                                         <td className="px-6 py-4">
                                             <div className="flex items-center gap-3">
-                                                <div className="w-10 h-10 rounded-lg bg-gray-100 overflow-hidden flex-shrink-0 border border-[#EAECF0]">
-                                                    {student.image ? (
-                                                        <img src={student.image} alt={student.name} className="w-full h-full object-cover" />
-                                                    ) : (
-                                                        <div className="w-full h-full flex items-center justify-center text-[#D0D5DD] font-bold text-xs bg-gray-50">
-                                                            {student.name[0]}
-                                                        </div>
-                                                    )}
+                                                <div className="w-10 h-10 rounded-lg bg-[#1D366D] flex items-center justify-center text-white font-bold text-xs flex-shrink-0">
+                                                    {student.name[0]}
                                                 </div>
                                                 <div>
                                                     <p className="font-semibold text-[#101828] font-outfit text-sm">{student.name}</p>
