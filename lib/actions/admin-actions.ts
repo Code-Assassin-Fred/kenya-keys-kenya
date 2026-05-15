@@ -73,7 +73,6 @@ export async function getAdminStatsAction() {
         return {
             studentCount: studentsSnap.size,
             donationTotal: totalDonations,
-            urgentSponsorships: studentsSnap.docs.filter(d => d.data().sponsorship === 'Urgent').length,
         };
     } catch (error) {
         console.error('Error fetching stats:', error);

@@ -57,7 +57,7 @@ export default function StudentManagement() {
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
                 <div>
                     <h1 className="text-2xl font-bold text-[#101828] font-outfit tracking-tight">Student Catalog</h1>
-                    <p className="text-[#667085] font-outfit mt-1 text-sm">Manage student profiles and sponsorship status.</p>
+                    <p className="text-[#667085] font-outfit mt-1 text-sm">Manage student profiles and academic details.</p>
                 </div>
                 <button 
                     onClick={() => {setEditingStudent(null); setIsModalOpen(true);}}
@@ -76,11 +76,6 @@ export default function StudentManagement() {
                         className="w-full px-4 py-2.5 rounded-lg bg-gray-50 border border-[#EAECF0] focus:bg-white focus:border-[#32D583] outline-none font-outfit text-sm transition-all"
                     />
                 </div>
-                <div className="flex gap-2 w-full md:w-auto">
-                    <button className="flex-1 md:flex-none px-4 py-2.5 bg-white border border-[#EAECF0] text-[#344054] rounded-lg font-bold font-outfit text-sm hover:bg-gray-50 transition-all">
-                        Filter Status
-                    </button>
-                </div>
             </div>
 
             {/* Table */}
@@ -91,7 +86,6 @@ export default function StudentManagement() {
                             <tr className="bg-gray-50 border-b border-[#EAECF0]">
                                 <th className="px-6 py-4 text-xs font-bold text-[#667085] uppercase tracking-wider">Student</th>
                                 <th className="px-6 py-4 text-xs font-bold text-[#667085] uppercase tracking-wider">Grade/Age</th>
-                                <th className="px-6 py-4 text-xs font-bold text-[#667085] uppercase tracking-wider">Sponsorship</th>
                                 <th className="px-6 py-4 text-xs font-bold text-[#667085] uppercase tracking-wider">Interests</th>
                                 <th className="px-6 py-4 text-xs font-bold text-[#667085] uppercase tracking-wider text-right">Actions</th>
                             </tr>
@@ -99,13 +93,13 @@ export default function StudentManagement() {
                         <tbody className="divide-y divide-[#EAECF0]">
                             {loading ? (
                                 <tr>
-                                    <td colSpan={5} className="py-20 text-center">
+                                    <td colSpan={4} className="py-20 text-center">
                                         <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-[#32D583] mx-auto"></div>
                                     </td>
                                 </tr>
                             ) : students.length === 0 ? (
                                 <tr>
-                                    <td colSpan={5} className="py-20 text-center text-[#667085] font-outfit">No students found.</td>
+                                    <td colSpan={4} className="py-20 text-center text-[#667085] font-outfit">No students found.</td>
                                 </tr>
                             ) : (
                                 students.map((student) => (
@@ -130,17 +124,6 @@ export default function StudentManagement() {
                                         <td className="px-6 py-4">
                                             <p className="font-semibold text-[#101828] font-outfit text-sm">{student.grade}</p>
                                             <p className="text-xs text-[#667085] font-medium">Age {student.age}</p>
-                                        </td>
-                                        <td className="px-6 py-4">
-                                            <div className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold ${
-                                                student.sponsorship === 'Urgent' 
-                                                    ? 'bg-red-50 text-red-700' 
-                                                    : student.sponsorship === 'Sponsored'
-                                                    ? 'bg-[#ECFDF3] text-[#027A48]'
-                                                    : 'bg-blue-50 text-blue-700'
-                                            }`}>
-                                                {student.sponsorship}
-                                            </div>
                                         </td>
                                         <td className="px-6 py-4">
                                             <p className="text-xs font-medium text-[#667085] font-outfit line-clamp-1">{student.interests}</p>
@@ -219,15 +202,6 @@ export default function StudentManagement() {
                                             <option>Male</option>
                                         </select>
                                     </div>
-                                </div>
-
-                                <div className="space-y-1.5">
-                                    <label className="text-xs font-bold text-[#344054]">Sponsorship Status</label>
-                                    <select name="sponsorship" defaultValue={editingStudent?.sponsorship} className="w-full px-4 py-2 rounded-lg bg-white border border-[#D0D5DD] focus:border-[#32D583] outline-none font-outfit text-sm text-[#101828] transition-all">
-                                        <option>Urgent</option>
-                                        <option>Needed</option>
-                                        <option>Sponsored</option>
-                                    </select>
                                 </div>
 
                                 <div className="space-y-1.5">

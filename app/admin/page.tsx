@@ -40,22 +40,6 @@ export default function AdminDashboard() {
             color: 'text-[#32D583]', 
             bg: 'bg-[#ECFDF3]' 
         },
-        { 
-            title: 'Urgent Needs', 
-            value: stats?.urgentSponsorships || '0', 
-            change: 'Priority', 
-            up: false, 
-            color: 'text-red-500', 
-            bg: 'bg-red-50' 
-        },
-        { 
-            title: 'Sponsorship Rate', 
-            value: stats?.sponsorshipRate || '0%', 
-            change: 'Live', 
-            up: true, 
-            color: 'text-[#101828]', 
-            bg: 'bg-gray-50' 
-        },
     ];
 
     if (loading) {
@@ -85,7 +69,7 @@ export default function AdminDashboard() {
             </div>
 
             {/* Stats Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {cards.map((card, idx) => (
                     <motion.div
                         key={idx}
@@ -105,9 +89,9 @@ export default function AdminDashboard() {
                 ))}
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 gap-8">
                 {/* Main Chart Area */}
-                <div className="lg:col-span-2 bg-white rounded-2xl p-8 border border-[#EAECF0] shadow-sm">
+                <div className="bg-white rounded-2xl p-8 border border-[#EAECF0] shadow-sm">
                     <div className="flex items-center justify-between mb-8">
                         <h2 className="text-lg font-bold text-[#101828] font-outfit">Sponsorship Trends</h2>
                     </div>
@@ -139,38 +123,6 @@ export default function AdminDashboard() {
                         {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'].map(m => (
                             <span key={m} className="text-[10px] font-bold text-[#98A2B3] font-outfit uppercase tracking-widest">{m}</span>
                         ))}
-                    </div>
-                </div>
-
-                {/* Right Panel - Urgent Sidebar */}
-                <div className="bg-[#101828] rounded-2xl p-8 text-white relative overflow-hidden border border-[#1d2939]">
-                    <div className="relative z-10 h-full flex flex-col">
-                        <h2 className="text-lg font-bold font-outfit mb-6">Urgent Attention</h2>
-                        <div className="space-y-6 flex-1">
-                            {(stats?.recentAlerts || []).length > 0 ? (
-                                stats.recentAlerts.map((item: any, i: number) => (
-                                    <div key={i} className="flex items-center gap-4 group">
-                                        <div className="w-10 h-10 rounded-lg bg-[#1d2939] flex items-center justify-center font-bold text-xs group-hover:bg-[#32D583] group-hover:text-[#101828] transition-all">
-                                            {item.name[0]}
-                                        </div>
-                                        <div className="flex-1 min-w-0">
-                                            <p className="font-semibold font-outfit text-sm truncate">{item.name}</p>
-                                            <p className="text-[11px] text-[#94A3B8] font-medium truncate">{item.reason}</p>
-                                        </div>
-                                        <div className="text-[9px] text-[#32D583] font-bold uppercase tracking-widest whitespace-nowrap">
-                                            {item.date}
-                                        </div>
-                                    </div>
-                                ))
-                            ) : (
-                                <p className="text-[#94A3B8] text-sm font-medium italic">No urgent needs at the moment.</p>
-                            )}
-                        </div>
-                        { (stats?.recentAlerts || []).length > 0 && (
-                            <Link href="/admin/students" className="block w-full mt-8 py-3 rounded-lg bg-[#32D583] text-[#101828] font-bold font-outfit uppercase tracking-widest text-center text-xs hover:bg-[#2bc477] transition-all shadow-lg shadow-black/10">
-                                Review Alerts
-                            </Link>
-                        )}
                     </div>
                 </div>
             </div>

@@ -22,7 +22,7 @@ export default function StudentGrid() {
     }, []);
 
     const filteredStudents = students.filter(student => {
-        const matchesFilter = filter === 'All' || student.gender === filter || student.sponsorship === filter;
+        const matchesFilter = filter === 'All' || student.gender === filter;
         const matchesSearch = student.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
                              student.interests.toLowerCase().includes(searchQuery.toLowerCase());
         return matchesFilter && matchesSearch;
@@ -45,7 +45,7 @@ export default function StudentGrid() {
                     </div>
                     
                     <div className="flex gap-2 overflow-x-auto pb-2 md:pb-0 w-full md:w-auto">
-                        {['All', 'Female', 'Male', 'Urgent'].map((f) => (
+                        {['All', 'Female', 'Male'].map((f) => (
                             <button
                                 key={f}
                                 onClick={() => setFilter(f)}
@@ -83,13 +83,6 @@ export default function StudentGrid() {
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60" />
                                     
-                                    {/* Status Badge */}
-                                    {student.sponsorship === 'Urgent' && (
-                                        <div className="absolute top-6 left-6 bg-[#FFB800] text-[#1D366D] px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg font-outfit">
-                                            Sponsorship Urgent
-                                        </div>
-                                    )}
-
                                     <div className="absolute bottom-8 left-8 text-white">
                                         <h3 className="text-3xl font-black font-oswald uppercase tracking-tight leading-none mb-1">
                                             {student.name}
