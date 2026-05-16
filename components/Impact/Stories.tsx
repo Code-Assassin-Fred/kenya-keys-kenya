@@ -1,8 +1,9 @@
 'use client';
 
-import React from 'react';
-import { motion } from "framer-motion";
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { X, Play } from 'lucide-react';
 
 const stories = [
     {
@@ -22,37 +23,48 @@ const stories = [
 const videoStories = [
     {
         title: "James Mbandi: Journey of Excellence",
-        url: "https://storage.googleapis.com/kenya_keys_videos/JAMES%20MBANDI%20UPDATED.mp4",
+        url: "https://storage.googleapis.com/kenya_keys_videos/EDITED%20VIDEOS/STUDENT%20STORIES/JAMES%20MBANDI%20UPDATED.mp4",
         description: "Follow the inspiring journey of James as he overcomes obstacles to achieve academic greatness."
     },
     {
         title: "Freedom Kits: Empowering Girls",
-        url: "https://storage.googleapis.com/kenya_keys_videos/FREEDOM%20KITS.mp4",
+        url: "https://storage.googleapis.com/kenya_keys_videos/EDITED%20VIDEOS/PROGRAM%20VIDEOS/FREEDOM%20KITS.mp4",
         description: "Our Freedom Kits program provides essential resources to keep girls in school and restore their dignity."
     },
     {
         title: "Digital Bridge: Laptop Distribution",
-        url: "https://storage.googleapis.com/kenya_keys_videos/Laptop%20Distribution%20.mp4",
+        url: "https://storage.googleapis.com/kenya_keys_videos/EDITED%20VIDEOS/PROGRAM%20VIDEOS/Laptop%20Distribution%20.mp4",
         description: "Closing the digital divide by providing high-achieving students with the technology they need to succeed."
     },
     {
         title: "Student Spotlight: Community Impact",
-        url: "https://storage.googleapis.com/kenya_keys_videos/0225%20(2)(1).mp4",
+        url: "https://storage.googleapis.com/kenya_keys_videos/EDITED%20VIDEOS/POEMS%20SHORTS%20VIDEOS/0225%20(2)(1).mp4",
         description: "Seeing the ripple effect of education as our sponsored students give back to their communities."
     },
     {
         title: "Empowering Futures",
-        url: "https://storage.googleapis.com/kenya_keys_videos/0225%20(3).mp4",
+        url: "https://storage.googleapis.com/kenya_keys_videos/EDITED%20VIDEOS/POEMS%20SHORTS%20VIDEOS/0225%20(3).mp4",
         description: "A look into how Kenya Keys is transforming lives through long-term educational commitment."
     },
     {
         title: "Inclusion in Action: Goal Ball",
-        url: "https://storage.googleapis.com/kenya_keys_videos/GOAL%20BALL.mp4",
+        url: "https://storage.googleapis.com/kenya_keys_videos/EDITED%20VIDEOS/OTHER%20ACTIVITIES/GOAL%20BALL.mp4",
         description: "Promoting physical education and inclusion through the Goal Ball program for visually impaired students."
     }
 ];
 
 export default function Stories() {
+    const [selectedVideo, setSelectedVideo] = useState<{title: string, url: string} | null>(null);
+
+    // Lock scroll when modal is open
+    useEffect(() => {
+        if (selectedVideo) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+    }, [selectedVideo]);
+
     return (
         <section id="stories" className="py-24 bg-gray-50">
             <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
@@ -112,19 +124,27 @@ export default function Stories() {
                                 initial={{ opacity: 0, scale: 0.95 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                                className="group flex flex-col bg-white rounded-lg overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-500"
+                                onClick={() => setSelectedVideo(video)}
+                                className="group flex flex-col bg-white rounded-xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-500 cursor-pointer"
                             >
                                 <div className="relative aspect-video bg-black overflow-hidden">
                                     <video 
                                         src={video.url} 
-                                        controls 
-                                        className="w-full h-full object-cover"
-                                        poster="/image4.png" // Using a generic local image as poster
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-90"
+                                        muted
+                                        playsInline
+                                        preload="metadata"
                                     />
-                                    <div className="absolute inset-0 bg-[#00529B]/10 group-hover:bg-transparent transition-colors pointer-events-none" />
+                                    {/* Play Button Overlay */}
+                                    <div className="absolute inset-0 flex items-center justify-center">
+                                        <div className="w-16 h-16 bg-[#00529B] rounded-full flex items-center justify-center text-white shadow-2xl transition-all duration-300 group-hover:scale-125 group-hover:bg-[#FFB800]">
+                                            <Play fill="currentColor" size={24} className="ml-1" />
+                                        </div>
+                                    </div>
+                                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
                                 </div>
                                 <div className="p-8 flex flex-col flex-1">
-                                    <h4 className="text-lg font-black font-oswald uppercase tracking-tight text-[#1D366D] mb-4">
+                                    <h4 className="text-lg font-black font-oswald uppercase tracking-tight text-[#1D366D] mb-4 group-hover:text-[#00529B] transition-colors">
                                         {video.title}
                                     </h4>
                                     <p className="text-sm text-gray-600 font-outfit leading-relaxed">
@@ -136,6 +156,49 @@ export default function Stories() {
                     </div>
                 </div>
             </div>
+
+            {/* Video Lightbox Modal */}
+            <AnimatePresence>
+                {selectedVideo && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/95 p-4 md:p-12"
+                        onClick={() => setSelectedVideo(null)}
+                    >
+                        <motion.div
+                            initial={{ scale: 0.9, y: 20 }}
+                            animate={{ scale: 1, y: 0 }}
+                            exit={{ scale: 0.9, y: 20 }}
+                            className="relative w-full max-w-6xl aspect-video bg-black rounded-2xl overflow-hidden shadow-[0_0_100px_rgba(0,82,155,0.3)]"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <button 
+                                onClick={() => setSelectedVideo(null)}
+                                className="absolute top-4 right-4 z-10 w-12 h-12 bg-black/50 hover:bg-[#FFB800] text-white rounded-full flex items-center justify-center transition-colors shadow-lg"
+                            >
+                                <X size={24} />
+                            </button>
+                            
+                            <video 
+                                src={selectedVideo.url} 
+                                controls 
+                                autoPlay 
+                                muted
+                                playsInline
+                                className="w-full h-full object-contain"
+                            />
+
+                            <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                                <h3 className="text-white font-oswald text-xl md:text-2xl uppercase tracking-wider">
+                                    {selectedVideo.title}
+                                </h3>
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </section>
     );
 }
