@@ -19,6 +19,7 @@ export default function Navbar() {
             children: [
                 { label: 'Our Mission', href: '/who-we-are#hero' },
                 { label: 'Leadership Team', href: '/who-we-are#leadership' },
+                { label: 'Partners', href: '/who-we-are#partners' },
             ],
         },
         {
@@ -50,6 +51,7 @@ export default function Navbar() {
             children: [
                 { label: 'Success Stories', href: '/impact#stories' },
                 { label: 'Metrics & Data', href: '/impact#stats' },
+                { label: 'Reports', href: '/impact#reports' },
             ],
         },
         {

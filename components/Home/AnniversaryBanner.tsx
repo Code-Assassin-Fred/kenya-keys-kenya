@@ -76,20 +76,20 @@ export default function AnniversaryBanner() {
                     >
                         {/* Icons and Circles Removed as requested */}
                         <h2 className="text-3xl md:text-[44px] font-bold font-playfair text-[#001D4A] leading-[1.15] mb-4">
-                            Kiron at 10 – <br />
-                            Celebrating a <br />
-                            decade of impact
+                            Celebrating 20 Years <br />
+                            of Life-Changing <br />
+                            Impact in Kenya
                         </h2>
                         <p className="text-base md:text-lg font-outfit text-[#001D4A] opacity-90 mb-8 max-w-sm">
-                            Join our <strong>10-year celebration</strong> by exploring our story, spreading the word, and giving in honor of this milestone.
+                            Join us in celebrating our <strong>20th anniversary</strong> and the opening of our new 15,000 sq ft Community Education Center.
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
                             <button className="bg-[#001D4A] text-white px-8 py-3.5 rounded-full font-bold font-outfit text-sm md:text-base hover:bg-opacity-90 transition-all cursor-pointer whitespace-nowrap shadow-lg">
-                                Discover our anniversary story
+                                Read our blog
                             </button>
                             <button className="border-2 border-[#001D4A] text-[#001D4A] px-8 py-3.5 rounded-full font-bold font-outfit text-sm md:text-base hover:bg-[#001D4A] hover:text-white transition-all cursor-pointer whitespace-nowrap">
-                                Start learning
+                                Support our mission
                             </button>
                         </div>
                     </motion.div>

@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Large Files
+public/Reports/KENYA KEYS FIRST QUATER REPORT-MAIN.pdf

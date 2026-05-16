@@ -18,8 +18,9 @@ export default function Footer() {
                     <div>
                         <h3 className="text-white text-xl font-semibold mb-6 font-outfit">Organization</h3>
                         <ul className="space-y-3 font-outfit">
-                            <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Our Mission</a></li>
-                            <li><a href="#" className="text-gray-400 hover:text-white transition-colors transition-all">Leadership Team</a></li>
+                            <li><a href="/who-we-are#hero" className="text-gray-300 hover:text-white transition-colors">Our Mission</a></li>
+                            <li><a href="/who-we-are#leadership" className="text-gray-400 hover:text-white transition-colors transition-all">Leadership Team</a></li>
+                            <li><a href="/who-we-are#partners" className="text-gray-400 hover:text-white transition-colors transition-all">Partners</a></li>
                         </ul>
                     </div>
 
@@ -30,8 +31,9 @@ export default function Footer() {
                             <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Student Catalog</a></li>
                             <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Donation Packages</a></li>
                             <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Education Fund</a></li>
-                            <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Impact & Metrics</a></li>
-                            <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Latest News</a></li>
+                            <li><a href="/impact#stats" className="text-gray-400 hover:text-white transition-colors">Impact & Metrics</a></li>
+                            <li><a href="/impact#reports" className="text-gray-400 hover:text-white transition-colors">Impact Reports</a></li>
+                            <li><a href="/news" className="text-gray-400 hover:text-white transition-colors">Latest News</a></li>
                         </ul>
                     </div>
 

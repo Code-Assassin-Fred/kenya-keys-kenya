@@ -7,6 +7,7 @@ import Mission from "@/components/Who we are/Mission";
 import LeadershipTeam from "@/components/Who we are/LeadershipTeam";
 import Journey from "@/components/Who we are/Journey";
 import Values from "@/components/Who we are/Values";
+import Partners from "@/components/Who we are/Partners";
 import Contact from "@/components/Home/Contact";
 
 export default function WhoWeArePage() {
@@ -19,6 +20,7 @@ export default function WhoWeArePage() {
                 <LeadershipTeam />
                 <Journey />
                 <Values />
+                <Partners />
                 <Contact />
             </main>
             <Footer />

@@ -64,10 +64,9 @@ export default function Hero() {
     } as const;
 
     const headlineLines = [
-        "United is the way",
-        "to help",
-        "communities in",
-        "need"
+        "Empowering Rural",
+        "Kenya Through",
+        "Education"
     ];
 
     return (
@@ -123,14 +122,14 @@ export default function Hero() {
                             variants={itemVariants}
                             className="text-2xl md:text-[32px] lg:text-[40px] font-[900] text-[#001D4A] tracking-[-0.01em] font-oswald uppercase leading-[1.1] mb-8"
                         >
-                            United is the way to help communities in need
+                            Empowering Rural Kenya Through Education
                         </motion.h1>
 
                         <motion.p
                             variants={itemVariants}
                             className="text-lg md:text-xl text-gray-700 mb-10 leading-relaxed font-outfit max-w-sm"
                         >
-                            True to our founding spirit, whenever there is a need in our communities, Kenya Keys is there. Your generous support will help us build a future where every child has the chance to thrive.
+                            Kenya Keys provides essential resources and sponsorships to unlock the potential of students in underserved communities. Join us in building a future where every child has the opportunity to lead and thrive.
                         </motion.p>
 
                         <motion.div
