@@ -28,7 +28,7 @@ const steps = [
     {
         icon: <MailOpen className="w-8 h-8" />,
         title: "Write and Connect",
-        description: "Exchange letters with your student and even have the opportunity to join a Kenya Keys team to meet them in person."
+        description: "Exchange letters with your student and even have the opportunity to join our local community events to meet them in person."
     }
 ];
 

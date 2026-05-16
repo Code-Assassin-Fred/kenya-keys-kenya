@@ -8,7 +8,7 @@ export async function GET() {
 
     try {
         const snap = await adminDb.collection('donations').orderBy('date', 'desc').get();
-        const donations = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        const donations = snap.docs.map(doc => ({ id: doc.id, ...doc.data() })) as any[];
 
         const totalRevenue = donations.reduce((sum, d) => sum + (d.amount || 0), 0);
         const uniqueDonors = new Set(donations.map(d => d.email || d.donor)).size;

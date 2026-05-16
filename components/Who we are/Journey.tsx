@@ -18,8 +18,8 @@ export default function Journey() {
                         >
                             <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl">
                                 <Image 
-                                    src="/image1.png" 
-                                    alt="Rinda Hayes in Kenya" 
+                                    src="/image4.png" 
+                                    alt="Students in Kenya" 
                                     fill 
                                     className="object-cover"
                                 />
@@ -42,13 +42,13 @@ export default function Journey() {
                             </h2>
                             <div className="space-y-6 text-gray-700 font-outfit text-lg leading-relaxed">
                                 <p>
-                                    When <span className="font-bold text-[#00529B]">Rinda Hayes</span> visited Taru, Kenya in 2005, she learned that 95% of children dropped out of school after middle school due to an inability to pay school fees. In Taru, extreme poverty and illiteracy were the norm.
+                                    In 2005, a critical challenge was identified in Taru, Kenya: 95% of children were dropping out of school after middle school due to an inability to pay school fees. In the region, extreme poverty and illiteracy were the norm, threatening the future of generations.
                                 </p>
                                 <p>
-                                    Shortly after, Rinda worked with <span className="font-bold text-[#00529B]">Principal Joseph Mwengea</span> to identify and sponsor 14 high-achieving students. From this small beginning, a vision emerged.
+                                    Recognizing this urgent need, <span className="font-bold text-[#00529B]">Principal Joseph Mwengea</span> led a local initiative to identify and sponsor 14 high-achieving students. From this small but powerful beginning, a vision emerged to unlock potential through education.
                                 </p>
                                 <p>
-                                    Twenty years later, Kenya Keys has sponsored the education of over 1,000 students, transforming lives and creating a ripple effect of hope throughout the community.
+                                    Twenty years later, Kenya Keys has sponsored the education of over 1,000 students, transforming lives and creating a ripple effect of hope throughout the community, led entirely by Kenyan professionals and community leaders.
                                 </p>
                             </div>
                         </motion.div>

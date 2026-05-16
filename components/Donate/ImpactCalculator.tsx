@@ -5,17 +5,20 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const impacts = [
     { threshold: 0, text: "buys a full set of notebooks and pens for one student.", icon: "📝" },
-    { threshold: 25, text: "covers a student's uniform and shoes for the entire year.", icon: "👟" },
-    { threshold: 50, text: "provides daily nutritious lunch for one student for an entire term.", icon: "🥣" },
-    { threshold: 100, text: "covers secondary school tuition for one student for a full year.", icon: "🎓" },
-    { threshold: 250, text: "fully supports a student's tuition, board, and supplies for a year.", icon: "🌟" },
-    { threshold: 500, text: "funds 2 university students' living stipends for a semester.", icon: "🏛️" },
-    { threshold: 1000, text: "sponsors a local leadership workshop for 50 student alumni.", icon: "🤝" }
+    { threshold: 15, text: "covers a student's safe transport costs to school for a full year.", icon: "🚌" },
+    { threshold: 25, text: "provides a 'Landing Kit' with uniforms and essential school bedding.", icon: "🎒" },
+    { threshold: 40, text: "covers secondary school tuition for one student for a full year.", icon: "🎓" },
+    { threshold: 65, text: "fully funds college tuition for a student for an entire academic year.", icon: "🏛️" },
+    { threshold: 85, text: "sponsors a university student's tuition and registration fees for a year.", icon: "🌟" },
+    { threshold: 100, text: "covers housing, food, and subsistence for a college student for a full term.", icon: "🏠" }
 ];
+
+import SponsorshipModal from '@/components/shared/SponsorshipModal';
 
 export default function ImpactCalculator() {
     const [amount, setAmount] = useState(65);
     const [currentImpact, setCurrentImpact] = useState(impacts[2]);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
         const matchingImpact = [...impacts].reverse().find(i => amount >= i.threshold) || impacts[0];
@@ -62,12 +65,19 @@ export default function ImpactCalculator() {
                                     className="w-full h-3 bg-white/20 rounded-lg appearance-none cursor-pointer accent-[#FFB800] mb-8"
                                 />
 
-                                <div className="grid grid-cols-4 text-[10px] font-black uppercase tracking-tighter text-blue-300 font-outfit">
+                                <div className="grid grid-cols-4 text-[10px] font-black uppercase tracking-tighter text-blue-300 font-outfit mb-12">
                                     <span>$10</span>
                                     <span className="text-center">$250</span>
                                     <span className="text-center">$500</span>
                                     <span className="text-right">$1000</span>
                                 </div>
+
+                                <button 
+                                    onClick={() => setIsModalOpen(true)}
+                                    className="block w-full py-5 bg-[#FFB800] text-[#1D366D] text-center font-black font-outfit uppercase tracking-widest text-sm rounded-full hover:scale-105 transition-all shadow-2xl cursor-pointer"
+                                >
+                                    Sponsor with this amount
+                                </button>
                             </div>
                         </motion.div>
                     </div>
@@ -99,6 +109,12 @@ export default function ImpactCalculator() {
                     </div>
                 </div>
             </div>
+
+            <SponsorshipModal 
+                isOpen={isModalOpen} 
+                onClose={() => setIsModalOpen(false)} 
+                amount={amount}
+            />
         </section>
     );
 }

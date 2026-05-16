@@ -17,12 +17,12 @@ const methods = [
         title: "Stock & Securities",
         description: "Donating appreciated stock is one of the most tax-efficient ways to support Kenya Keys.",
         action: "Transfer Stock",
-        href: "mailto:info@kenyakeys.org?subject=Stock Transfer Inquiry"
+        href: "mailto:joseph@kenyakeyspbo-kenya.org?subject=Stock Transfer Inquiry"
     },
     {
         icon: <Mail className="w-12 h-12" />,
         title: "Check by Mail",
-        description: "Send donations via check to our US office. 100% of your gift goes directly to programs.",
+        description: "Send donations via check to our office. 100% of your gift goes directly to programs.",
         action: "Mailing Address",
         href: "#contact"
     },
@@ -31,25 +31,40 @@ const methods = [
         title: "Employee Matching",
         description: "Many employers will double or triple your gift. Check if your company has a matching program.",
         action: "Check My Company",
-        href: "mailto:info@kenyakeys.org?subject=Employee Matching Inquiry"
+        href: "mailto:joseph@kenyakeyspbo-kenya.org?subject=Employee Matching Inquiry"
     },
     {
         icon: <Award className="w-12 h-12" />,
         title: "Planned Giving",
         description: "Create a lasting legacy by including Kenya Keys in your will or estate planning.",
         action: "Learn About Legacy",
-        href: "mailto:info@kenyakeys.org?subject=Planned Giving Inquiry"
+        href: "mailto:joseph@kenyakeyspbo-kenya.org?subject=Planned Giving Inquiry"
     },
     {
         icon: <Share2 className="w-12 h-12" />,
         title: "Fundraise",
         description: "Start a birthday fundraiser or local event to bring your community together for a cause.",
         action: "Resource Toolkit",
-        href: "mailto:info@kenyakeys.org?subject=Fundraising Inquiry"
+        href: "mailto:joseph@kenyakeyspbo-kenya.org?subject=Fundraising Inquiry"
     }
 ];
 
+import SponsorshipModal from '@/components/shared/SponsorshipModal';
+
 export default function WaysToGive() {
+    const [isModalOpen, setIsModalOpen] = React.useState(false);
+    const [selectedSubject, setSelectedSubject] = React.useState("Donation Inquiry");
+
+    const handleMethodClick = (e: React.MouseEvent, method: any) => {
+        if (method.href.startsWith('mailto:')) {
+            e.preventDefault();
+            const url = new URL(method.href);
+            const subject = url.searchParams.get('subject') || "Inquiry";
+            setSelectedSubject(subject);
+            setIsModalOpen(true);
+        }
+    };
+
     return (
         <section className="py-24 bg-white">
             <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
@@ -76,7 +91,8 @@ export default function WaysToGive() {
                             
                             <a 
                                 href={method.href}
-                                className="mt-auto text-[#00529B] font-black font-outfit uppercase tracking-widest text-xs border-b-2 border-[#00529B] pb-1 w-fit group-hover:border-[#FFB800] transition-all"
+                                onClick={(e) => handleMethodClick(e, method)}
+                                className="mt-auto text-[#00529B] font-black font-outfit uppercase tracking-widest text-xs border-b-2 border-[#00529B] pb-1 w-fit group-hover:border-[#FFB800] transition-all cursor-pointer"
                             >
                                 {method.action}
                             </a>
@@ -96,14 +112,23 @@ export default function WaysToGive() {
                             Our team is here to help you find the best way for you to make an impact. We can provide tax IDs, transfer instructions, or discuss specific program funding.
                         </p>
                     </div>
-                    <a 
-                        href="mailto:info@kenyakeys.org"
-                        className="bg-[#1D366D] text-white px-10 py-5 rounded-full font-black font-outfit uppercase tracking-widest text-sm hover:bg-[#001D4A] transition-all shadow-xl"
+                    <button 
+                        onClick={() => {
+                            setSelectedSubject("Question about Giving");
+                            setIsModalOpen(true);
+                        }}
+                        className="bg-[#1D366D] text-white px-10 py-5 rounded-full font-black font-outfit uppercase tracking-widest text-sm hover:bg-[#001D4A] transition-all shadow-xl cursor-pointer"
                     >
                         Contact Giving Team
-                    </a>
+                    </button>
                 </motion.div>
             </div>
+
+            <SponsorshipModal 
+                isOpen={isModalOpen} 
+                onClose={() => setIsModalOpen(false)} 
+                subject={selectedSubject}
+            />
         </section>
     );
 }

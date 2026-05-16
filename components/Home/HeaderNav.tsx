@@ -49,13 +49,9 @@ export default function HeaderNav() {
                     {/* Right side - Navigation */}
                     <div className="flex items-center gap-0 h-full">
                         <div className="hidden sm:flex items-center gap-6 mr-6 h-full text-gray-600 text-sm font-medium">
-                            <a href="tel:+15036792410" className="flex items-center gap-2 hover:text-orange-600 transition-colors">
-                                <Phone className="w-4 h-4" />
-                                <span>503-679-2410</span>
-                            </a>
-                            <a href="mailto:info@kenyakeys.org" className="flex items-center gap-2 hover:text-orange-600 transition-colors">
+                            <a href="mailto:info@kenyakeyspbo-kenya.org" className="flex items-center gap-2 hover:text-orange-600 transition-colors">
                                 <Mail className="w-4 h-4" />
-                                <span>info@kenyakeys.org</span>
+                                <span>info@kenyakeyspbo-kenya.org</span>
                             </a>
                         </div>
                         <button className="bg-red-500 hover:bg-red-600 text-white font-bold px-6 h-full transition-colors rounded-none">

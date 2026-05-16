@@ -22,7 +22,7 @@ const newsItems = [
         title: "Hope Springs Program Expands",
         date: "November 2023",
         excerpt: "Our mentorship program for girls reaches new communities, providing vital health and leadership education.",
-        image: "/image1.png"
+        image: "/image5.png"
     }
 ];
 

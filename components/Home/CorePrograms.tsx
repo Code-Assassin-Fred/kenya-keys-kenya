@@ -10,7 +10,7 @@ const programs = [
         title: "Secondary School Sponsorship",
         description: "Empowering bright minds with the resources they need to complete their secondary education through comprehensive support and mentorship.",
         category: "Impact Stories",
-        image: "/image1.png",
+        image: "/image16.png",
         href: "/programs/secondary-sponsorship"
     },
     {
@@ -18,7 +18,7 @@ const programs = [
         title: "Girls' Empowerment",
         description: "Breaking barriers for girls through leadership training, health education, and dedicated scholarship programs for success.",
         category: "Impact Stories",
-        image: "/image2.png",
+        image: "/image11.png",
         href: "/programs/girls-empowerment"
     },
     {
@@ -26,7 +26,7 @@ const programs = [
         title: "College & Vocational",
         description: "Supporting the transition to higher education or trade schools, ensuring career readiness and long-term economic independence.",
         category: "Impact Stories",
-        image: "/image3.png",
+        image: "/WhatsApp Image 2026-04-19 at 20.39.13.jpeg",
         href: "/programs/college-vocational"
     }
 ];

@@ -46,7 +46,7 @@ export default function Footer() {
                                 <p className="text-gray-300">Maji Ya Chumvi, Kwale County</p>
                             </div>
                             <div>
-                                <a href="mailto:info@kenyakeys.org" className="text-gray-300 hover:text-white transition-colors underline decoration-[#C5E672] decoration-2 underline-offset-4">info@kenyakeys.org</a>
+                                <a href="mailto:info@kenyakeyspbo-kenya.org" className="text-gray-300 hover:text-white transition-colors underline decoration-[#C5E672] decoration-2 underline-offset-4">info@kenyakeyspbo-kenya.org</a>
                             </div>
                         </div>
                     </div>

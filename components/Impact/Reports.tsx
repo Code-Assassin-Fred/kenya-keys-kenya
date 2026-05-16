@@ -18,13 +18,13 @@ export default function Reports() {
                 <div className="flex flex-col lg:flex-row gap-16 items-start">
                     {/* Left Side: Content & Image */}
                     <div className="lg:w-1/2">
-                        <div className="relative rounded-3xl overflow-hidden shadow-2xl mb-8 group">
+                        <div className="relative rounded-sm overflow-hidden shadow-lg mb-8 group max-w-md">
                             <img 
-                                src="/student-portrait.png" 
-                                alt="Kenya Keys Student" 
+                                src="/image17.png" 
+                                alt="Kenya Keys Impact" 
                                 className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                         </div>
                         <h2 className="text-5xl font-black text-[#1D366D] mb-6 font-playfair tracking-tight">
                             Trust and Transparency
@@ -69,17 +69,13 @@ export default function Reports() {
                                                         href={`/Reports/${report.filename}`}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
-                                                        className="flex items-center justify-between p-4 rounded-xl hover:bg-gray-50 group/item transition-colors border border-transparent hover:border-gray-100"
+                                                        className="flex items-center justify-between p-4 rounded-lg hover:bg-gray-50 group/item transition-colors border border-transparent hover:border-gray-100"
                                                     >
-                                                        <div className="flex items-center gap-4">
-                                                            <div className="w-10 h-10 bg-red-50 rounded-lg flex items-center justify-center text-red-600 group-hover/item:bg-red-600 group-hover/item:text-white transition-colors">
-                                                                <FileText size={20} />
-                                                            </div>
-                                                            <span className="font-semibold text-gray-700 group-hover/item:text-[#1D366D] transition-colors">
+                                                        <div className="flex items-center">
+                                                            <span className="text-lg font-bold text-gray-900 group-hover/item:text-[#1D366D] transition-colors">
                                                                 {report.title}
                                                             </span>
                                                         </div>
-                                                        <ExternalLink size={16} className="text-gray-300 group-hover/item:text-red-600 transition-colors" />
                                                     </a>
                                                 ))}
                                             </div>

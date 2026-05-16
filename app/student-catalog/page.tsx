@@ -24,11 +24,14 @@ export default function StudentCatalogPage() {
                     <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 flex flex-col md:flex-row items-center justify-between gap-8">
                         <div className="max-w-2xl text-center md:text-left">
                             <h3 className="text-2xl font-black text-[#1D366D] font-oswald uppercase mb-2">Can't decide?</h3>
-                            <p className="text-gray-600 font-outfit">Choose \"Greatest Need\" and our US and Kenyan teams will match your sponsorship to the student currently facing the most urgent barriers to their education.</p>
+                            <p className="text-gray-600 font-outfit">Choose \"Greatest Need\" and our Kenyan teams will match your sponsorship to the student currently facing the most urgent barriers to their education.</p>
                         </div>
-                        <button className="bg-[#FFB800] text-[#1D366D] px-10 py-4 rounded-full font-black font-outfit uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-xl whitespace-nowrap">
+                        <a 
+                            href="mailto:joseph@kenyakeyspbo-kenya.org?subject=Sponsorship: Greatest Need"
+                            className="bg-[#FFB800] text-[#1D366D] px-10 py-4 rounded-full font-black font-outfit uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-xl whitespace-nowrap inline-block text-center"
+                        >
                             Sponsor Greatest Need
-                        </button>
+                        </a>
                     </div>
                 </section>
 
@@ -39,7 +42,7 @@ export default function StudentCatalogPage() {
                     description="From selecting a student to receiving reports and writing letters, discover the full journey of becoming a Kenya Keys sponsor."
                     buttonText="Sponsorship Overview"
                     buttonHref="/sponsorship-overview"
-                    bgImage="/image1.png"
+                    bgImage="/image8.png"
                 />
             </main>
             <Footer />

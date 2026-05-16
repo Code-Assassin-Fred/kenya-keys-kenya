@@ -4,7 +4,7 @@ import { cookies } from "next/headers";
 
 export async function PUT(
     request: Request,
-    { params }: { params: { id: string } }
+    { params }: { params: Promise<{ id: string }> }
 ) {
     const session = (await cookies()).get("admin_session");
     if (!session) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -21,7 +21,7 @@ export async function PUT(
 
 export async function DELETE(
     request: Request,
-    { params }: { params: { id: string } }
+    { params }: { params: Promise<{ id: string }> }
 ) {
     const session = (await cookies()).get("admin_session");
     if (!session) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });

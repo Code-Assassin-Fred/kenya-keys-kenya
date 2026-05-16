@@ -39,12 +39,12 @@ export default function Sponsorship() {
                                 ))}
                             </ul>
                         </div>
-                        <Link 
-                            href="/donate" 
+                        <a 
+                            href="mailto:joseph@kenyakeyspbo-kenya.org?subject=Sponsorship Inquiry" 
                             className="inline-block bg-[#00529B] text-white font-bold font-outfit px-10 py-4 rounded-md hover:bg-[#003d75] transition-all uppercase tracking-wider shadow-lg"
                         >
                             Sponsor a Student
-                        </Link>
+                        </a>
                     </motion.div>
 
                     <div className="relative">

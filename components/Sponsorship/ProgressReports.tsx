@@ -78,7 +78,7 @@ export default function ProgressReports() {
 
                                 <div className="flex gap-6 items-center mb-10">
                                     <div className="w-24 h-24 rounded-2xl overflow-hidden shadow-md">
-                                        <img src="/image1.png" alt="Student" className="object-cover w-full h-full" />
+                                        <img src="/image2.png" alt="Student" className="object-cover w-full h-full" />
                                     </div>
                                     <div>
                                         <h3 className="text-2xl font-black font-oswald uppercase tracking-tight text-[#333]">Amani J.</h3>

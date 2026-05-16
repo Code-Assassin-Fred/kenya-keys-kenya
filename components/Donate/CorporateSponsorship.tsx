@@ -27,7 +27,11 @@ const benefits = [
     }
 ];
 
+import SponsorshipModal from '@/components/shared/SponsorshipModal';
+
 export default function CorporateSponsorship() {
+    const [isModalOpen, setIsModalOpen] = React.useState(false);
+
     return (
         <section className="py-24 bg-white overflow-hidden">
             <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
@@ -101,18 +105,24 @@ export default function CorporateSponsorship() {
                         <p className="text-xl text-blue-100 font-outfit mb-10 font-light">
                             Our team can design a sponsorship package that fits your organization's goals and budget.
                         </p>
-                        <a 
-                            href="mailto:info@kenyakeys.org?subject=Corporate Partnership Inquiry"
-                            className="inline-block bg-[#FFB800] text-[#1D366D] px-12 py-5 rounded-full font-black font-outfit uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-xl"
+                        <button 
+                            onClick={() => setIsModalOpen(true)}
+                            className="inline-block bg-[#FFB800] text-[#1D366D] px-12 py-5 rounded-full font-black font-outfit uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-xl cursor-pointer"
                         >
                             Contact Partnerships Team
-                        </a>
+                        </button>
                     </div>
                     {/* Decorative Elements */}
                     <div className="absolute -top-12 -left-12 w-48 h-48 bg-white/5 rounded-full" />
                     <div className="absolute -bottom-12 -right-12 w-64 h-64 bg-white/5 rounded-full" />
                 </div>
             </div>
+
+            <SponsorshipModal 
+                isOpen={isModalOpen} 
+                onClose={() => setIsModalOpen(false)} 
+                subject="Corporate Partnership Inquiry"
+            />
         </section>
     );
 }

@@ -76,19 +76,16 @@ export default function AnniversaryBanner() {
                     >
                         {/* Icons and Circles Removed as requested */}
                         <h2 className="text-3xl md:text-[44px] font-bold font-playfair text-[#001D4A] leading-[1.15] mb-4">
-                            Celebrating 20 Years <br />
+                            More Than 20 Years <br />
                             of Life-Changing <br />
                             Impact in Kenya
                         </h2>
                         <p className="text-base md:text-lg font-outfit text-[#001D4A] opacity-90 mb-8 max-w-sm">
-                            Join us in celebrating our <strong>20th anniversary</strong> and the opening of our new 15,000 sq ft Community Education Center.
+                            Kenya Keys has been dedicated to empowering students and communities in rural Kenya for over two decades.
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-                            <button className="bg-[#001D4A] text-white px-8 py-3.5 rounded-full font-bold font-outfit text-sm md:text-base hover:bg-opacity-90 transition-all cursor-pointer whitespace-nowrap shadow-lg">
-                                Read our blog
-                            </button>
-                            <button className="border-2 border-[#001D4A] text-[#001D4A] px-8 py-3.5 rounded-full font-bold font-outfit text-sm md:text-base hover:bg-[#001D4A] hover:text-white transition-all cursor-pointer whitespace-nowrap">
+                            <button className="bg-[#001D4A] text-white px-10 py-3.5 rounded-full font-bold font-outfit text-sm md:text-base hover:bg-opacity-90 transition-all cursor-pointer whitespace-nowrap shadow-lg">
                                 Support our mission
                             </button>
                         </div>
@@ -109,8 +106,8 @@ export default function AnniversaryBanner() {
                             <Confetti color="#40e0d0" style={{ top: '85%', left: '40%' }} delay={0.9} />
                             
                             <Image 
-                                src="/image1.png"
-                                alt="Kiron Celebration"
+                                src="/WhatsApp Image 2026-04-19 at 20.33.27 (5).jpeg"
+                                alt="Kenya Keys 20 Year Impact"
                                 fill
                                 className="object-cover"
                                 priority

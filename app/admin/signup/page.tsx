@@ -79,7 +79,7 @@ export default function AdminSignupPage() {
                             <label className="text-[10px] font-black text-[#2B4C9B]/80 uppercase tracking-widest pl-2">Work Email</label>
                             <div className="relative">
                                 <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-300" />
-                                <input name="email" type="email" required className="w-full pl-12 pr-6 py-4 rounded-xl bg-gray-50 border border-gray-100 focus:bg-white focus:border-[#3B82F6] outline-none font-outfit text-[#2B4C9B] transition-all" placeholder="admin@kenyakeys.org" />
+                                <input name="email" type="email" required className="w-full pl-12 pr-6 py-4 rounded-xl bg-gray-50 border border-gray-100 focus:bg-white focus:border-[#3B82F6] outline-none font-outfit text-[#2B4C9B] transition-all" placeholder="admin@kenyakeyspbo-kenya.org" />
                             </div>
                         </div>
 

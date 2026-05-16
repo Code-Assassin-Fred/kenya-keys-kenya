@@ -170,3 +170,28 @@ export async function updatePackageAction(id: string, data: any) {
         return { error: error.message };
     }
 }
+
+export async function addPackageAction(data: any) {
+    try {
+        const docRef = await adminDb.collection('packages').add({
+            ...data,
+            createdAt: new Date().toISOString(),
+        });
+        revalidatePath('/admin/packages');
+        revalidatePath('/donate');
+        return { success: true, id: docRef.id };
+    } catch (error: any) {
+        return { error: error.message };
+    }
+}
+
+export async function deletePackageAction(id: string) {
+    try {
+        await adminDb.collection('packages').doc(id).delete();
+        revalidatePath('/admin/packages');
+        revalidatePath('/donate');
+        return { success: true };
+    } catch (error: any) {
+        return { error: error.message };
+    }
+}

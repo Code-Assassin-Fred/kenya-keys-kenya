@@ -6,7 +6,7 @@ import Image from 'next/image';
 const images = [
     { id: 1, src: '/hero.png', alt: 'Future Leaders' },
     { id: 2, src: '/student-portrait.png', alt: 'Education for All' },
-    { id: 3, src: '/image1.png', alt: 'Community Success' },
+    { id: 3, src: '/image7.png', alt: 'Community Success' },
     { id: 4, src: '/image2.png', alt: 'Learning Journey' },
     { id: 5, src: '/image3.png', alt: 'Global Impact' },
     { id: 6, src: '/image4.png', alt: 'New Opportunities' },

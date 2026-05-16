@@ -17,7 +17,7 @@ export default function SponsorshipOverviewPage() {
                     subtitle="Empower a high-achieving student in rural Kenya by removing the financial barriers to their education and future success."
                     bgColor="bg-[#1D366D]"
                     accentColor="#FFB800"
-                    bgImage="/image1.png"
+                    bgImage="/image9.png"
                     breadcrumb={[{ label: "Sponsorship", href: "/sponsorship-overview" }]}
                 />
                 <HowItWorks />

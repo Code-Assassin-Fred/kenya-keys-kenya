@@ -6,11 +6,17 @@ import { Search, Filter, BookOpen, GraduationCap, Heart } from 'lucide-react';
 
 import { getStudentsAction } from '@/lib/actions/admin-actions';
 
+import SponsorshipModal from '@/components/shared/SponsorshipModal';
+
 export default function StudentGrid() {
     const [students, setStudents] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
     const [filter, setFilter] = useState('All');
     const [searchQuery, setSearchQuery] = useState('');
+    
+    // Modal state
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedStudent, setSelectedStudent] = useState<any>(null);
 
     useEffect(() => {
         async function load() {
@@ -20,6 +26,11 @@ export default function StudentGrid() {
         }
         load();
     }, []);
+
+    const handleSponsorClick = (student: any) => {
+        setSelectedStudent(student);
+        setIsModalOpen(true);
+    };
 
     const filteredStudents = students.filter(student => {
         const matchesFilter = filter === 'All' || student.gender === filter;
@@ -107,7 +118,10 @@ export default function StudentGrid() {
                                         </p>
                                     </div>
 
-                                    <button className="mt-auto w-full py-3.5 rounded-full bg-[#1D366D] text-white font-black font-outfit text-[10px] uppercase tracking-widest hover:bg-[#001D4A] transition-all shadow-xl flex items-center justify-center gap-3 group/btn">
+                                    <button 
+                                        onClick={() => handleSponsorClick(student)}
+                                        className="mt-auto w-full py-3.5 rounded-full bg-[#1D366D] text-white font-black font-outfit text-[10px] uppercase tracking-widest hover:bg-[#001D4A] transition-all shadow-xl flex items-center justify-center gap-3 group/btn text-center cursor-pointer"
+                                    >
                                         <Heart className="w-3.5 h-3.5 group-hover/btn:fill-current transition-all" />
                                         Sponsor {student.name.split(' ')[0]}
                                     </button>
@@ -129,6 +143,12 @@ export default function StudentGrid() {
                     </div>
                 )}
             </div>
+
+            <SponsorshipModal 
+                isOpen={isModalOpen} 
+                onClose={() => setIsModalOpen(false)} 
+                studentName={selectedStudent?.name}
+            />
         </section>
     );
 }

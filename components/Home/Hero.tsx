@@ -3,6 +3,8 @@
 import React from 'react';
 import { motion } from "framer-motion";
 
+import SponsorshipModal from '@/components/shared/SponsorshipModal';
+
 const CountUp = ({ end, duration = 2000, suffix = "" }: { end: number; duration?: number; suffix?: string }) => {
     const [count, setCount] = React.useState(0);
     const [isInView, setIsInView] = React.useState(false);
@@ -38,6 +40,8 @@ const CountUp = ({ end, duration = 2000, suffix = "" }: { end: number; duration?
 };
 
 export default function Hero() {
+    const [isModalOpen, setIsModalOpen] = React.useState(false);
+
     // Variants for staggered children
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -137,9 +141,10 @@ export default function Hero() {
                             className="flex flex-col sm:flex-row gap-4 font-oswald"
                         >
                             <motion.button
+                                onClick={() => setIsModalOpen(true)}
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
-                                className="bg-[#00529B] text-white px-10 py-4 rounded-md font-bold text-lg uppercase tracking-wider hover:bg-[#003d75] transition-colors cursor-pointer"
+                                className="bg-[#00529B] text-white px-10 py-4 rounded-md font-bold text-lg uppercase tracking-wider hover:bg-[#003d75] transition-colors cursor-pointer text-center"
                             >
                                 Sponsor a Student
                             </motion.button>
@@ -154,6 +159,11 @@ export default function Hero() {
                     </motion.div>
                 </div>
             </div>
+
+            <SponsorshipModal 
+                isOpen={isModalOpen} 
+                onClose={() => setIsModalOpen(false)} 
+            />
         </section>
     );
-}
+}
