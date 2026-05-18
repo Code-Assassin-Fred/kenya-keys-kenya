@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Outfit, Playfair_Display, Oswald } from "next/font/google";
 import "./globals.css";
 import Chatbot from "@/components/Chatbot";
+import { headers } from "next/headers";
 
 const oswald = Oswald({
   variable: "--font-oswald",
@@ -33,18 +34,22 @@ export const metadata: Metadata = {
   description: "A grassroots NGO dedicated to sponsoring high-achieving students in rural Kenya, removing barriers to education and building local leadership.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const headersList = await headers();
+  const pathname = headersList.get("x-pathname") || "";
+  const isBlockedPage = pathname === "/blocked";
+
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${outfit.variable} ${playfair.variable} ${oswald.variable} font-outfit antialiased`}
       >
         {children}
-        <Chatbot />
+        {!isBlockedPage && <Chatbot />}
       </body>
     </html>
   );
