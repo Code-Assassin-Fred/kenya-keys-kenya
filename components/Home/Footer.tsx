@@ -10,6 +10,9 @@ export default function Footer() {
                     <div>
                         <h2 className="text-white text-3xl font-bold mb-6 font-playfair uppercase italic tracking-tighter">KenyaKeys</h2>
                         <p className="text-gray-300 leading-relaxed mb-6 font-outfit">
+                            Kenya Keys is a Reg-REFYOZ-pbo, we are a non-profit organization.
+                        </p>
+                        <p className="text-gray-300 leading-relaxed mb-6 font-outfit">
                             Unlocking potential through education. We empower students and communities in rural Kenya to build a brighter future for themselves.
                         </p>
                     </div>
@@ -43,10 +46,19 @@ export default function Footer() {
                         <div className="space-y-6 font-outfit">
                             <div>
                                 <h4 className="text-white font-semibold mb-2">KENYA OFFICE</h4>
-                                <p className="text-gray-300">Maji Ya Chumvi, Kwale County</p>
+                                <p className="text-gray-300">Taru, Kenya</p>
+                                <p className="text-gray-300">Along the Nairobi - Mombasa Highway</p>
+                                <p className="text-gray-300">P.O. Box 9-80120 Samburu(Msa)</p>
+                            </div>
+                            <div>
+                                <h4 className="text-white font-semibold mb-2">Contact</h4>
+                                <p className="text-gray-300">+2547 24873436</p>
                             </div>
                             <div>
                                 <a href="mailto:info@kenyakeyspbo-kenya.org" className="text-gray-300 hover:text-white transition-colors underline decoration-[#C5E672] decoration-2 underline-offset-4">info@kenyakeyspbo-kenya.org</a>
+                            </div>
+                            <div>
+                                <a href="mailto:info@kenyakeyspbo-kenya.org" className="text-gray-300 hover:text-white transition-colors underline decoration-[#C5E672] decoration-2 underline-offset-4">joseph@kenyakeyspbo-kenya.org</a>
                             </div>
                         </div>
                     </div>

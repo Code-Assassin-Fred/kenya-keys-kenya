@@ -32,6 +32,9 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "Kenya Keys | Unlocking Potential Through Education",
   description: "A grassroots NGO dedicated to sponsoring high-achieving students in rural Kenya, removing barriers to education and building local leadership.",
+  icons: {
+    icon: "/Kenya Keys Logo With Background.png",
+  },
 };
 
 export default async function RootLayout({
