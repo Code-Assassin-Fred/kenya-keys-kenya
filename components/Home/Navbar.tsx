@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Menu, X, ChevronDown, Search, Globe, Heart } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -108,8 +109,14 @@ export default function Navbar() {
             <div className="max-w-[1440px] mx-auto px-4 sm:px-6 h-24 flex items-center justify-between">
                 {/* Logo Section */}
                 <div className="flex items-center gap-2 flex-shrink-0 mr-8">
-                    <Link href="/" className="text-[#333] text-2xl font-black tracking-tight">
-                        Kenya Keys
+                    <Link href="/" className="relative flex items-center h-16 w-16">
+                        <Image
+                            src="/Kenya Keys Logo.png"
+                            alt="Kenya Keys Logo"
+                            fill
+                            className="object-contain"
+                            priority
+                        />
                     </Link>
                 </div>
 
