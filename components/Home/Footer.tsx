@@ -55,10 +55,10 @@ export default function Footer() {
                                 <p className="text-gray-300">+2547 24873436</p>
                             </div>
                             <div>
-                                <a href="mailto:info@kenyakeyspbo-kenya.org" className="text-gray-300 hover:text-white transition-colors underline decoration-[#C5E672] decoration-2 underline-offset-4">info@kenyakeyspbo-kenya.org</a>
+                                <a href="mailto:info@kenyakeyspbo-kenya.org" className="text-gray-300 hover:text-white transition-colors underline decoration-[#C5E672] decoration-2 underline-offset-4">info@kenyakeys-pbokenya.org</a>
                             </div>
                             <div>
-                                <a href="mailto:info@kenyakeyspbo-kenya.org" className="text-gray-300 hover:text-white transition-colors underline decoration-[#C5E672] decoration-2 underline-offset-4">joseph@kenyakeyspbo-kenya.org</a>
+                                <a href="mailto:info@kenyakeyspbo-kenya.org" className="text-gray-300 hover:text-white transition-colors underline decoration-[#C5E672] decoration-2 underline-offset-4">joseph@kenyakeys-pbokenya.org</a>
                             </div>
                         </div>
                     </div>
