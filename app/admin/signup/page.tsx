@@ -25,15 +25,21 @@ export default function AdminSignupPage() {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data),
             });
-            const result = await res.json();
+            
+            let result;
+            try {
+                result = await res.json();
+            } catch (jsonErr) {
+                throw new Error("Server returned an invalid response. Please check server logs.");
+            }
 
-            if (result.success) {
+            if (res.ok && result?.success) {
                 router.push('/admin');
             } else {
-                setError(result.error);
+                setError(result?.error || "Signup failed.");
             }
-        } catch (err) {
-            setError("Signup failed. Please try again.");
+        } catch (err: any) {
+            setError(err.message || "Signup failed. Please try again.");
         } finally {
             setIsLoading(false);
         }

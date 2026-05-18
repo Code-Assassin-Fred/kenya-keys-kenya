@@ -28,16 +28,22 @@ export default function AdminLoginPage() {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data),
             });
-            const result = await res.json();
+            
+            let result;
+            try {
+                result = await res.json();
+            } catch (jsonErr) {
+                throw new Error("Server returned an invalid response. Please check server logs.");
+            }
 
-            if (result.success) {
+            if (res.ok && result?.success) {
                 router.push('/admin');
             } else {
-                setError(result.error);
+                setError(result?.error || "Login failed.");
                 setIsLoading(false);
             }
-        } catch (err) {
-            setError("Connection failed. Please try again.");
+        } catch (err: any) {
+            setError(err.message || "Connection failed. Please try again.");
             setIsLoading(false);
         }
     }
@@ -56,12 +62,18 @@ export default function AdminLoginPage() {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ idToken }),
             });
-            const result = await res.json();
+            
+            let result;
+            try {
+                result = await res.json();
+            } catch (jsonErr) {
+                throw new Error("Server returned an invalid response. Please check server logs.");
+            }
 
-            if (result.success) {
+            if (res.ok && result?.success) {
                 router.push('/admin');
             } else {
-                setError(result.error);
+                setError(result?.error || "Google authentication failed.");
                 setIsGoogleLoading(false);
             }
         } catch (err: any) {
