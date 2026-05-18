@@ -4,7 +4,6 @@ import { useState, useEffect, useRef } from 'react';
 import { Menu, X, ChevronDown, Search, Globe, Heart } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import Image from 'next/image';
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -106,19 +105,15 @@ export default function Navbar() {
                 : 'relative bg-white py-0'
                 } left-0 right-0 z-50 transition-all duration-300 font-outfit border-b border-gray-100 uppercase`}
         >
-            <div className="max-w-[1440px] mx-auto px-4 sm:px-6 h-24 flex items-center justify-between">
+            <div className="max-w-[1440px] mx-auto px-4 sm:px-6 h-30 flex items-center justify-between">
                 {/* Logo Section */}
-                <div className="flex items-center gap-2 flex-shrink-0 mr-8">
-                    <Link href="/" className="relative flex items-center h-16 w-16">
-                        <Image
-                            src="/Kenya Keys Logo.png"
-                            alt="Kenya Keys Logo"
-                            fill
-                            className="object-contain"
-                            priority
-                        />
-                    </Link>
-                </div>
+                <Link href="/" className="flex items-center">
+                    <img
+                        src="/Kenya Keys Logo.png"
+                        alt="Kenya Keys Logo"
+                        className="h-45 w-auto object-contain"
+                    />
+                </Link>
 
                 {/* Desktop Navigation */}
                 <div className="hidden lg:flex flex-1 justify-end items-center space-x-1 h-full mr-6">
