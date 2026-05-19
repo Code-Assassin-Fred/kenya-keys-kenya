@@ -24,6 +24,14 @@ const valuesData = [
     {
         title: "Respect and compassion",
         description: "We approach our work with empathy and a profound respect for the dignity and potential of every individual, prioritizing the well-being and holistic development of our students."
+    },
+    {
+        title: "Creativity and innovation",
+        description: "A sense of developing new programs to enhance community socio-economic change, improve rural livelihoods and transform lives."
+    },
+    {
+        title: "Community focus",
+        description: "Encouraging dedication to giving back and supporting local communuties by naturing and expanding opportunities."
     }
 ];
 
