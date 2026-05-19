@@ -90,8 +90,8 @@ export async function middleware(request: NextRequest) {
     },
   });
 
-  // Protect all /admin routes except /admin/login
-  if (pathname.startsWith("/admin") && !pathname.startsWith("/admin/login")) {
+  // Protect all /admin routes except /admin/login and /admin/signup
+  if (pathname.startsWith("/admin") && !pathname.startsWith("/admin/login") && !pathname.startsWith("/admin/signup")) {
     const session = request.cookies.get("admin_session");
     if (!session) {
       response = NextResponse.redirect(new URL("/admin/login", request.url));
