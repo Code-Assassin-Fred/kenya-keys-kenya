@@ -20,7 +20,7 @@ export async function POST(req: Request) {
         }
 
         // Load knowledge base
-        const kbPath = path.join(process.cwd(), "knowldgebase.json");
+        const kbPath = path.join(process.cwd(), "knowledge-base.json");
         let knowledgeBase;
         try {
             const kbContent = await fs.readFile(kbPath, "utf-8");
@@ -32,7 +32,7 @@ export async function POST(req: Request) {
 
         const genAI = new GoogleGenerativeAI(apiKey);
         const model = genAI.getGenerativeModel({
-            model: "gemini-1.5-flash",
+            model: "gemini-2.5-flash",
             systemInstruction: `You are the Kenya Keys Virtual Assistant, a warm and helpful digital representative of Kenya Keys, a nonprofit educational organization. 
       
       Your Identity:
@@ -57,6 +57,12 @@ export async function POST(req: Request) {
             role: m.role === "user" ? "user" : "model",
             parts: [{ text: m.content }],
         }));
+
+        // Gemini API requires the history to start with a 'user' role.
+        // The frontend initializes with an 'assistant' greeting, so we remove it.
+        if (history.length > 0 && history[0].role === "model") {
+            history.shift();
+        }
 
         const chat = model.startChat({
             history: history,

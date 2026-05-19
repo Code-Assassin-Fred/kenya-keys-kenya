@@ -1,0 +1,49 @@
+{
+  "organization": {
+    "name": "Kenya Keys",
+    "mission": "Unlocking Potential Through Education. Kenya Keys is a grassroots organization dedicated to unlocking the potential of bright, motivated students in rural Kenya through education and holistic support.",
+    "educational_promise": "Providing direct access to quality education by removing financial barriers for every sponsored student.",
+    "academic_focus": "Fostering a culture of excellence and empowering students to become the next generation of Kenyan leaders.",
+    "contact": {
+      "address": "Taru, Kwale County, Kenya (Along Mombasa Highway)",
+      "emails": [
+        "info@kenyakeys-pbokenya.org",
+        "joseph@kenyakeys-pbokenya.org"
+      ]
+    }
+  },
+  "programs": [
+    {
+      "title": "Student Scholarship & Sponsorships",
+      "description": "Sponsoring secondary and post-secondary students with complete academic fees, tuition, and comprehensive mentorship."
+    },
+    {
+      "title": "Health & Hygiene Support",
+      "description": "Providing sanitary pads and comprehensive menstrual hygiene education to ensure girls never miss a day of school."
+    },
+    {
+      "title": "ICT Integration in Education",
+      "description": "Delivering e-learning programs, laptop provisions, and competency-based digital literacy training to rural schools."
+    },
+    {
+      "title": "Psycho-Student Mentorship",
+      "description": "Offering vital social counselling, professional career guidance, and foundational life skills programs."
+    },
+    {
+      "title": "Library & Literacy Support",
+      "description": "Facilitating high school book donations and resource curation for our Community Education Center library."
+    },
+    {
+      "title": "Schools Infrastructure",
+      "description": "Constructing classrooms, toilet blocks, student dormitories, and hand-crafting 3-seater desks."
+    },
+    {
+      "title": "Business Skills Training",
+      "description": "Empowering communities through business mentorship, entrepreneurship, and sustainable livelihood skills."
+    }
+  ],
+  "how_to_help": {
+    "donate": "You can donate to support various programs. The donations help remove financial barriers for students, construct infrastructure, and provide mentorship.",
+    "sponsor_a_student": "Sponsor a secondary or post-secondary student to provide complete academic fees, tuition, and comprehensive mentorship."
+  }
+}

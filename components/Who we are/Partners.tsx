@@ -14,6 +14,7 @@ const supportivePartners = [
     'Kitmir Limited',
     'Stanbic Bank',
     'Choice Humanitarian (Kenya)',
+    'Kenya Keys Team(USA)',
 ];
 
 export default function Partners() {
@@ -26,7 +27,7 @@ export default function Partners() {
                     </h2>
                     <div className="w-20 h-1 bg-red-600 mx-auto rounded-full"></div>
                     <p className="mt-8 text-gray-600 max-w-3xl mx-auto text-lg md:text-xl font-light leading-relaxed">
-                        We are proud to collaborate with dedicated organizations that share our commitment to 
+                        We are proud to collaborate with dedicated organizations that share our commitment to
                         empowering the youth of rural Kenya through education and opportunity.
                     </p>
                 </div>
@@ -34,7 +35,7 @@ export default function Partners() {
                 {/* Primary Partners Grid */}
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-20">
                     {partners.map((partner) => (
-                        <div 
+                        <div
                             key={partner.name}
                             className="group relative h-40 bg-gray-50 rounded-2xl p-6 flex items-center justify-center border border-gray-100 hover:border-red-100 hover:bg-white hover:shadow-xl hover:shadow-red-500/5 transition-all duration-500 overflow-hidden"
                         >
@@ -65,7 +66,7 @@ export default function Partners() {
                         </h3>
                         <p className="text-gray-500 text-sm uppercase tracking-widest">Valued contributors to our mission</p>
                     </div>
-                    
+
                     <div className="flex flex-wrap justify-center gap-x-12 gap-y-8 max-w-4xl mx-auto">
                         {supportivePartners.map((partner) => (
                             <div key={partner} className="relative group">
