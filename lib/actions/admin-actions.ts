@@ -195,3 +195,52 @@ export async function deletePackageAction(id: string) {
         return { error: error.message };
     }
 }
+
+export async function submitContactMessageAction(data: { name: string; email: string; phone: string; spaceInterest?: string; message: string }) {
+    try {
+        const docRef = await adminDb.collection('messages').add({
+            ...data,
+            createdAt: new Date().toISOString(),
+        });
+        revalidatePath('/admin/messages');
+        return { success: true, id: docRef.id };
+    } catch (error: any) {
+        console.error('Error submitting contact message:', error);
+        return { error: error.message || 'Failed to submit message' };
+    }
+}
+
+export async function getContactMessagesAction() {
+    try {
+        const snap = await adminDb.collection('messages').orderBy('createdAt', 'desc').get();
+        return snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    } catch (error) {
+        console.error('Error fetching contact messages:', error);
+        return [];
+    }
+}
+
+export async function submitInterestAction(data: { type: 'donation' | 'sponsorship'; targetName: string; email: string; phone: string; country?: string }) {
+    try {
+        const docRef = await adminDb.collection('interested_donors').add({
+            ...data,
+            createdAt: new Date().toISOString(),
+        });
+        revalidatePath('/admin/donors');
+        return { success: true, id: docRef.id };
+    } catch (error: any) {
+        console.error('Error submitting donor interest:', error);
+        return { error: error.message || 'Failed to submit interest' };
+    }
+}
+
+export async function getInterestedDonorsAction() {
+    try {
+        const snap = await adminDb.collection('interested_donors').orderBy('createdAt', 'desc').get();
+        return snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    } catch (error) {
+        console.error('Error fetching interested donors:', error);
+        return [];
+    }
+}
+

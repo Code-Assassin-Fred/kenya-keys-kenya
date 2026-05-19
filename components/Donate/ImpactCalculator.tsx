@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import SponsorshipModal from '@/components/shared/SponsorshipModal';
+import InterestModal from '@/components/shared/InterestModal';
 
 export default function ImpactCalculator() {
     const [amount, setAmount] = useState(65);
@@ -75,10 +75,11 @@ export default function ImpactCalculator() {
                 </div>
             </div>
 
-            <SponsorshipModal 
+            <InterestModal 
                 isOpen={isModalOpen} 
                 onClose={() => setIsModalOpen(false)} 
-                amount={amount}
+                type="donation"
+                targetName={`Custom Amount: $${amount}`}
             />
         </section>
     );

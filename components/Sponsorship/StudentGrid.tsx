@@ -6,7 +6,7 @@ import { Search, Filter, BookOpen, GraduationCap, Heart } from 'lucide-react';
 
 import { getStudentsAction } from '@/lib/actions/admin-actions';
 
-import SponsorshipModal from '@/components/shared/SponsorshipModal';
+import InterestModal from '@/components/shared/InterestModal';
 
 export default function StudentGrid() {
     const [students, setStudents] = useState<any[]>([]);
@@ -144,10 +144,11 @@ export default function StudentGrid() {
                 )}
             </div>
 
-            <SponsorshipModal 
+            <InterestModal 
                 isOpen={isModalOpen} 
                 onClose={() => setIsModalOpen(false)} 
-                studentName={selectedStudent?.name}
+                type="sponsorship"
+                targetName={selectedStudent?.name || ''}
             />
         </section>
     );

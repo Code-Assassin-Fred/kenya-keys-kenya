@@ -5,10 +5,15 @@ import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 
 import { getPackagesAction } from '@/lib/actions/admin-actions';
+import InterestModal from '@/components/shared/InterestModal';
 
 export default function DonationTiers() {
     const [tiers, setTiers] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
+    
+    // Modal state
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedTierTitle, setSelectedTierTitle] = useState('');
 
     useEffect(() => {
         async function load() {
@@ -61,6 +66,11 @@ export default function DonationTiers() {
         }
         load();
     }, []);
+
+    const handleChooseTier = (title: string) => {
+        setSelectedTierTitle(title);
+        setIsModalOpen(true);
+    };
 
     if (loading) {
         return (
@@ -121,10 +131,13 @@ export default function DonationTiers() {
                             </ul>
 
                             <div className="mt-auto pt-4 border-t border-gray-100 flex flex-col gap-4">
-                                <button className={`w-full py-4 rounded-[4px] font-black font-outfit text-sm uppercase tracking-widest transition-all ${tier.popular
+                                <button 
+                                    onClick={() => handleChooseTier(tier.title)}
+                                    className={`w-full py-4 rounded-[4px] font-black font-outfit text-sm uppercase tracking-widest transition-all ${tier.popular
                                         ? 'bg-[#00529B] text-white hover:bg-[#003d75] shadow-lg'
                                         : 'border-2 border-[#1D366D] text-[#1D366D] hover:bg-[#1D366D] hover:text-white'
-                                    }`}>
+                                    }`}
+                                >
                                     Choose {tier.title}
                                 </button>
                             </div>
@@ -132,6 +145,13 @@ export default function DonationTiers() {
                     ))}
                 </div>
             </div>
+
+            <InterestModal 
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                type="donation"
+                targetName={selectedTierTitle}
+            />
         </section>
     );
 }

@@ -1,9 +1,58 @@
 "use client"
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { submitContactMessageAction } from '@/lib/actions/admin-actions';
 
 export default function Contact() {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [spaceInterest, setSpaceInterest] = useState('');
+    const [message, setMessage] = useState('');
+    
+    const [loading, setLoading] = useState(false);
+    const [success, setSuccess] = useState(false);
+    const [error, setError] = useState('');
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!name || !email || !message) {
+            setError('Name, Email, and Message are required.');
+            return;
+        }
+
+        setLoading(true);
+        setError('');
+        setSuccess(false);
+
+        try {
+            const res = await submitContactMessageAction({
+                name,
+                email,
+                phone,
+                spaceInterest,
+                message
+            });
+
+            if (res.success) {
+                setSuccess(true);
+                setName('');
+                setEmail('');
+                setPhone('');
+                setSpaceInterest('');
+                setMessage('');
+            } else {
+                setError(res.error || 'Failed to submit contact message.');
+            }
+        } catch (err: any) {
+            setError(err.message || 'An unexpected error occurred.');
+        } finally {
+            setLoading(false);
+        }
+    };
+
     return (
         <section id="contact" className="relative bg-white pt-16 pb-0 px-6 md:px-12 lg:px-20 overflow-hidden">
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-12 lg:gap-24 items-stretch">
@@ -13,11 +62,14 @@ export default function Contact() {
                     <h2 className="text-4xl md:text-5xl font-bold font-playfair text-[#1D366D] mb-6 uppercase tracking-tighter">
                         Get in touch.
                     </h2>
-                    <form className="space-y-6">
+                    <form onSubmit={handleSubmit} className="space-y-6">
                         <div className="space-y-1.5">
                             <label className="text-sm font-semibold text-gray-600 font-outfit">Name</label>
                             <input
                                 type="text"
+                                required
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
                                 className="w-full py-2.5 bg-transparent border-b border-gray-200 focus:border-[#1D366D] outline-none transition-all font-outfit text-gray-800"
                             />
                         </div>
@@ -25,6 +77,9 @@ export default function Contact() {
                             <label className="text-sm font-semibold text-gray-600 font-outfit">Email</label>
                             <input
                                 type="email"
+                                required
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                                 className="w-full py-2.5 bg-transparent border-b border-gray-200 focus:border-[#1D366D] outline-none transition-all font-outfit text-gray-800"
                             />
                         </div>
@@ -32,6 +87,8 @@ export default function Contact() {
                             <label className="text-sm font-semibold text-gray-600 font-outfit">Phone</label>
                             <input
                                 type="tel"
+                                value={phone}
+                                onChange={(e) => setPhone(e.target.value)}
                                 className="w-full py-2.5 bg-transparent border-b border-gray-200 focus:border-[#1D366D] outline-none transition-all font-outfit text-gray-800"
                             />
                         </div>
@@ -39,6 +96,8 @@ export default function Contact() {
                             <label className="text-sm font-semibold text-gray-600 font-outfit">In what type of space are you interested?</label>
                             <input
                                 type="text"
+                                value={spaceInterest}
+                                onChange={(e) => setSpaceInterest(e.target.value)}
                                 className="w-full py-2.5 bg-transparent border-b border-gray-200 focus:border-[#1D366D] outline-none transition-all font-outfit text-gray-800"
                             />
                         </div>
@@ -46,16 +105,33 @@ export default function Contact() {
                             <label className="text-sm font-semibold text-gray-600 font-outfit">Message</label>
                             <textarea
                                 rows={4}
+                                required
+                                value={message}
+                                onChange={(e) => setMessage(e.target.value)}
                                 className="w-full py-2.5 bg-transparent border border-gray-200 rounded-sm focus:border-[#1D366D] outline-none transition-all font-outfit text-gray-800 p-2"
                             />
                         </div>
 
-                        <button
-                            type="button"
-                            className="w-full bg-[#1D366D] text-white py-4 rounded-3xl font-bold font-outfit text-lg hover:shadow-lg hover:bg-[#001D4A] transition-all"
-                        >
-                            Submit
-                        </button>
+                        <div className="space-y-4">
+                            <button
+                                type="submit"
+                                disabled={loading}
+                                className="w-full bg-[#1D366D] text-white py-4 rounded-3xl font-bold font-outfit text-lg hover:shadow-lg hover:bg-[#001D4A] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                            >
+                                {loading ? 'Submitting...' : 'Submit'}
+                            </button>
+
+                            {error && (
+                                <div className="text-center text-red-600 font-bold text-sm font-outfit">
+                                    {error}
+                                </div>
+                            )}
+                            {success && (
+                                <div className="text-center text-green-600 font-bold text-sm font-outfit">
+                                    Thank you for contacting us! Your message has been sent successfully.
+                                </div>
+                            )}
+                        </div>
                     </form>
                 </div>
 
