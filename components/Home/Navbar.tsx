@@ -25,12 +25,6 @@ export default function Navbar() {
         {
             label: 'Programs',
             href: '/programs',
-            children: [
-                { label: 'Programs Overview', href: '/programs' },
-                { label: 'Student Support Services', href: '/programs#support' },
-                { label: 'Community Learning', href: '/programs#cec' },
-                { label: 'Learning Center / Library', href: '/programs#cec' },
-            ],
         },
         {
             label: 'Get Involved',
@@ -45,7 +39,7 @@ export default function Navbar() {
             label: 'Impact',
             href: '/impact',
             children: [
-                { label: 'Success Stories', href: '/impact#stories' },
+                // { label: 'Success Stories', href: '/impact#stories' },
                 { label: 'Metrics & Data', href: '/impact#stats' },
                 { label: 'Reports', href: '/impact#reports' },
             ],
@@ -83,6 +77,45 @@ export default function Navbar() {
 
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    useEffect(() => {
+        const handleHashScroll = () => {
+            if (typeof window !== 'undefined') {
+                const hash = window.location.hash;
+                if (hash) {
+                    const targetId = hash.replace('#', '');
+                    const element = document.getElementById(targetId);
+                    if (element) {
+                        setTimeout(() => {
+                            const offset = 120; // sticky navbar height
+                            const bodyRect = document.body.getBoundingClientRect().top;
+                            const elementRect = element.getBoundingClientRect().top;
+                            const elementPosition = elementRect - bodyRect;
+                            const offsetPosition = elementPosition - offset;
+
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: 'smooth'
+                            });
+                        }, 100);
+                    }
+                }
+            }
+        };
+
+        if (document.readyState === 'complete') {
+            handleHashScroll();
+        } else {
+            window.addEventListener('load', handleHashScroll);
+        }
+
+        window.addEventListener('hashchange', handleHashScroll);
+
+        return () => {
+            window.removeEventListener('load', handleHashScroll);
+            window.removeEventListener('hashchange', handleHashScroll);
+        };
     }, []);
 
     const toggleDropdown = (label: string) => {

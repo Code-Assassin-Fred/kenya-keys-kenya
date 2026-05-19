@@ -13,7 +13,6 @@ export const reportsData: YearGroup[] = [
     {
         year: 2026,
         reports: [
-            { title: 'First Quarter Report', filename: 'KENYA KEYS FIRST QUATER REPORT-MAIN.pdf' },
             { title: 'Narrative Report - February', filename: 'KENYA KEYS NARRATIVE REPORT FOR FEBRUARY 2026.pdf' },
             { title: 'Narrative Report - January', filename: 'KENYA KEYS NARRATIVE REPORT FOR JANUARY 2026.pdf' },
             { title: 'Finance Management Report - March', filename: 'Finance Management Report March 2026.xlsx' },
