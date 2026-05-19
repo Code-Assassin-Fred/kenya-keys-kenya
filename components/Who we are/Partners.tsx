@@ -15,6 +15,7 @@ const supportivePartners = [
     'Stanbic Bank',
     'Choice Humanitarian (Kenya)',
     'Kenya Keys Team(USA)',
+    'Kenya Keys Alumni Association',
 ];
 
 export default function Partners() {

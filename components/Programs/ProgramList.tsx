@@ -181,7 +181,7 @@ export default function ProgramList() {
                         Our Focus Areas
                     </span>
                     <h2 className="text-3xl md:text-5xl font-black text-[#333] font-oswald uppercase tracking-tight leading-none">
-                        Core <span className="text-[#00529B]">Programs</span>
+                        Our <span className="text-[#00529B]">Programs</span>
                     </h2>
                 </div>
 

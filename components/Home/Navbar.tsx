@@ -23,8 +23,12 @@ export default function Navbar() {
             ],
         },
         {
-            label: 'Programs',
-            href: '/programs',
+            label: 'What We Do',
+            href: '#',
+            children: [
+                { label: 'Programs', href: '/programs' },
+                { label: 'Core Values', href: '/programs#core-values' },
+            ]
         },
         {
             label: 'Get Involved',

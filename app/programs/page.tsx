@@ -4,6 +4,7 @@ import Navbar from "@/components/Home/Navbar";
 import Footer from "@/components/Home/Footer";
 import Hero from "@/components/Programs/Hero";
 import ProgramList from "@/components/Programs/ProgramList";
+import CoreValues from "@/components/Programs/CoreValues";
 import Contact from "@/components/Home/Contact";
 
 export default function ProgramsPage() {
@@ -13,6 +14,7 @@ export default function ProgramsPage() {
             <main>
                 <Hero />
                 <ProgramList />
+                <CoreValues />
                 <Contact />
             </main>
             <Footer />
