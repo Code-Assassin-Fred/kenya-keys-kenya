@@ -18,8 +18,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     const pathname = usePathname();
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
-    // Don't show sidebar on login page
-    if (pathname === '/admin/login') {
+    // Don't show sidebar on login or signup pages
+    if (pathname === '/admin/login' || pathname === '/admin/signup') {
         return <>{children}</>;
     }
 
@@ -104,9 +104,6 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                             <div className="text-right">
                                 <p className="text-sm font-semibold text-[#101828] font-outfit leading-none">Admin User</p>
                                 <p className="text-[10px] font-medium text-[#667085] mt-1">Super Admin</p>
-                            </div>
-                            <div className="w-8 h-8 rounded-full bg-[#F2F4F7] flex items-center justify-center text-[#101828] font-bold font-outfit text-xs border border-[#EAECF0]">
-                                AD
                             </div>
                         </div>
                     </div>
