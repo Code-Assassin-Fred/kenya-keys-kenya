@@ -1,9 +1,10 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
+import { usePathname, useRouter } from 'next/navigation';
+import { motion } from 'framer-motion';
+import { Loader2 } from 'lucide-react';
 
 const navItems = [
     { name: 'Overview', href: '/admin' },
@@ -16,11 +17,81 @@ const navItems = [
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
     const pathname = usePathname();
+    const router = useRouter();
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+    const [isValidating, setIsValidating] = useState(true);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [adminUser, setAdminUser] = useState<{ displayName: string; role: string } | null>(null);
+    const [isLoggingOut, setIsLoggingOut] = useState(false);
+
+    const isAuthPage = pathname === '/admin/login' || pathname === '/admin/signup';
+
+    // Validate session on mount and route changes (skip for auth pages)
+    useEffect(() => {
+        if (isAuthPage) {
+            setIsValidating(false);
+            return;
+        }
+
+        let isMounted = true;
+
+        async function validateSession() {
+            setIsValidating(true);
+            try {
+                const res = await fetch('/api/auth/validate-session');
+                const data = await res.json();
+
+                if (!isMounted) return;
+
+                if (data.authenticated) {
+                    setIsAuthenticated(true);
+                    setAdminUser(data.user);
+                } else {
+                    // Session invalid — redirect to login
+                    setIsAuthenticated(false);
+                    router.replace('/admin/login');
+                }
+            } catch {
+                if (isMounted) {
+                    setIsAuthenticated(false);
+                    router.replace('/admin/login');
+                }
+            } finally {
+                if (isMounted) {
+                    setIsValidating(false);
+                }
+            }
+        }
+
+        validateSession();
+
+        return () => { isMounted = false; };
+    }, [pathname, router, isAuthPage]);
+
+    async function handleLogout() {
+        setIsLoggingOut(true);
+        try {
+            await fetch('/api/auth/logout', { method: 'POST' });
+        } catch {}
+        try { localStorage.removeItem('kk_last_login_method'); } catch {}
+        router.replace('/admin/login');
+    }
 
     // Don't show sidebar on login or signup pages
-    if (pathname === '/admin/login' || pathname === '/admin/signup') {
+    if (isAuthPage) {
         return <>{children}</>;
+    }
+
+    // Show loading screen while validating session
+    if (isValidating || !isAuthenticated) {
+        return (
+            <div className="min-h-screen bg-white flex items-center justify-center">
+                <div className="text-center">
+                    <Loader2 className="w-8 h-8 animate-spin text-[#3B82F6] mx-auto" />
+                    <p className="text-sm text-[#667085] font-outfit font-medium mt-4">Verifying session...</p>
+                </div>
+            </div>
+        );
     }
 
     return (
@@ -74,9 +145,15 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
                 {/* Bottom Actions */}
                 <div className="p-4 border-t border-[#1d2939]">
-                    <button className="w-full flex items-center gap-4 px-4 py-3 rounded-lg text-red-400 hover:bg-red-500/10 transition-all group">
+                    <button 
+                        onClick={handleLogout}
+                        disabled={isLoggingOut}
+                        className="w-full flex items-center gap-4 px-4 py-3 rounded-lg text-red-400 hover:bg-red-500/10 transition-all group disabled:opacity-50"
+                    >
                         {isSidebarOpen && (
-                            <span className="font-outfit font-medium text-sm">Logout</span>
+                            <span className="font-outfit font-medium text-sm">
+                                {isLoggingOut ? 'Logging out...' : 'Logout'}
+                            </span>
                         )}
                     </button>
                 </div>
@@ -102,8 +179,12 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                     <div className="flex items-center gap-6">
                         <div className="flex items-center gap-3">
                             <div className="text-right">
-                                <p className="text-sm font-semibold text-[#101828] font-outfit leading-none">Admin User</p>
-                                <p className="text-[10px] font-medium text-[#667085] mt-1">Super Admin</p>
+                                <p className="text-sm font-semibold text-[#101828] font-outfit leading-none">
+                                    {adminUser?.displayName || 'Admin User'}
+                                </p>
+                                <p className="text-[10px] font-medium text-[#667085] mt-1 capitalize">
+                                    {adminUser?.role === 'admin' ? 'Super Admin' : adminUser?.role || 'Admin'}
+                                </p>
                             </div>
                         </div>
                     </div>

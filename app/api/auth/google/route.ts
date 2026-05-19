@@ -18,17 +18,31 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: "Email not found in token" }, { status: 400 });
         }
 
+        // Google accounts have inherently verified emails — no extra verification needed
+        // But we still check explicitly for safety
+        if (!decodedToken.email_verified) {
+            return NextResponse.json({ error: "Email not verified" }, { status: 403 });
+        }
+
         // Check if user exists in Firestore
         let userSnap = await adminDb.collection("users").doc(decodedToken.uid).get();
         
         if (!userSnap.exists) {
-            // Auto-register first Google logins as admins for this demo, 
-            // or we could restrict to certain domains.
+            // Auto-register Google users as admins with verified status
             await adminDb.collection("users").doc(decodedToken.uid).set({
                 email,
                 displayName: decodedToken.name || "Google User",
                 role: "admin",
+                emailVerified: true,
+                loginMethod: "google",
                 createdAt: new Date().toISOString(),
+                lastLoginAt: new Date().toISOString(),
+            });
+        } else {
+            // Update login method and last login time
+            await adminDb.collection("users").doc(decodedToken.uid).update({
+                loginMethod: "google",
+                lastLoginAt: new Date().toISOString(),
             });
         }
 
@@ -41,7 +55,7 @@ export async function POST(request: Request) {
             path: "/",
         });
 
-        return NextResponse.json({ success: true });
+        return NextResponse.json({ success: true, loginMethod: "google" });
     } catch (error: any) {
         console.error("Google auth error:", error);
         return NextResponse.json({ error: "Google authentication failed" }, { status: 500 });

@@ -1,41 +1,41 @@
 import { adminAuth, adminDb } from "@/lib/firebase-admin";
 import { NextResponse } from "next/server";
-import { cookies } from "next/headers";
 
 export async function POST(request: Request) {
     try {
-        const { email, password, displayName } = await request.json();
+        const { idToken, displayName } = await request.json();
 
-        if (!email || !password) {
-            return NextResponse.json({ error: "Email and password are required" }, { status: 400 });
+        if (!idToken) {
+            return NextResponse.json({ error: "Authentication ID Token is required" }, { status: 400 });
         }
 
-        const userRecord = await adminAuth.createUser({
-            email,
-            password,
-            displayName,
-        });
+        // Verify the ID token from Firebase Client SDK
+        const decodedToken = await adminAuth.verifyIdToken(idToken);
+        const email = decodedToken.email;
+        const uid = decodedToken.uid;
+
+        if (!email) {
+            return NextResponse.json({ error: "Email not found in token" }, { status: 400 });
+        }
 
         // Store role as 'admin' in Firestore
-        await adminDb.collection("users").doc(userRecord.uid).set({
+        await adminDb.collection("users").doc(uid).set({
             email,
-            displayName,
+            displayName: displayName || decodedToken.name || "Admin User",
             role: "admin",
+            emailVerified: false,
+            loginMethod: "email",
             createdAt: new Date().toISOString(),
         });
 
-        // Set session cookie
-        (await cookies()).set("admin_session", email, {
-            httpOnly: true,
-            secure: process.env.NODE_ENV === "production",
-            sameSite: "lax",
-            maxAge: 60 * 60 * 24, // 1 day
-            path: "/",
+        return NextResponse.json({ 
+            success: true, 
+            uid,
+            requiresVerification: true,
+            message: "Account created. Please check your email for a verification link.",
         });
-
-        return NextResponse.json({ success: true, uid: userRecord.uid });
     } catch (error: any) {
-        console.error("Signup error:", error);
-        return NextResponse.json({ error: error.message }, { status: 500 });
+        console.error("Signup API error:", error);
+        return NextResponse.json({ error: error.message || "Signup verification failed" }, { status: 500 });
     }
 }
