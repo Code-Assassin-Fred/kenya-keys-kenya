@@ -81,7 +81,7 @@ export default function DonationTiers() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
                     {tiers.map((tier: any, idx: number) => (
                         <motion.div
                             key={idx}

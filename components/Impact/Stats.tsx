@@ -62,7 +62,7 @@ export default function Stats() {
                     ))}
                 </div>
 
-                <div className="mt-24 p-12 bg-[#00529B] rounded-3xl text-white relative overflow-hidden">
+                <div className="mt-24 p-6 sm:p-12 bg-[#00529B] rounded-3xl text-white relative overflow-hidden">
                     <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
                         <div className="max-w-xl">
                             <h3 className="text-3xl font-black font-oswald uppercase mb-4 tracking-tight">The Ripple Effect</h3>

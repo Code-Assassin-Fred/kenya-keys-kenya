@@ -109,7 +109,7 @@ export default function CorePrograms() {
                             initial={{ opacity: 0, scale: 0.8 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 1, ease: "easeOut" }}
-                            className="absolute w-[300px] h-[300px] md:w-[450px] md:h-[450px] rounded-full z-0 overflow-hidden flex flex-col"
+                            className="absolute w-[260px] h-[260px] sm:w-[300px] sm:h-[300px] md:w-[450px] md:h-[450px] rounded-full z-0 overflow-hidden flex flex-col"
                         >
                             {[...Array(22)].map((_, i) => (
                                 <motion.div
@@ -129,7 +129,7 @@ export default function CorePrograms() {
                                 />
                             ))}
                         </motion.div>
-
+ 
                         {/* Student Image */}
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
@@ -137,7 +137,7 @@ export default function CorePrograms() {
                             transition={{ duration: 0.8, delay: 0.3 }}
                             className="relative z-10"
                         >
-                            <div className="relative w-[280px] h-[280px] md:w-[400px] md:h-[400px] rounded-full overflow-hidden border-4 border-white shadow-2xl">
+                            <div className="relative w-[240px] h-[240px] sm:w-[280px] sm:h-[280px] md:w-[400px] md:h-[400px] rounded-full overflow-hidden border-4 border-white shadow-2xl">
                                 <Image
                                     src="/new illuminate.png"
                                     alt="Vision for Kenya"

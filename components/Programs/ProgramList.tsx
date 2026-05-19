@@ -186,7 +186,7 @@ export default function ProgramList() {
                 </div>
 
                 {/* Row 1 — 4 columns */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-0 mb-2">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-6 lg:gap-y-0 mb-2">
                     {row1.map((prog) => (
                         <ProgramItem
                             key={prog.id}
@@ -196,9 +196,9 @@ export default function ProgramList() {
                         />
                     ))}
                 </div>
-
+ 
                 {/* Row 2 — 3 columns centered */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-0">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-6 lg:gap-y-0">
                     {row2.map((prog) => (
                         <ProgramItem
                             key={prog.id}

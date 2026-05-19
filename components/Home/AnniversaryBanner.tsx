@@ -93,8 +93,8 @@ export default function AnniversaryBanner() {
                 </div>
 
                 {/* Right Side Image with Protrusion */}
-                <div className="relative w-full md:w-[45%] mt-8 md:mt-0">
-                    <div className="absolute top-[-30px] bottom-[-30px] left-0 right-0 bg-black p-2 overflow-hidden z-20">
+                <div className="relative w-full md:w-[45%] h-[280px] md:h-auto mt-8 md:mt-0">
+                    <div className="relative h-full md:absolute md:top-[-30px] md:bottom-[-30px] md:left-0 md:right-0 bg-black p-2 overflow-hidden z-20">
                         <div className="relative w-full h-full overflow-hidden">
                             {/* Floating Confetti over Image */}
                             <Confetti color="#40e0d0" style={{ top: '20%', left: '10%' }} delay={0.2} />

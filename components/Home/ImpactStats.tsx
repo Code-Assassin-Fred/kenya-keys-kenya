@@ -48,7 +48,7 @@ export default function ImpactStats() {
     return (
         <section className="relative w-full min-h-[500px] flex items-center overflow-hidden bg-[#1D366D]">
             {/* SVG Background Shapes */}
-            <div className="absolute inset-0 pointer-events-none">
+            <div className="hidden md:block absolute inset-0 pointer-events-none">
                 <svg className="w-full h-full" viewBox="0 0 1440 600" preserveAspectRatio="none">
                     {/* Left Darker Blue Curve */}
                     <path

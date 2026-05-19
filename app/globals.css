@@ -43,3 +43,16 @@ body {
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #98A2B3;
 }
+
+@utility clip-hero-curve {
+  @media (min-width: 768px) {
+    clip-path: url(#heroCurve);
+  }
+}
+
+@utility clip-blue-curve {
+  @media (min-width: 768px) {
+    clip-path: url(#blueCurve);
+  }
+}
+

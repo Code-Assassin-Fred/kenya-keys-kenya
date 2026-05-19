@@ -94,18 +94,18 @@ export default function PhotoGallery() {
                         onClick={closeLightbox}
                     >
                         <button 
-                            className="absolute top-8 right-8 text-white/50 hover:text-white transition-colors p-2"
+                            className="absolute top-4 right-4 md:top-8 md:right-8 text-white/50 hover:text-white transition-colors p-1 md:p-2"
                             onClick={closeLightbox}
                         >
-                            <X className="w-10 h-10" />
+                            <X className="w-8 h-8 md:w-10 md:h-10" />
                         </button>
 
                         <div className="relative w-full max-w-5xl max-h-full flex items-center justify-center">
                             <button 
-                                className="absolute left-0 md:-left-20 text-white/50 hover:text-white transition-colors p-4"
+                                className="absolute left-0 md:-left-20 text-white/50 hover:text-white transition-colors p-2 md:p-4"
                                 onClick={prevImage}
                             >
-                                <ChevronLeft className="w-12 h-12" />
+                                <ChevronLeft className="w-8 h-8 md:w-12 md:h-12" />
                             </button>
 
                             <motion.img 
@@ -120,10 +120,10 @@ export default function PhotoGallery() {
                             />
 
                             <button 
-                                className="absolute right-0 md:-right-20 text-white/50 hover:text-white transition-colors p-4"
+                                className="absolute right-0 md:-right-20 text-white/50 hover:text-white transition-colors p-2 md:p-4"
                                 onClick={nextImage}
                             >
-                                <ChevronRight className="w-12 h-12" />
+                                <ChevronRight className="w-8 h-8 md:w-12 md:h-12" />
                             </button>
                         </div>
 

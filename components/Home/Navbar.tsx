@@ -101,13 +101,13 @@ export default function Navbar() {
                 : 'relative bg-white py-0'
                 } left-0 right-0 z-50 transition-all duration-300 font-outfit border-b border-gray-100 uppercase`}
         >
-            <div className="max-w-[1440px] mx-auto px-4 sm:px-6 h-30 flex items-center justify-between">
+            <div className="max-w-[1440px] mx-auto px-4 sm:px-6 h-20 lg:h-30 flex items-center justify-between">
                 {/* Logo Section */}
                 <Link href="/" className="flex items-center">
                     <img
                         src="/Kenya Keys Logo.png"
                         alt="Kenya Keys Logo"
-                        className="h-45 w-auto object-contain"
+                        className="h-24 lg:h-45 w-auto object-contain"
                     />
                 </Link>
 

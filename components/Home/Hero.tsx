@@ -94,10 +94,7 @@ export default function Hero() {
                 <div className="relative w-full md:w-[55%] h-[400px] md:h-full">
                     {/* Light Blue Background Shape */}
                     <div
-                        className="absolute inset-0 bg-[#F0F7FF] z-0"
-                        style={{
-                            clipPath: "url(#blueCurve)",
-                        }}
+                        className="absolute inset-0 bg-[#F0F7FF] z-0 clip-blue-curve"
                     />
 
                     {/* Hero Image */}
@@ -105,10 +102,9 @@ export default function Hero() {
                         initial={{ scale: 1.1, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
                         transition={{ duration: 1.5, ease: "easeOut" }}
-                        className="absolute inset-0 bg-cover bg-center bg-no-repeat z-10"
+                        className="absolute inset-0 bg-cover bg-center bg-no-repeat z-10 clip-hero-curve"
                         style={{
                             backgroundImage: "url('/hero.png')",
-                            clipPath: "url(#heroCurve)",
                         }}
                     >
 

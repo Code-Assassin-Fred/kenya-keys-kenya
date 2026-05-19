@@ -53,7 +53,7 @@ export default function TrustSignals() {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: idx * 0.1 }}
-                            className="bg-white p-10 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl transition-all group"
+                            className="bg-white p-6 sm:p-10 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl transition-all group"
                         >
                             <div className="w-16 h-16 bg-blue-50 text-[#00529B] rounded-2xl flex items-center justify-center mb-8 group-hover:bg-[#00529B] group-hover:text-white transition-colors duration-300">
                                 {signal.icon}
