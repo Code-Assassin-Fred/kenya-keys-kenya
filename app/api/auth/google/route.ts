@@ -24,19 +24,49 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: "Email not verified" }, { status: 403 });
         }
 
+        const cleanEmail = email.toLowerCase().trim();
+
         // Check if user exists in Firestore
         let userSnap = await adminDb.collection("users").doc(decodedToken.uid).get();
         
         if (!userSnap.exists) {
-            // Auto-register Google users as admins with verified status
+            // Verify if email is invited
+            const inviteRef = adminDb.collection("invited_admins").doc(cleanEmail);
+            const inviteSnap = await inviteRef.get();
+
+            if (!inviteSnap.exists) {
+                // Delete user from Firebase Auth to keep user base clean
+                try {
+                    await adminAuth.deleteUser(decodedToken.uid);
+                } catch (deleteErr) {
+                    console.error("Failed to delete uninvited Google user:", deleteErr);
+                }
+                return NextResponse.json({ 
+                    error: "This email is not invited to register as an administrator. Please contact the director." 
+                }, { status: 403 });
+            }
+
+            const inviteData = inviteSnap.data();
+            const role = inviteData?.role || "sub-admin";
+            const permissions = inviteData?.permissions || [];
+
+            // Register Google user as admin/sub-admin with verified status
             await adminDb.collection("users").doc(decodedToken.uid).set({
-                email,
+                email: cleanEmail,
                 displayName: decodedToken.name || "Google User",
-                role: "admin",
+                role,
+                permissions,
                 emailVerified: true,
                 loginMethod: "google",
                 createdAt: new Date().toISOString(),
                 lastLoginAt: new Date().toISOString(),
+            });
+
+            // Update invitation status to registered
+            await inviteRef.update({
+                status: 'registered',
+                uid: decodedToken.uid,
+                registeredAt: new Date().toISOString(),
             });
         } else {
             // Update login method and last login time

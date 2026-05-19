@@ -44,12 +44,25 @@ export async function GET(request: Request) {
             return NextResponse.json({ authenticated: false, reason: "Unauthorized role" }, { status: 403 });
         }
 
+        // Default all permissions for master admins if not explicitly set
+        let permissions = userData?.permissions || [];
+        if (userData?.role === 'admin' && permissions.length === 0) {
+            permissions = [
+                '/admin/students',
+                '/admin/packages',
+                '/admin/messages',
+                '/admin/donors',
+                '/admin/users'
+            ];
+        }
+
         return NextResponse.json({ 
             authenticated: true, 
             user: {
                 email: userData.email,
                 displayName: userData.displayName || firebaseUser.displayName || 'Admin User',
                 role: userData.role,
+                permissions,
             }
         });
     } catch (error) {

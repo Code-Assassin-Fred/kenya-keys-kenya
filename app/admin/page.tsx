@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import { useAdmin } from '@/lib/context/AdminContext';
 
 const quickActions = [
     {
@@ -31,10 +32,21 @@ const quickActions = [
         description: "Manage administrative accounts and access.",
         href: "/admin/users",
     },
-
 ];
 
 export default function AdminDashboard() {
+    const { user, loading } = useAdmin();
+
+    if (loading || !user) {
+        return null;
+    }
+
+    const allowedActions = quickActions.filter(action => {
+        if (user.role === 'admin') return true;
+        if (action.href === '/admin/users') return false; // Sub-admins can't manage other admins
+        return user.permissions.some(p => action.href === p || action.href.startsWith(p + '/'));
+    });
+
     return (
         <div className="space-y-8 py-4">
             {/* Header */}
@@ -49,7 +61,7 @@ export default function AdminDashboard() {
 
             {/* Small Quick Action Cards Grid */}
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {quickActions.map((action, idx) => (
+                {allowedActions.map((action, idx) => (
                     <motion.div
                         key={idx}
                         initial={{ opacity: 0, y: 10 }}
@@ -57,23 +69,23 @@ export default function AdminDashboard() {
                         transition={{ duration: 0.3, delay: idx * 0.05 }}
                     >
                         <Link
-                                href={action.href}
-                                className="block bg-white border border-[#E4E7EC] rounded-xl p-5 hover:border-[#1D366D] hover:shadow-md transition-all group h-full"
-                                style={{ textDecoration: 'none' }}
-                            >
-                                <h3 className="text-sm font-bold text-[#101828] font-outfit uppercase tracking-tight mb-1.5 group-hover:text-[#1D366D] transition-colors">
-                                    {action.title}
-                                </h3>
-                                <p className="text-xs text-[#667085] font-outfit leading-relaxed mb-3">
-                                    {action.description}
-                                </p>
-                                <div className="flex items-center gap-1 text-[#1D366D] text-xs font-bold uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
-                                    Open <ArrowRight className="w-3 h-3" />
-                                </div>
-                            </Link>
+                            href={action.href}
+                            className="block bg-white border border-[#E4E7EC] rounded-xl p-5 hover:border-[#1D366D] hover:shadow-md transition-all group h-full no-underline"
+                        >
+                            <h3 className="text-sm font-bold text-[#101828] font-outfit uppercase tracking-tight mb-1.5 group-hover:text-[#1D366D] transition-colors">
+                                {action.title}
+                            </h3>
+                            <p className="text-xs text-[#667085] font-outfit leading-relaxed mb-3">
+                                {action.description}
+                            </p>
+                            <div className="flex items-center gap-1 text-[#1D366D] text-xs font-bold uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
+                                Open <ArrowRight className="w-3 h-3" />
+                            </div>
+                        </Link>
                     </motion.div>
                 ))}
             </div>
         </div>
     );
 }
+
