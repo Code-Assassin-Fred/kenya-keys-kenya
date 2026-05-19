@@ -5,21 +5,21 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 const boardMembers = [
-    { name: "Joseph Mwengea", role: "Founder, CEO & Director", image: "/Leadership and Staff/Joseph Mwengea Director.png", slug: "joseph-mwengea" },
+    { name: "Joseph Mwengea", role: "Founder & CEO", image: "/Leadership and Staff/Joseph Mwengea Director.png", slug: "joseph-mwengea" },
     { name: "Eunice Kioko", role: "Board Chairperson", image: "/Leadership and Staff/Eunice Kioko.webp", slug: "eunice-kioko" },
-    { name: "Elias Tsuma", role: "Board Member", image: "/Leadership and Staff/Tsuma.webp", slug: "elias-tsuma" },
-    { name: "Mike Mutua", role: "Board Member", image: "/Leadership and Staff/Mike.webp", slug: "mike-mutua" },
-    { name: "Emmanuel Mwengi", role: "Board Member", image: "/Leadership and Staff/Mwengi.webp", slug: "emmanuel-mwengi" },
-    { name: "Alice Mwaka", role: "Board Member", image: "/Leadership and Staff/Alice.webp", slug: "alice-mwaka" },
-    { name: "Marstela Tesha", role: "Board Member", image: "/Leadership and Staff/Marstela.webp", slug: "marstela-tesha" },
-    { name: "Linah Mjomba", role: "Board Member", image: "/Leadership and Staff/Linah.webp", slug: "linah-mjomba" },
-    { name: "Hope G Mwanyuma", role: "Board Member and Alumnus", image: "/Leadership and Staff/Hope.png", slug: "hope-mwanyuma" },
-    { name: "Luvuno Lung'anzi Chai", role: "Board Member", image: "/Leadership and Staff/Luvuno.webp", slug: "luvuno-chai" },
-    { name: "Raphael Mangisi", role: "Board Member", image: "/Leadership and Staff/Mangisi.webp", slug: "raphael-mangisi" },
+    { name: "Elias Tsuma", role: "Infrastructure and Community outreach", image: "/Leadership and Staff/Tsuma.webp", slug: "elias-tsuma" },
+    { name: "Mike Mutua", role: "Governance & administartion", image: "/Leadership and Staff/Mike.webp", slug: "mike-mutua" },
+    { name: "Emmanuel Mwengi", role: "Planning & Development", image: "/Leadership and Staff/Mwengi.webp", slug: "emmanuel-mwengi" },
+    { name: "Alice Mwaka", role: "Finance", image: "/Leadership and Staff/Alice.webp", slug: "alice-mwaka" },
+    { name: "Marstela Tesha", role: "Education & Community linkage", image: "/Leadership and Staff/Marstela.webp", slug: "marstela-tesha" },
+    { name: "Linah Mjomba", role: "Patnership & Collaborations", image: "/Leadership and Staff/Linah.webp", slug: "linah-mjomba" },
+    { name: "Hope G Mwanyuma", role: "Resource Mobilization", image: "/Leadership and Staff/Hope.png", slug: "hope-mwanyuma" },
+    { name: "Luvuno Lung'anzi Chai", role: "Advocacy & Compliance", image: "/Leadership and Staff/Luvuno.webp", slug: "luvuno-chai" },
+    { name: "Raphael Mangisi", role: "Scholarship", image: "/Leadership and Staff/Mangisi.webp", slug: "raphael-mangisi" },
 ];
 
 const staffMembers = [
-    { name: "Joseph Mwengea", role: "Founder & Executive Director", image: "/Leadership and Staff/Joseph Mwengea Director.png", slug: "joseph-mwengea" },
+    { name: "Joseph Mwengea", role: "Founder & CEO", image: "/Leadership and Staff/Joseph Mwengea Director.png", slug: "joseph-mwengea" },
     { name: "Franciscah Kamene", role: "Senior Director of Operations", image: "/Leadership and Staff/Francisca.webp" },
     { name: "Alex Mutuku", role: "Finance Director", image: "/Leadership and Staff/Mutuku.webp" },
     { name: "Stephen Kabani", role: "Sponsorship Director", image: "/Leadership and Staff/Stephen+Kabani.webp" },

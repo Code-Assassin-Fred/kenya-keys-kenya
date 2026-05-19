@@ -3,8 +3,7 @@
 import React from 'react';
 import { motion } from "framer-motion";
 
-import SponsorshipModal from '@/components/shared/SponsorshipModal';
-
+import { useRouter } from 'next/navigation';
 const CountUp = ({ end, duration = 2000, suffix = "" }: { end: number; duration?: number; suffix?: string }) => {
     const [count, setCount] = React.useState(0);
     const [isInView, setIsInView] = React.useState(false);
@@ -40,7 +39,7 @@ const CountUp = ({ end, duration = 2000, suffix = "" }: { end: number; duration?
 };
 
 export default function Hero() {
-    const [isModalOpen, setIsModalOpen] = React.useState(false);
+    const router = useRouter();
 
     // Variants for staggered children
     const containerVariants = {
@@ -137,7 +136,7 @@ export default function Hero() {
                             className="flex flex-col sm:flex-row gap-4 font-oswald"
                         >
                             <motion.button
-                                onClick={() => setIsModalOpen(true)}
+                                onClick={() => router.push('/student-catalog')}
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
                                 className="bg-[#00529B] text-white px-10 py-4 rounded-md font-bold text-lg uppercase tracking-wider hover:bg-[#003d75] transition-colors cursor-pointer text-center"
@@ -145,6 +144,7 @@ export default function Hero() {
                                 Sponsor a Student
                             </motion.button>
                             <motion.button
+                                onClick={() => router.push('/donate')}
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
                                 className="border-2 border-[#00529B] text-[#00529B] px-10 py-4 rounded-md font-bold text-lg uppercase tracking-wider hover:bg-[#00529B] hover:text-white transition-all cursor-pointer"
@@ -156,10 +156,7 @@ export default function Hero() {
                 </div>
             </div>
 
-            <SponsorshipModal 
-                isOpen={isModalOpen} 
-                onClose={() => setIsModalOpen(false)} 
-            />
+
         </section>
     );
 }

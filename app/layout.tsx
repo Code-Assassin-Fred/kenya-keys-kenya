@@ -49,7 +49,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${outfit.variable} ${playfair.variable} ${oswald.variable} font-outfit antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${outfit.variable} ${playfair.variable} ${oswald.variable} font-outfit antialiased overflow-x-hidden`}
       >
         {children}
         {!isBlockedPage && <Chatbot />}
