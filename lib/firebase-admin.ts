@@ -6,7 +6,7 @@ let adminStorage: admin.storage.Storage;
 
 const projectId = process.env.FIREBASE_PROJECT_ID;
 const clientEmail = process.env.FIREBASE_CLIENT_EMAIL;
-let privateKey = process.env.FIREBASE_PRIVATE_KEY;
+let privateKey = process.env.FIREBASE_PRIVATE_KEY || '';
 
 if (projectId && clientEmail && privateKey) {
   // Clean private key: remove enclosing quotes and fix newline characters
