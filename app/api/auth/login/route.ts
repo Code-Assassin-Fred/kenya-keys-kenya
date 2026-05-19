@@ -45,6 +45,12 @@ export async function POST(request: Request) {
 
         // Step 2: Check if email is verified
         const uid = firebaseAuthData.localId;
+        
+        if (typeof adminAuth.getUser !== 'function') {
+            console.error("Firebase Admin Auth is not initialized properly. Check environment variables.");
+            return NextResponse.json({ error: "Server configuration error: Firebase Admin SDK not initialized." }, { status: 500 });
+        }
+        
         const userRecord = await adminAuth.getUser(uid);
 
         if (!userRecord.emailVerified) {
@@ -86,6 +92,9 @@ export async function POST(request: Request) {
         return NextResponse.json({ success: true, loginMethod: "email" });
     } catch (error: any) {
         console.error("Login error:", error);
-        return NextResponse.json({ error: "Authentication failed." }, { status: 500 });
+        return NextResponse.json({ 
+            error: "Authentication failed.",
+            details: error.message || "Unknown error" 
+        }, { status: 500 });
     }
 }

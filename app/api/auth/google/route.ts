@@ -11,6 +11,11 @@ export async function POST(request: Request) {
         }
 
         // Verify the ID token
+        if (typeof adminAuth.verifyIdToken !== 'function') {
+            console.error("Firebase Admin Auth is not initialized properly. Check environment variables.");
+            return NextResponse.json({ error: "Server configuration error: Firebase Admin SDK not initialized." }, { status: 500 });
+        }
+        
         const decodedToken = await adminAuth.verifyIdToken(idToken);
         const email = decodedToken.email;
 
@@ -88,6 +93,10 @@ export async function POST(request: Request) {
         return NextResponse.json({ success: true, loginMethod: "google" });
     } catch (error: any) {
         console.error("Google auth error:", error);
-        return NextResponse.json({ error: "Google authentication failed" }, { status: 500 });
+        // Include error message in response for easier debugging in production network tab
+        return NextResponse.json({ 
+            error: "Google authentication failed", 
+            details: error.message || "Unknown error" 
+        }, { status: 500 });
     }
 }
