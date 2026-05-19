@@ -25,11 +25,11 @@ export default function DonateHero() {
                     <span className="text-[#FFB800] font-black tracking-[0.2em] uppercase text-sm mb-6 block font-outfit">
                         Make a Difference
                     </span>
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white font-oswald uppercase leading-[0.9] mb-8 tracking-tighter">
+                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white font-oswald uppercase leading-[0.9] mb-8 tracking-tighter">
                         YOUR GIFT <br />
                         <span className="text-[#FFB800]">CHANGES</span> EVERYTHING
                     </h1>
-                    <p className="text-xl md:text-2xl text-blue-50 font-outfit leading-relaxed max-w-xl font-light">
+                    <p className="text-lg md:text-xl text-blue-50 font-outfit leading-relaxed max-w-xl font-light">
                         Every dollar donated goes directly to removing the financial barriers that keep bright students out of school.
                     </p>
                 </motion.div>

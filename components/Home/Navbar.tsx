@@ -39,7 +39,6 @@ export default function Navbar() {
                 { label: 'Donate', href: '/donate' },
                 { label: 'Sponsor a Student', href: '/sponsorship-overview' },
                 { label: 'Student Catalog', href: '/student-catalog' },
-                { label: 'Ways to Give', href: '/donate/ways-to-give' },
             ],
         },
         {
@@ -60,7 +59,7 @@ export default function Navbar() {
         },
         {
             label: 'Contact',
-            href: '#contact',
+            href: '/#contact',
         },
     ];
 

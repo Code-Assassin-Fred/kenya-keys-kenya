@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 export default function Contact() {
     return (
-        <section className="relative bg-white pt-16 pb-0 px-6 md:px-12 lg:px-20 overflow-hidden">
+        <section id="contact" className="relative bg-white pt-16 pb-0 px-6 md:px-12 lg:px-20 overflow-hidden">
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-12 lg:gap-24 items-stretch">
 
                 {/* Left Side: Contact Form */}

@@ -24,7 +24,7 @@ const methods = [
         title: "Check by Mail",
         description: "Send donations via check to our office. 100% of your gift goes directly to programs.",
         action: "Mailing Address",
-        href: "#contact"
+        href: "/#contact"
     },
     {
         icon: <Briefcase className="w-12 h-12" />,
