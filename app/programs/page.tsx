@@ -3,9 +3,7 @@
 import Navbar from "@/components/Home/Navbar";
 import Footer from "@/components/Home/Footer";
 import Hero from "@/components/Programs/Hero";
-import Sponsorship from "@/components/Programs/Sponsorship";
-import VitalSupport from "@/components/Programs/VitalSupport";
-import CEC from "@/components/Programs/CEC";
+import ProgramList from "@/components/Programs/ProgramList";
 import Contact from "@/components/Home/Contact";
 
 export default function ProgramsPage() {
@@ -14,9 +12,7 @@ export default function ProgramsPage() {
             <Navbar />
             <main>
                 <Hero />
-                <Sponsorship />
-                <VitalSupport />
-                <CEC />
+                <ProgramList />
                 <Contact />
             </main>
             <Footer />

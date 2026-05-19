@@ -23,19 +23,6 @@ export default function Navbar() {
             ],
         },
         {
-            label: 'Get Involved',
-            href: '#',
-            children: [
-                { label: 'Donate', href: '/donate' },
-                { label: 'Sponsor a Student', href: '/sponsorship-overview' },
-                { label: 'Student Catalog', href: '/student-catalog' },
-                { label: 'Progress Reports', href: '/progress-reports' },
-                { label: 'Sponsor Letters', href: '/sponsor-letters' },
-                { label: 'Ways to Give', href: '/donate/ways-to-give' },
-                { label: 'Corporate Sponsorship', href: '/donate/corporate' },
-            ],
-        },
-        {
             label: 'Programs',
             href: '/programs',
             children: [
@@ -43,6 +30,16 @@ export default function Navbar() {
                 { label: 'Student Support Services', href: '/programs#support' },
                 { label: 'Community Learning', href: '/programs#cec' },
                 { label: 'Learning Center / Library', href: '/programs#cec' },
+            ],
+        },
+        {
+            label: 'Get Involved',
+            href: '#',
+            children: [
+                { label: 'Donate', href: '/donate' },
+                { label: 'Sponsor a Student', href: '/sponsorship-overview' },
+                { label: 'Student Catalog', href: '/student-catalog' },
+                { label: 'Ways to Give', href: '/donate/ways-to-give' },
             ],
         },
         {
@@ -58,7 +55,6 @@ export default function Navbar() {
             label: 'News',
             href: '/news',
             children: [
-                { label: 'Latest Updates', href: '/news#latest' },
                 { label: 'Photo Gallery', href: '/news' },
             ],
         },

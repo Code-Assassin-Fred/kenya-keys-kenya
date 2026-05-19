@@ -14,8 +14,8 @@ export default function DonatePage() {
             <Navbar />
             <main>
                 <DonateHero />
-                <DonationTiers />
                 <ImpactCalculator />
+                <DonationTiers />
                 <TrustSignals />
                 <CTABanner 
                     title="OTHER WAYS TO GIVE"
