@@ -10,40 +10,40 @@ export default function Contact() {
 
                 {/* Left Side: Contact Form */}
                 <div className="flex-1 pb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold font-playfair text-[#C5E672] mb-6 uppercase tracking-tighter">
+                    <h2 className="text-4xl md:text-5xl font-bold font-playfair text-[#1D366D] mb-6 uppercase tracking-tighter">
                         Get in touch.
                     </h2>
                     <form className="space-y-6">
                         <div className="space-y-1.5">
-                            <label className="text-sm font-medium text-gray-400 font-outfit">Name</label>
+                            <label className="text-sm font-semibold text-gray-600 font-outfit">Name</label>
                             <input
                                 type="text"
                                 className="w-full py-2.5 bg-transparent border-b border-gray-200 focus:border-[#1D366D] outline-none transition-all font-outfit text-gray-800"
                             />
                         </div>
                         <div className="space-y-1.5">
-                            <label className="text-sm font-medium text-gray-400 font-outfit">Email</label>
+                            <label className="text-sm font-semibold text-gray-600 font-outfit">Email</label>
                             <input
                                 type="email"
                                 className="w-full py-2.5 bg-transparent border-b border-gray-200 focus:border-[#1D366D] outline-none transition-all font-outfit text-gray-800"
                             />
                         </div>
                         <div className="space-y-1.5">
-                            <label className="text-sm font-medium text-gray-400 font-outfit">Phone</label>
+                            <label className="text-sm font-semibold text-gray-600 font-outfit">Phone</label>
                             <input
                                 type="tel"
                                 className="w-full py-2.5 bg-transparent border-b border-gray-200 focus:border-[#1D366D] outline-none transition-all font-outfit text-gray-800"
                             />
                         </div>
                         <div className="space-y-1.5">
-                            <label className="text-sm font-medium text-gray-400 font-outfit">In what type of space are you interested?</label>
+                            <label className="text-sm font-semibold text-gray-600 font-outfit">In what type of space are you interested?</label>
                             <input
                                 type="text"
                                 className="w-full py-2.5 bg-transparent border-b border-gray-200 focus:border-[#1D366D] outline-none transition-all font-outfit text-gray-800"
                             />
                         </div>
                         <div className="space-y-1.5">
-                            <label className="text-sm font-medium text-gray-400 font-outfit">Message</label>
+                            <label className="text-sm font-semibold text-gray-600 font-outfit">Message</label>
                             <textarea
                                 rows={4}
                                 className="w-full py-2.5 bg-transparent border border-gray-200 rounded-sm focus:border-[#1D366D] outline-none transition-all font-outfit text-gray-800 p-2"
