@@ -8,8 +8,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 const navItems = [
     { name: 'Overview', href: '/admin' },
     { name: 'Student Catalog', href: '/admin/students' },
-    { name: 'Donations', href: '/admin/donations' },
     { name: 'Packages', href: '/admin/packages' },
+    { name: 'Contact Messages', href: '/admin/messages' },
+    { name: 'Interested Donors', href: '/admin/donors' },
     { name: 'Sub-Admins', href: '/admin/users' },
 ];
 
@@ -31,19 +32,14 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 } bg-[#101828] transition-all duration-300 ease-in-out flex flex-col relative z-50 border-r border-[#1d2939] overflow-hidden`}
             >
                 {/* Logo Area */}
-                <div className="p-8 flex items-center gap-3">
-                    <div className="w-8 h-8 bg-[#32D583] rounded-lg flex items-center justify-center flex-shrink-0">
-                        <span className="text-[#101828] font-black text-sm">KK</span>
-                    </div>
-                    {isSidebarOpen && (
-                        <motion.span 
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            className="text-white font-outfit font-bold text-lg whitespace-nowrap tracking-tight"
-                        >
-                            Kenya Keys
-                        </motion.span>
-                    )}
+                <div className="p-6 flex items-center justify-start border-b border-[#1d2939] h-24">
+                    <Link href="/admin" className="flex items-center w-full">
+                        <img 
+                            src="/Kenya Keys Logo With Background.png" 
+                            alt="Kenya Keys Logo" 
+                            className="h-14 w-auto object-contain rounded-lg shadow-sm" 
+                        />
+                    </Link>
                 </div>
 
                 {/* Nav Links */}

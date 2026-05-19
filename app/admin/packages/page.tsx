@@ -93,7 +93,7 @@ export default function PackageManagement() {
                     className="bg-[#F9FAFB] border-2 border-[#1D366D] rounded-3xl p-8 shadow-xl"
                 >
                     <div className="flex justify-between items-center mb-8">
-                        <h2 className="text-xl font-black text-[#101828] font-oswald uppercase tracking-tight">
+                        <h2 className="text-xl font-black text-[#101828] font-outfit uppercase tracking-tight">
                             {editingId ? 'Edit Package' : 'Create New Package'}
                         </h2>
                         <button onClick={() => { setEditingId(null); setIsAdding(false); }} className="text-gray-400 hover:text-gray-600">
@@ -101,8 +101,8 @@ export default function PackageManagement() {
                         </button>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div className="space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div className="md:col-span-2 space-y-6">
                             <div className="space-y-1.5">
                                 <label className="text-xs font-black uppercase tracking-widest text-[#344054]">Package Title</label>
                                 <input 
@@ -112,6 +112,19 @@ export default function PackageManagement() {
                                     className="w-full px-4 py-3 rounded-xl bg-white border border-[#D0D5DD] font-bold text-[#101828] font-outfit text-base outline-none focus:ring-2 focus:ring-[#1D366D]/20 focus:border-[#1D366D] transition-all"
                                 />
                             </div>
+                            <div className="space-y-1.5">
+                                <label className="text-xs font-black uppercase tracking-widest text-[#344054]">Description</label>
+                                <textarea 
+                                    value={formData.description} 
+                                    onChange={(e) => setFormData({...formData, description: e.target.value})}
+                                    rows={4}
+                                    placeholder="Briefly describe what this package covers..."
+                                    className="w-full px-4 py-3 rounded-xl bg-white border border-[#D0D5DD] font-medium text-[#667085] font-outfit text-sm resize-none outline-none focus:ring-2 focus:ring-[#1D366D]/20 focus:border-[#1D366D] transition-all"
+                                />
+                            </div>
+                        </div>
+
+                        <div className="space-y-6">
                             <div className="grid grid-cols-2 gap-4">
                                 <div className="space-y-1.5">
                                     <label className="text-xs font-black uppercase tracking-widest text-[#344054]">Amount ($)</label>
@@ -136,38 +149,7 @@ export default function PackageManagement() {
                                     </select>
                                 </div>
                             </div>
-                            <div className="space-y-1.5">
-                                <label className="text-xs font-black uppercase tracking-widest text-[#344054]">Description</label>
-                                <textarea 
-                                    value={formData.description} 
-                                    onChange={(e) => setFormData({...formData, description: e.target.value})}
-                                    rows={4}
-                                    placeholder="Briefly describe what this package covers..."
-                                    className="w-full px-4 py-3 rounded-xl bg-white border border-[#D0D5DD] font-medium text-[#667085] font-outfit text-sm resize-none outline-none focus:ring-2 focus:ring-[#1D366D]/20 focus:border-[#1D366D] transition-all"
-                                />
-                            </div>
-                        </div>
-
-                        <div className="space-y-6">
-                            <div className="space-y-1.5">
-                                <label className="text-xs font-black uppercase tracking-widest text-[#344054]">Student Quote (Optional)</label>
-                                <textarea 
-                                    value={formData.quote} 
-                                    onChange={(e) => setFormData({...formData, quote: e.target.value})}
-                                    placeholder="e.g., This scholarship changed my life..."
-                                    className="w-full px-4 py-3 rounded-xl bg-white border border-[#D0D5DD] font-medium text-[#667085] font-outfit text-sm resize-none outline-none focus:ring-2 focus:ring-[#1D366D]/20 focus:border-[#1D366D] transition-all"
-                                />
-                            </div>
-                            <div className="space-y-1.5">
-                                <label className="text-xs font-black uppercase tracking-widest text-[#344054]">Student Name</label>
-                                <input 
-                                    value={formData.student} 
-                                    onChange={(e) => setFormData({...formData, student: e.target.value})}
-                                    placeholder="e.g., Sarah M."
-                                    className="w-full px-4 py-3 rounded-xl bg-white border border-[#D0D5DD] font-bold text-[#101828] font-outfit outline-none focus:ring-2 focus:ring-[#1D366D]/20 focus:border-[#1D366D] transition-all"
-                                />
-                            </div>
-                            <div className="flex items-center gap-3 p-4 bg-white rounded-xl border border-[#D0D5DD]">
+                            <div className="flex items-center gap-3 p-4 bg-white rounded-xl border border-[#D0D5DD] mt-6">
                                 <input 
                                     type="checkbox"
                                     id="popular"
@@ -202,74 +184,81 @@ export default function PackageManagement() {
                     <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-[#1D366D] border-r-transparent mx-auto"></div>
                 </div>
             ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {packages.map((pkg) => (
-                        <motion.div 
-                            key={pkg.id}
-                            layout
-                            className={`bg-white rounded-3xl border-2 transition-all p-8 flex flex-col group ${
-                                editingId === pkg.id ? 'border-[#1D366D] shadow-2xl scale-[1.02] z-10' : 'border-[#EAECF0] shadow-sm hover:shadow-xl hover:border-[#1D366D]/30'
-                            }`}
-                        >
-                            <div className="flex items-center justify-between mb-6">
-                                {pkg.popular ? (
-                                    <div className="px-3 py-1 rounded-full bg-[#E0F2FE] text-[#0369A1] text-[10px] font-black uppercase tracking-widest font-outfit">
-                                        Most Impactful
-                                    </div>
-                                ) : (
-                                    <div className="px-3 py-1 rounded-full bg-[#F2F4F7] text-[#475467] text-[10px] font-black uppercase tracking-widest font-outfit">
-                                        Standard
-                                    </div>
-                                )}
-                                <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                    <button 
-                                        onClick={() => startEdit(pkg)}
-                                        className="p-2 text-gray-400 hover:text-[#1D366D] hover:bg-blue-50 rounded-lg transition-all"
-                                    >
-                                        <Edit2 className="w-4 h-4" />
-                                    </button>
-                                    <button 
-                                        onClick={() => handleDelete(pkg.id)}
-                                        className="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-all"
-                                    >
-                                        <Trash2 className="w-4 h-4" />
-                                    </button>
+                <div className="bg-white rounded-3xl border border-[#EAECF0] shadow-sm overflow-hidden">
+                    <div className="overflow-x-auto">
+                        {packages.length > 0 ? (
+                            <table className="w-full border-collapse text-left">
+                                <thead>
+                                    <tr className="bg-gray-50 border-b border-[#EAECF0]">
+                                        <th className="px-6 py-4 text-xs font-bold text-[#667085] uppercase tracking-wider font-outfit">Package Title</th>
+                                        <th className="px-6 py-4 text-xs font-bold text-[#667085] uppercase tracking-wider font-outfit">Type</th>
+                                        <th className="px-6 py-4 text-xs font-bold text-[#667085] uppercase tracking-wider font-outfit">Amount</th>
+                                        <th className="px-6 py-4 text-xs font-bold text-[#667085] uppercase tracking-wider font-outfit">Description</th>
+                                        <th className="px-6 py-4 text-xs font-bold text-[#667085] uppercase tracking-wider text-right font-outfit">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="divide-y divide-[#EAECF0]">
+                                    {packages.map((pkg) => (
+                                        <tr key={pkg.id} className="hover:bg-gray-50/50 transition-all group">
+                                            <td className="px-6 py-5">
+                                                <span className="font-bold text-[#101828] font-outfit text-base block group-hover:text-[#1D366D] transition-colors">
+                                                    {pkg.title}
+                                                </span>
+                                            </td>
+                                            <td className="px-6 py-5">
+                                                {pkg.popular ? (
+                                                    <span className="inline-flex px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-widest bg-[#E0F2FE] text-[#0369A1] font-outfit">
+                                                        Most Impactful
+                                                    </span>
+                                                ) : (
+                                                    <span className="inline-flex px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-widest bg-[#F2F4F7] text-[#475467] font-outfit">
+                                                        Standard
+                                                    </span>
+                                                )}
+                                            </td>
+                                            <td className="px-6 py-5">
+                                                <div className="flex items-baseline gap-1">
+                                                    <span className="text-xl font-black text-[#1D366D] font-outfit">${pkg.amount}</span>
+                                                    <span className="text-xs font-bold text-[#667085] font-outfit uppercase tracking-widest">{pkg.period}</span>
+                                                </div>
+                                            </td>
+                                            <td className="px-6 py-5 max-w-md">
+                                                <p className="text-sm text-[#475467] font-outfit leading-relaxed line-clamp-2">
+                                                    {pkg.description}
+                                                </p>
+                                            </td>
+                                            <td className="px-6 py-5 text-right">
+                                                <div className="flex gap-2 justify-end opacity-0 group-hover:opacity-100 transition-opacity">
+                                                    <button 
+                                                        onClick={() => startEdit(pkg)}
+                                                        className="p-2 text-gray-400 hover:text-[#1D366D] hover:bg-blue-50 rounded-lg transition-all"
+                                                    >
+                                                        <Edit2 className="w-4 h-4" />
+                                                    </button>
+                                                    <button 
+                                                        onClick={() => handleDelete(pkg.id)}
+                                                        className="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-all"
+                                                    >
+                                                        <Trash2 className="w-4 h-4" />
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        ) : (
+                            <div className="py-32 text-center bg-white rounded-3xl border-2 border-dashed border-[#EAECF0] flex flex-col items-center justify-center space-y-4">
+                                <div className="p-4 bg-gray-50 rounded-full">
+                                    <AlertCircle className="w-8 h-8 text-gray-400" />
+                                </div>
+                                <div>
+                                    <p className="text-[#101828] font-bold font-outfit">No packages found</p>
+                                    <p className="text-[#667085] font-outfit text-sm">Start by creating your first donation tier above.</p>
                                 </div>
                             </div>
-
-                            <h3 className="text-xl font-black text-[#101828] font-oswald uppercase mb-2 tracking-tight group-hover:text-[#1D366D] transition-colors">
-                                {pkg.title}
-                            </h3>
-                            
-                            <div className="flex items-baseline gap-1 mb-6">
-                                <span className="text-4xl font-black text-[#1D366D] font-oswald">${pkg.amount}</span>
-                                <span className="text-sm font-bold text-[#667085] font-outfit uppercase tracking-widest">{pkg.period}</span>
-                            </div>
-
-                            <p className="text-sm text-[#475467] font-outfit leading-relaxed flex-1 mb-8">
-                                {pkg.description}
-                            </p>
-
-                            {pkg.quote && (
-                                <div className="mt-auto p-4 bg-gray-50 rounded-2xl border-l-4 border-[#FFB800] italic text-xs text-[#344054] font-outfit">
-                                    "{pkg.quote}"
-                                    <span className="block mt-2 font-black uppercase tracking-widest text-[9px] text-[#1D366D] not-italic">— {pkg.student}</span>
-                                </div>
-                            )}
-                        </motion.div>
-                    ))}
-
-                    {!loading && packages.length === 0 && (
-                        <div className="lg:col-span-3 py-32 text-center bg-white rounded-3xl border-2 border-dashed border-[#EAECF0] flex flex-col items-center justify-center space-y-4">
-                            <div className="p-4 bg-gray-50 rounded-full">
-                                <AlertCircle className="w-8 h-8 text-gray-400" />
-                            </div>
-                            <div>
-                                <p className="text-[#101828] font-bold font-outfit">No packages found</p>
-                                <p className="text-[#667085] font-outfit text-sm">Start by creating your first donation tier above.</p>
-                            </div>
-                        </div>
-                    )}
+                        )}
+                    </div>
                 </div>
             )}
         </div>

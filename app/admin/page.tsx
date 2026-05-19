@@ -1,130 +1,139 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { 
+    GraduationCap, 
+    Layers, 
+    UserCheck, 
+    ExternalLink, 
+    ArrowRight,
+    Plus,
+    UserPlus
+} from 'lucide-react';
 
 export default function AdminDashboard() {
-    const [stats, setStats] = useState<any>(null);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        async function loadStats() {
-            try {
-                const res = await fetch('/api/admin/stats');
-                const data = await res.json();
-                setStats(data);
-            } catch (err) {
-                console.error("Failed to load stats", err);
-            } finally {
-                setLoading(false);
-            }
+    const actions = [
+        {
+            title: "Student Catalog",
+            description: "Manage student profiles, academic records, details, and general catalog listings.",
+            icon: GraduationCap,
+            color: "from-emerald-500/10 to-teal-500/10 text-emerald-600 border-emerald-500/20",
+            hoverColor: "hover:border-emerald-500 hover:shadow-emerald-500/10",
+            primaryLink: "/admin/students",
+            primaryLabel: "Go to Catalog",
+            secondaryLink: "/admin/students",
+            secondaryLabel: "Add New Student",
+            secondaryIcon: Plus,
+        },
+        {
+            title: "Sponsorship Packages",
+            description: "Configure tiered donation amounts, period frequencies, and package descriptions.",
+            icon: Layers,
+            color: "from-[#1D366D]/10 to-[#101828]/10 text-[#1D366D] border-[#1D366D]/20",
+            hoverColor: "hover:border-[#1D366D] hover:shadow-[#1D366D]/10",
+            primaryLink: "/admin/packages",
+            primaryLabel: "Manage Packages",
+            secondaryLink: "/admin/packages",
+            secondaryLabel: "Create Package",
+            secondaryIcon: Plus,
+        },
+        {
+            title: "Administrative Access",
+            description: "Control administrative accounts, sub-admins, access profiles, and permissions.",
+            icon: UserCheck,
+            color: "from-purple-500/10 to-indigo-500/10 text-[#101828] border-purple-500/20",
+            hoverColor: "hover:border-[#101828] hover:shadow-[#101828]/10",
+            primaryLink: "/admin/users",
+            primaryLabel: "Manage Sub-Admins",
+            secondaryLink: "/admin/users",
+            secondaryLabel: "New Admin",
+            secondaryIcon: UserPlus,
+        },
+        {
+            title: "View Main Website",
+            description: "Visit the live public-facing Kenya Keys website to review your site design and content.",
+            icon: ExternalLink,
+            color: "from-slate-500/10 to-slate-700/10 text-slate-700 border-slate-500/20",
+            hoverColor: "hover:border-slate-500 hover:shadow-slate-500/10",
+            primaryLink: "/",
+            primaryLabel: "Open Live Site",
+            external: true
         }
-        loadStats();
-    }, []);
-
-    const cards = [
-        { 
-            title: 'Total Donations', 
-            value: `$${stats?.donationTotal?.toLocaleString() || '0'}`, 
-            change: 'Overall', 
-            up: true, 
-            color: 'text-[#32D583]', 
-            bg: 'bg-[#ECFDF3]' 
-        },
-        { 
-            title: 'Active Students', 
-            value: stats?.studentCount || '0', 
-            change: 'Total', 
-            up: true, 
-            color: 'text-[#32D583]', 
-            bg: 'bg-[#ECFDF3]' 
-        },
     ];
 
-    if (loading) {
-        return (
-            <div className="h-full flex items-center justify-center py-20">
-                <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-[#32D583]"></div>
-            </div>
-        );
-    }
-
     return (
-        <div className="space-y-10">
+        <div className="space-y-10 py-4">
             {/* Header Section */}
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                <div>
-                    <h1 className="text-2xl font-bold text-[#101828] font-outfit tracking-tight">Dashboard Overview</h1>
-                    <p className="text-[#667085] font-outfit mt-1 text-sm">Real-time metrics from the database.</p>
-                </div>
-                <div className="flex gap-3">
-                    <Link href="/admin/students" className="px-5 py-2.5 bg-white border border-[#EAECF0] rounded-lg font-outfit font-semibold text-sm text-[#344054] hover:bg-gray-50 transition-all">
-                        Add Student
-                    </Link>
-                    <Link href="/admin/users" className="px-5 py-2.5 bg-[#101828] text-white rounded-lg font-outfit font-semibold text-sm hover:bg-[#1d2939] transition-all">
-                        New Admin
-                    </Link>
-                </div>
+            <div>
+                <h1 className="text-3xl font-black text-[#101828] font-outfit tracking-tight uppercase">
+                    Admin Overview
+                </h1>
+                <p className="text-[#667085] font-outfit mt-2 text-base max-w-2xl leading-relaxed">
+                    Welcome to the Kenya Keys Administration Panel. Select any of the quick actions below to manage your system records and configurations.
+                </p>
             </div>
 
-            {/* Stats Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {cards.map((card, idx) => (
-                    <motion.div
-                        key={idx}
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: idx * 0.05 }}
-                        className="bg-white p-6 rounded-xl border border-[#EAECF0] shadow-sm hover:border-[#32D583]/30 transition-all group"
-                    >
-                        <div className="flex items-center justify-between mb-4">
-                            <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold font-outfit uppercase tracking-wider ${card.up ? 'bg-[#ECFDF3] text-[#027A48]' : 'bg-red-50 text-red-600'}`}>
-                                {card.change}
-                            </span>
-                        </div>
-                        <h3 className="text-[#667085] font-outfit font-medium text-xs uppercase tracking-wider mb-1">{card.title}</h3>
-                        <p className="text-2xl font-bold text-[#101828] font-outfit tracking-tight">{card.value}</p>
-                    </motion.div>
-                ))}
-            </div>
+            {/* Quick Actions Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {actions.map((action, idx) => {
+                    const IconComponent = action.icon;
+                    return (
+                        <motion.div
+                            key={idx}
+                            initial={{ opacity: 0, y: 15 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.4, delay: idx * 0.08 }}
+                            className={`bg-white rounded-3xl border-2 border-gray-100 p-8 flex flex-col justify-between transition-all duration-300 shadow-sm ${action.hoverColor} hover:shadow-xl group`}
+                        >
+                            <div>
+                                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${action.color} border flex items-center justify-center mb-6`}>
+                                    <IconComponent className="w-7 h-7" />
+                                </div>
+                                <h3 className="text-xl font-black text-[#101828] font-outfit uppercase tracking-tight mb-3">
+                                    {action.title}
+                                </h3>
+                                <p className="text-[#667085] font-outfit text-sm leading-relaxed mb-8 max-w-md">
+                                    {action.description}
+                                </p>
+                            </div>
 
-            <div className="grid grid-cols-1 gap-8">
-                {/* Main Chart Area */}
-                <div className="bg-white rounded-2xl p-8 border border-[#EAECF0] shadow-sm">
-                    <div className="flex items-center justify-between mb-8">
-                        <h2 className="text-lg font-bold text-[#101828] font-outfit">Sponsorship Trends</h2>
-                    </div>
-                    
-                    <div className="h-64 w-full relative">
-                        <svg className="w-full h-full" viewBox="0 0 800 200" preserveAspectRatio="none">
-                            <defs>
-                                <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                                    <stop offset="0%" stopColor="#32D583" stopOpacity="0.1" />
-                                    <stop offset="100%" stopColor="#32D583" stopOpacity="0" />
-                                </linearGradient>
-                            </defs>
-                            <path 
-                                d="M0,150 C100,160 200,140 300,120 C400,100 500,80 600,60 C700,50 800,40 L800,200 L0,200 Z" 
-                                fill="url(#gradient)" 
-                            />
-                            <path 
-                                d="M0,150 C100,160 200,140 300,120 C400,100 500,80 600,60 C700,50 800,40" 
-                                fill="none" 
-                                stroke="#32D583" 
-                                strokeWidth="3" 
-                                strokeLinecap="round"
-                            />
-                            <circle cx="800" cy="40" r="5" fill="#32D583" stroke="white" strokeWidth="2" />
-                        </svg>
-                    </div>
-
-                    <div className="flex justify-between mt-6 px-4">
-                        {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'].map(m => (
-                            <span key={m} className="text-[10px] font-bold text-[#98A2B3] font-outfit uppercase tracking-widest">{m}</span>
-                        ))}
-                    </div>
-                </div>
+                            <div className="flex flex-wrap gap-4 items-center mt-auto border-t border-gray-50 pt-6">
+                                {action.external ? (
+                                    <a
+                                        href={action.primaryLink}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center gap-2 px-6 py-3 bg-[#101828] text-white rounded-xl font-bold font-outfit text-sm hover:bg-[#1d2939] transition-all shadow-md active:scale-95"
+                                    >
+                                        {action.primaryLabel}
+                                        <ExternalLink className="w-4 h-4" />
+                                    </a>
+                                ) : (
+                                    <>
+                                        <Link
+                                            href={action.primaryLink}
+                                            className="flex items-center gap-2 px-6 py-3 bg-[#1D366D] text-white rounded-xl font-bold font-outfit text-sm hover:bg-[#101828] transition-all shadow-md active:scale-95"
+                                        >
+                                            {action.primaryLabel}
+                                            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                                        </Link>
+                                        {action.secondaryLabel && (
+                                            <Link
+                                                href={action.secondaryLink}
+                                                className="flex items-center gap-2 px-5 py-3 bg-white border border-[#D0D5DD] text-[#344054] rounded-xl font-bold font-outfit text-sm hover:bg-gray-50 transition-all active:scale-95"
+                                            >
+                                                {action.secondaryIcon && <action.secondaryIcon className="w-4 h-4" />}
+                                                {action.secondaryLabel}
+                                            </Link>
+                                        )}
+                                    </>
+                                )}
+                            </div>
+                        </motion.div>
+                    );
+                })}
             </div>
         </div>
     );
