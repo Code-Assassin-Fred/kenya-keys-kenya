@@ -228,16 +228,16 @@ export default function PackageManagement() {
                                                 </p>
                                             </td>
                                             <td className="px-6 py-5 text-right">
-                                                <div className="flex gap-2 justify-end opacity-0 group-hover:opacity-100 transition-opacity">
+                                                <div className="flex gap-2 justify-end">
                                                     <button 
                                                         onClick={() => startEdit(pkg)}
-                                                        className="p-2 text-gray-400 hover:text-[#1D366D] hover:bg-blue-50 rounded-lg transition-all"
+                                                        className="p-2 text-gray-500 hover:text-[#1D366D] hover:bg-blue-50 rounded-lg transition-all"
                                                     >
                                                         <Edit2 className="w-4 h-4" />
                                                     </button>
                                                     <button 
                                                         onClick={() => handleDelete(pkg.id)}
-                                                        className="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-all"
+                                                        className="p-2 text-gray-500 hover:text-red-600 hover:bg-red-50 rounded-lg transition-all"
                                                     >
                                                         <Trash2 className="w-4 h-4" />
                                                     </button>
