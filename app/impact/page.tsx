@@ -4,7 +4,7 @@ import Navbar from "@/components/Home/Navbar";
 import Footer from "@/components/Home/Footer";
 import Hero from "@/components/Impact/Hero";
 import Stats from "@/components/Impact/Stats";
-import Reports from "@/components/Impact/Reports";
+// import Reports from "@/components/Impact/Reports";
 import Contact from "@/components/Home/Contact";
 
 export default function ImpactPage() {
@@ -14,7 +14,8 @@ export default function ImpactPage() {
             <main>
                 <Hero />
                 <Stats />
-                <Reports />
+                {/** Reports section temporarily removed per director request */}
+                {/** <Reports /> */}
                 <Contact />
             </main>
             <Footer />
