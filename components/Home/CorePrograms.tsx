@@ -36,16 +36,10 @@ export default function CorePrograms() {
         <section className="bg-white py-16 md:py-24">
             <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
                 {/* Header Section */}
-                <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-6">
+                <div className="mb-8">
                     <h2 className="text-3xl md:text-5xl font-black text-[#333] font-oswald uppercase tracking-tight leading-none">
                         Core Programs
                     </h2>
-                    <Link
-                        href="/programs"
-                        className="inline-flex items-center justify-center px-6 py-2.5 border-2 border-[#00529B] text-[#00529B] font-bold rounded-full hover:bg-[#00529B] hover:text-white transition-all uppercase tracking-wider text-xs"
-                    >
-                        More News Stories
-                    </Link>
                 </div>
 
                 {/* Horizontal Divider */}
