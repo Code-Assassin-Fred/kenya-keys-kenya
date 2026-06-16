@@ -6,12 +6,8 @@ import { X } from 'lucide-react';
 
 const videoStories = [
     {
-        url: "https://storage.googleapis.com/kenyakeysvideos/Student%20Stories/James%20Mbandi%20Updated_Updated.mp4",
-        description: "A sponsored student shares how Kenya Keys transformed his journey from financial hardship to pursuing a diploma in orthopedic and trauma medicine at a top medical training college in Nairobi, fulfilling a lifelong dream of becoming a doctor.",
-    },
-    {
-        url: "https://storage.googleapis.com/kenyakeysvideos/Student%20Stories/Samuel%20And%20Aisha%20Homevisit_Updated.mp4",
-        description: "A Kenya Keys home visit to two secondary school students who recently lost their mother. The visit captures the organization's commitment to walking alongside students through life's hardest moments, ensuring they stay in school and keep their dreams alive.",
+        url: "https://storage.googleapis.com/kenyakeysvideos/Program%20Videos/Laptop%20Distribution_Updated.mp4",
+        description: "Kenya Keys distributes 100 donated laptops to college and university students, a lifeline in an era where the entire academic syllabus has moved online, giving students from financially struggling families a fair chance to compete and succeed.",
     },
     {
         url: "https://storage.googleapis.com/kenyakeysvideos/Program%20Videos/1001_Updated.mp4",
@@ -22,16 +18,20 @@ const videoStories = [
         description: "Kenya Keys takes its mobile library on the road, delivering storybooks and games to a primary school 20 kilometers away, helping children improve their reading skills and explore their future possibilities.",
     },
     {
+        url: "https://storage.googleapis.com/kenyakeysvideos/Program%20Videos/Eunice%20Homevisit_Updated.mp4",
+        description: "The Kenya Keys community library is changing lives, with donated books fueling curiosity, supporting learning through evening sessions and mobile outreach, and inspiring students from families who could never afford books to dream bigger.",
+    },
+    {
+        url: "https://storage.googleapis.com/kenyakeysvideos/Student%20Stories/James%20Mbandi%20Updated_Updated.mp4",
+        description: "A sponsored student shares how Kenya Keys transformed his journey from financial hardship to pursuing a diploma in orthopedic and trauma medicine at a top medical training college in Nairobi, fulfilling a lifelong dream of becoming a doctor.",
+    },
+    {
+        url: "https://storage.googleapis.com/kenyakeysvideos/Student%20Stories/Samuel%20And%20Aisha%20Homevisit_Updated.mp4",
+        description: "A Kenya Keys home visit to two secondary school students who recently lost their mother. The visit captures the organization's commitment to walking alongside students through life's hardest moments, ensuring they stay in school and keep their dreams alive.",
+    },
+    {
         url: "https://storage.googleapis.com/kenyakeysvideos/Program%20Videos/Food%20Donation%201_Updated.mp4",
         description: "In a region hit hard by drought, Kenya Keys steps in to donate food to students in need, ensuring that hunger doesn't stand between children and their education during exam season.",
-    },
-    {
-        url: "https://storage.googleapis.com/kenyakeysvideos/Program%20Videos/Eunice%20Homevisit_Updated.mp4",
-        description: "The Kenya Keys community library is changing lives, with 25,000 donated books fueling curiosity, supporting learning through evening sessions and mobile outreach, and inspiring students from families who could never afford books to dream bigger.",
-    },
-    {
-        url: "https://storage.googleapis.com/kenyakeysvideos/Program%20Videos/Laptop%20Distribution_Updated.mp4",
-        description: "Kenya Keys distributes 100 donated laptops to college and university students, a lifeline in an era where the entire academic syllabus has moved online, giving students from financially struggling families a fair chance to compete and succeed.",
     },
     {
         url: "https://storage.googleapis.com/kenyakeysvideos/Program%20Videos/Sanitary_Updated.mp4",
@@ -71,7 +71,7 @@ const videoStories = [
     },
     {
         url: "https://storage.googleapis.com/kenyakeysvideos/Program%20Videos/Student%20Short%20Videos/Josephine%20Wayua_Updated.mp4",
-        description: "After four years of Kenya Keys support, this student is now stepping into a nursing career — with plans to serve her community during her internship and a heart full of gratitude for the opportunity that made it all possible.",
+        description: "After four years of Kenya Keys support, this student is now stepping into a nursing career, with plans to serve her community during her internship and a heart full of gratitude for the opportunity that made it all possible.",
     },
 ];
 
