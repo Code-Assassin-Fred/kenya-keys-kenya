@@ -38,7 +38,7 @@ export default function Closure() {
                             transition={{ duration: 0.8, delay: 0.4 }}
                         >
                             <Link 
-                                href="/contact"
+                                href="/#contact"
                                 className="inline-block bg-white text-black font-bold font-outfit px-10 py-4 rounded-full hover:bg-yellow-400 transition-all uppercase tracking-wider shadow-xl transform hover:-translate-y-1"
                             >
                                 Join Our Story
