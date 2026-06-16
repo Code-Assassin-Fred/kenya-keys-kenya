@@ -32,10 +32,11 @@ def main():
     print("Storage Bucket:", env.get("NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET"))
     
     # Initialize Firebase Admin
-    cred = credentials.Certificate({
+    from google.cloud import storage as gcs
+    client = gcs.Client.from_service_account_info({
         "type": "service_account",
         "project_id": env["FIREBASE_PROJECT_ID"],
-        "private_key_id": "dummy", # Firebase SDK allows dummy here as long as private_key is correct
+        "private_key_id": "dummy",
         "private_key": env["FIREBASE_PRIVATE_KEY"],
         "client_email": env["FIREBASE_CLIENT_EMAIL"],
         "client_id": "dummy",
@@ -44,15 +45,21 @@ def main():
         "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
         "client_x509_cert_url": f"https://www.googleapis.com/robot/v1/metadata/x509/{env['FIREBASE_CLIENT_EMAIL']}"
     })
-    
-    firebase_admin.initialize_app(cred, {
-        "storageBucket": env["NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET"]
-    })
-    print("Firebase Admin initialized successfully!")
-    
-    # Get bucket ref
-    bucket = storage.bucket()
-    print("Connected to bucket:", bucket.name)
+    print("Listing buckets...")
+    try:
+        for b in client.list_buckets():
+            print("Bucket in list:", b.name)
+    except Exception as e:
+        print("List buckets failed:", e)
+
+    for bucket_name in ["kenyakeysvideos", "kenya-keys-11a15", "kenya-keys-11a15.appspot.com", "kenya-keys-11a15.firebasestorage.app"]:
+        try:
+            bucket = client.get_bucket(bucket_name)
+            print(f"Successfully accessed bucket {bucket_name}!")
+            for b in bucket.list_blobs(max_results=5):
+                print(f"  {bucket_name} blob: {b.name}")
+        except Exception as e:
+            print(f"Failed to access bucket {bucket_name}: {e}")
 
 if __name__ == "__main__":
     main()
