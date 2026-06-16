@@ -2,35 +2,81 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Play } from 'lucide-react';
+import { X } from 'lucide-react';
 
 const videoStories = [
     {
-        name: "Student Sponsorship",
-        title: "Sponsorship #1001: A Student Transformed",
-        text: "Follow the incredible journey of student #1001 whose life was forever changed through the Kenya Keys sponsorship program. From struggling to afford school fees to excelling academically, this story embodies the transformative power of education.",
+        url: "https://storage.googleapis.com/kenyakeysvideos/Student%20Stories/James%20Mbandi%20Updated_Updated.mp4",
+        description: "A sponsored student shares how Kenya Keys transformed his journey from financial hardship to pursuing a diploma in orthopedic and trauma medicine at a top medical training college in Nairobi — fulfilling a lifelong dream of becoming a doctor.",
+    },
+    {
+        url: "https://storage.googleapis.com/kenyakeysvideos/Student%20Stories/Samuel%20And%20Aisha%20Homevisit_Updated.mp4",
+        description: "A Kenya Keys home visit to two secondary school students who recently lost their mother. The visit captures the organization's commitment to walking alongside students through life's hardest moments, ensuring they stay in school and keep their dreams alive.",
+    },
+    {
         url: "https://storage.googleapis.com/kenyakeysvideos/Program%20Videos/1001_Updated.mp4",
-        color: "#1D366D"
+        description: "A passionate librarian at Kenya Keys shares what it means to give students access to books and education they wouldn't otherwise have at home — and how the library empowers young people to grow and thrive.",
     },
     {
-        name: "Freedom Kits",
-        title: "Freedom Kits: Keeping Girls in School",
-        text: "Discover how Freedom Kits are breaking barriers for girls' education in rural Kenya. By providing essential sanitary supplies, Kenya Keys ensures that no girl has to miss school, empowering them to stay on track and reach their full potential.",
-        url: "https://storage.googleapis.com/kenyakeysvideos/Program%20Videos/Freedom%20Kits_Updated.mp4",
-        color: "#00529B"
+        url: "https://storage.googleapis.com/kenyakeysvideos/Program%20Videos/Mobile%20Library_Updated.mp4",
+        description: "Kenya Keys takes its mobile library on the road — delivering storybooks and games to a primary school 20 kilometers away — helping children improve their reading skills and explore their future possibilities.",
     },
     {
-        name: "Laptop Program",
-        title: "Digital Bridge: Laptop Distribution",
-        text: "Closing the digital divide in rural Kenya. By providing high-achieving high school and college students with laptops, we enable them to access modern learning resources, research tools, and global opportunities that were once out of reach.",
+        url: "https://storage.googleapis.com/kenyakeysvideos/Program%20Videos/Food%20Donation%201_Updated.mp4",
+        description: "In a region hit hard by drought, Kenya Keys steps in to donate food to students in need — ensuring that hunger doesn't stand between children and their education during exam season.",
+    },
+    {
+        url: "https://storage.googleapis.com/kenyakeysvideos/Program%20Videos/Eunice%20Homevisit_Updated.mp4",
+        description: "The Kenya Keys community library is changing lives — with 25,000 donated books fueling curiosity, supporting learning through evening sessions and mobile outreach, and inspiring students from families who could never afford books to dream bigger.",
+    },
+    {
         url: "https://storage.googleapis.com/kenyakeysvideos/Program%20Videos/Laptop%20Distribution_Updated.mp4",
-        color: "#2E7D32"
-    }
+        description: "Kenya Keys distributes 100 donated laptops to college and university students — a lifeline in an era where the entire academic syllabus has moved online, giving students from financially struggling families a fair chance to compete and succeed.",
+    },
+    {
+        url: "https://storage.googleapis.com/kenyakeysvideos/Program%20Videos/Sanitary_Updated.mp4",
+        description: "Kenya Keys distributes reusable sanitary pads to schoolgirls — removing a hidden barrier that once forced many to miss class and risk dropping out. The initiative is helping girls stay in school and keeping early marriage and pregnancy rates down.",
+    },
+    {
+        url: "https://storage.googleapis.com/kenyakeysvideos/Program%20Videos/Sponsorship_Updated.mp4",
+        description: "Newly selected Kenya Keys scholarship students — from Grade 10 to college level — are introduced and share their excitement. With sponsorship now in place, their potential and dreams have been unlocked.",
+    },
+    {
+        url: "https://storage.googleapis.com/kenyakeysvideos/Program%20Videos/Alumni%20Stories/Bishop%20Ben.mp4",
+        description: "A Kenya Keys alumnus who grew up in a rural village shares how the support he received set him on a path to becoming a professional accountant — and today runs multiple businesses, a testament to what opportunity can unlock.",
+    },
+    {
+        url: "https://storage.googleapis.com/kenyakeysvideos/Program%20Videos/Alumni%20Stories/Samuel%20Rai_Updated.mp4",
+        description: "A Kenya Keys alumnus recalls how a single sponsorship in Grade 8 changed everything — taking him from a family that struggled to afford meals to earning a certificate in early childhood education and building a stable, fulfilling life.",
+    },
+    {
+        url: "https://storage.googleapis.com/kenyakeysvideos/Program%20Videos/Other%20Stories/Goal%20Ball_Updated.mp4",
+        description: "Kenya Keys hosts the first-ever goalball competition at its Education Center, bringing together visually impaired students from six coastal counties for a two-day event — providing a safe, welcoming space for inclusion and sport.",
+    },
+    {
+        url: "https://storage.googleapis.com/kenyakeysvideos/Program%20Videos/Other%20Stories/Office%20Days_Updated.mp4",
+        description: "A look at Kenya Keys in action — students gather at the office to apply for sponsorship, collect support checks, and take their first steps toward a future where fees, transport, and accommodation are no longer obstacles to their dreams.",
+    },
+    {
+        url: "https://storage.googleapis.com/kenyakeysvideos/Program%20Videos/Student%20Short%20Videos/Catherine%20Bruno_Updated.mp4",
+        description: "Once on the verge of dropping out due to unpaid school fees, this student shares how Kenya Keys stepped in, covered her costs, and gave her the chance to finish school with strong grades — now on her way to study medicine at university.",
+    },
+    {
+        url: "https://storage.googleapis.com/kenyakeysvideos/Program%20Videos/Student%20Short%20Videos/Daniel%20Mwalewa_Updated.mp4",
+        description: "A Kenya Keys scholarship student shares how the support — covering tuition, transport, and accommodation — gave him a stable foundation to excel academically and pursue a career in clinical medicine.",
+    },
+    {
+        url: "https://storage.googleapis.com/kenyakeysvideos/Program%20Videos/Student%20Short%20Videos/Faloma%20Sponsor%20Student_Updated.mp4",
+        description: "A Kenya Keys sponsored student at a national polytechnic pursuing a diploma in procurement and supply chain management shares how the scholarship — including a donated laptop — has allowed her to focus fully on her studies and future.",
+    },
+    {
+        url: "https://storage.googleapis.com/kenyakeysvideos/Program%20Videos/Student%20Short%20Videos/Josephine%20Wayua_Updated.mp4",
+        description: "After four years of Kenya Keys support, this student is now stepping into a nursing career — with plans to serve her community during her internship and a heart full of gratitude for the opportunity that made it all possible.",
+    },
 ];
 
 /* ── Video Lightbox — Plays video cleanly directly in the browser ── */
 function VideoLightbox({ video, onClose }: { video: typeof videoStories[0]; onClose: () => void }) {
-    // Close modal on Escape key press
     useEffect(() => {
         const handleEsc = (e: KeyboardEvent) => {
             if (e.key === 'Escape') onClose();
@@ -47,7 +93,6 @@ function VideoLightbox({ video, onClose }: { video: typeof videoStories[0]; onCl
             className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 p-4 md:p-12 backdrop-blur-md"
             onClick={onClose}
         >
-            {/* Close Button positioned in the top-right corner of the viewport */}
             <button
                 onClick={onClose}
                 className="fixed top-6 right-6 z-[10000] w-12 h-12 bg-white/10 hover:bg-[#FFB800] text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-2xl backdrop-blur-md"
@@ -56,7 +101,6 @@ function VideoLightbox({ video, onClose }: { video: typeof videoStories[0]; onCl
                 <X size={28} />
             </button>
 
-            {/* Video Container */}
             <motion.div
                 initial={{ scale: 0.95, y: 20 }}
                 animate={{ scale: 1, y: 0 }}
@@ -71,25 +115,6 @@ function VideoLightbox({ video, onClose }: { video: typeof videoStories[0]; onCl
                     playsInline
                     preload="auto"
                     className="w-full h-full object-contain"
-                    onLoadStart={() => console.log('Lightbox Video: Load started for', video.url)}
-                    onLoadedMetadata={(e) => console.log('Lightbox Video: Metadata loaded. Duration:', e.currentTarget.duration)}
-                    onCanPlay={() => console.log('Lightbox Video: Can play now')}
-                    onPlay={() => console.log('Lightbox Video: Play started')}
-                    onPause={() => console.log('Lightbox Video: Paused')}
-                    onWaiting={() => console.log('Lightbox Video: Waiting (buffering...)')}
-                    onStalled={() => console.log('Lightbox Video: Stalled')}
-                    onError={(e) => {
-                        const vid = e.currentTarget;
-                        console.error('Lightbox Video: ERROR details:', {
-                            networkState: vid.networkState,
-                            readyState: vid.readyState,
-                            currentSrc: vid.currentSrc,
-                            error: vid.error ? {
-                                code: vid.error.code,
-                                message: vid.error.message
-                            } : null
-                        });
-                    }}
                 >
                     Your browser does not support the video tag.
                 </video>
@@ -98,38 +123,43 @@ function VideoLightbox({ video, onClose }: { video: typeof videoStories[0]; onCl
     );
 }
 
-/* ── Video Thumbnail — Preloads metadata for fast load and plays preview on hover ── */
+/* ── Video Thumbnail — Autoplays muted in background, no hover gating ── */
 function VideoThumbnail({ story, onClick }: { story: typeof videoStories[0]; onClick: () => void }) {
     const videoRef = useRef<HTMLVideoElement>(null);
 
-    const handleMouseEnter = () => {
-        if (videoRef.current) {
-            console.log(`Thumbnail Video (${story.name}): Hover play attempt`);
-            videoRef.current.play().catch((err) => {
-                console.warn(`Thumbnail Video (${story.name}): Hover play blocked/failed`, err);
-            });
-        }
-    };
+    useEffect(() => {
+        const video = videoRef.current;
+        if (!video) return;
 
-    const handleMouseLeave = () => {
-        if (videoRef.current) {
-            console.log(`Thumbnail Video (${story.name}): Hover pause`);
-            videoRef.current.pause();
-            videoRef.current.currentTime = 0;
-        }
-    };
+        // Use IntersectionObserver to autoplay when visible
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        video.play().catch(() => {
+                            // Autoplay may be blocked, that's ok
+                        });
+                    } else {
+                        video.pause();
+                    }
+                });
+            },
+            { threshold: 0.2 }
+        );
+
+        observer.observe(video);
+        return () => observer.disconnect();
+    }, []);
 
     return (
         <div
             onClick={onClick}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
             className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl cursor-pointer group"
             style={{
-                boxShadow: `0 20px 40px -15px ${story.color}33`
+                boxShadow: '0 20px 40px -15px rgba(29, 54, 109, 0.2)'
             }}
         >
-            {/* Video as preview — preloads metadata so first frame is visible, plays on hover */}
+            {/* Video autoplays muted in background */}
             <video
                 ref={videoRef}
                 src={story.url}
@@ -138,47 +168,18 @@ function VideoThumbnail({ story, onClick }: { story: typeof videoStories[0]; onC
                 preload="metadata"
                 loop
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                onLoadStart={() => console.log(`Thumbnail Video (${story.name}): Load started`)}
-                onLoadedMetadata={(e) => console.log(`Thumbnail Video (${story.name}): Metadata loaded. Duration:`, e.currentTarget.duration)}
-                onError={(e) => {
-                    const error = e.currentTarget.error;
-                    console.error(`Thumbnail Video (${story.name}): ERROR!`, {
-                        code: error?.code,
-                        message: error?.message
-                    });
-                }}
             />
 
-            {/* Animated Play Overlay */}
-            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500 flex items-center justify-center">
-                <div
-                    className="w-20 h-20 rounded-full flex items-center justify-center transition-all duration-500 shadow-2xl relative"
-                    style={{
-                        background: `linear-gradient(135deg, ${story.color}dd 0%, ${story.color}aa 100%)`,
-                        border: "2px solid rgba(255, 255, 255, 0.4)"
-                    }}
-                >
-                    <div className="absolute inset-0 rounded-full bg-white/10 animate-ping scale-110 opacity-75 group-hover:bg-[#FFB800]/20" />
-                    <Play
-                        fill="white"
-                        size={30}
-                        className="ml-1 text-white transition-transform duration-500 group-hover:scale-110"
-                    />
-                </div>
-            </div>
+            {/* Subtle gradient overlay for readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
 
-            {/* Floating Tag */}
+            {/* "Click to play" tag */}
             <span
                 className="absolute top-6 left-6 px-4 py-1.5 text-white text-xs font-black font-outfit tracking-widest uppercase rounded-full shadow-lg backdrop-blur-md border border-white/10"
-                style={{ backgroundColor: `${story.color}e6` }}
+                style={{ backgroundColor: 'rgba(29, 54, 109, 0.85)' }}
             >
-                {story.name}
+                Click to play
             </span>
-
-            {/* Play hint overlay */}
-            <div className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/70 backdrop-blur-md px-3 py-1.5 rounded-lg text-white/90 text-xs font-outfit tracking-wide">
-                Click to Open Player 🎥
-            </div>
         </div>
     );
 }
@@ -200,18 +201,8 @@ export default function Stories() {
     return (
         <section id="stories" className="py-24 bg-gray-50 overflow-hidden">
             <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
-                <div className="text-center mb-24">
-                    <h2 className="text-3xl md:text-5xl font-black text-[#333] font-oswald uppercase leading-none mb-6 tracking-tight">
-                        STORIES OF <span className="text-[#00529B]">STRENGTH</span>
-                    </h2>
-                    <div className="w-24 h-1.5 bg-[#FFB800] mx-auto rounded-full" />
-                    <p className="text-gray-600 font-outfit max-w-2xl mx-auto mt-6 text-lg">
-                        Experience the real-world difference your support makes through these recorded moments of transformation and community progress.
-                    </p>
-                </div>
-
                 {/* Alternating Video Stories */}
-                <div className="space-y-32">
+                <div className="space-y-28">
                     {videoStories.map((story, idx) => (
                         <motion.div
                             key={idx}
@@ -219,7 +210,7 @@ export default function Stories() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.8, ease: "easeOut" }}
-                            className={`flex flex-col ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-12 md:gap-24`}
+                            className={`flex flex-col ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-12 md:gap-20`}
                         >
                             {/* Video Thumbnail Section */}
                             <div className="w-full md:w-1/2">
@@ -229,44 +220,18 @@ export default function Stories() {
                                 />
                             </div>
 
-                            {/* Story Info Section */}
+                            {/* Description Section — no heading, just description */}
                             <div className="w-full md:w-1/2 flex flex-col items-start">
-                                <span
-                                    className="font-black tracking-[0.2em] uppercase text-sm mb-4 block font-outfit"
-                                    style={{ color: story.color }}
-                                >
-                                    {story.name}
-                                </span>
-                                <h3 className="text-2xl md:text-4xl font-black text-[#333] font-oswald uppercase leading-tight mb-6 tracking-tight">
-                                    {story.title}
-                                </h3>
-                                <p className="text-lg text-gray-600 font-outfit leading-relaxed mb-8">
-                                    {story.text}
+                                <p className="text-lg text-gray-600 font-outfit leading-relaxed">
+                                    {story.description}
                                 </p>
-
-                                <button
-                                    onClick={() => setSelectedVideo(story)}
-                                    className="inline-flex items-center gap-3 px-8 py-4 text-white font-bold font-outfit text-sm rounded-xl transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-0.5 active:translate-y-0"
-                                    style={{
-                                        backgroundColor: story.color,
-                                    }}
-                                    onMouseEnter={(e) => {
-                                        e.currentTarget.style.backgroundColor = '#FFB800';
-                                    }}
-                                    onMouseLeave={(e) => {
-                                        e.currentTarget.style.backgroundColor = story.color;
-                                    }}
-                                >
-                                    <Play size={16} fill="white" className="text-white" />
-                                    <span>WATCH FULL VIDEO</span>
-                                </button>
                             </div>
                         </motion.div>
                     ))}
                 </div>
             </div>
 
-            {/* Video Lightbox Modal — only mounts when a video is selected */}
+            {/* Video Lightbox Modal */}
             <AnimatePresence>
                 {selectedVideo && (
                     <VideoLightbox
