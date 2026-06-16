@@ -103,7 +103,7 @@ export default function Hero() {
                         transition={{ duration: 1.5, ease: "easeOut" }}
                         className="absolute inset-0 bg-cover bg-center bg-no-repeat z-10 clip-hero-curve"
                         style={{
-                            backgroundImage: "url('/hero.png')",
+                            backgroundImage: "url('/image6.png')",
                         }}
                     >
 
