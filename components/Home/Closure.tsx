@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion';
 
+import Link from 'next/link';
+
 export default function Closure() {
     return (
         <section className="relative bg-[#0072CE]">
@@ -35,12 +37,12 @@ export default function Closure() {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.4 }}
                         >
-                            <a 
-                                href="mailto:joseph@kenyakeyspbo-kenya.org?subject=Joining Kenya Keys"
+                            <Link 
+                                href="/contact"
                                 className="inline-block bg-white text-black font-bold font-outfit px-10 py-4 rounded-full hover:bg-yellow-400 transition-all uppercase tracking-wider shadow-xl transform hover:-translate-y-1"
                             >
                                 Join Our Story
-                            </a>
+                            </Link>
                         </motion.div>
                     </div>
                 </div>
