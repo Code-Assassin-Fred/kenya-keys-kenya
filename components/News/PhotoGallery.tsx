@@ -3,6 +3,9 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Maximize2, ChevronLeft, ChevronRight } from 'lucide-react';
+import Image from 'next/image';
+
+const MotionImage = motion(Image);
 
 const galleryImages = [
     { src: "/image2.png", alt: "Students in classroom" },
@@ -68,9 +71,11 @@ export default function PhotoGallery() {
                             className="relative group cursor-pointer overflow-hidden rounded-[30px] shadow-sm hover:shadow-2xl transition-all duration-500"
                             onClick={() => openLightbox(idx)}
                         >
-                            <img 
+                            <Image 
                                 src={image.src} 
                                 alt={image.alt} 
+                                width={600}
+                                height={450}
                                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" 
                             />
                             <div className="absolute inset-0 bg-[#00529B]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -108,13 +113,15 @@ export default function PhotoGallery() {
                                 <ChevronLeft className="w-8 h-8 md:w-12 md:h-12" />
                             </button>
 
-                            <motion.img 
+                            <MotionImage 
                                 key={selectedImage}
                                 initial={{ opacity: 0, scale: 0.9 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
                                 src={galleryImages[selectedImage].src} 
                                 alt={galleryImages[selectedImage].alt} 
+                                width={1200}
+                                height={900}
                                 className="max-w-full max-h-full object-contain rounded-2xl shadow-2xl cursor-default"
                                 onClick={(e) => e.stopPropagation()}
                             />

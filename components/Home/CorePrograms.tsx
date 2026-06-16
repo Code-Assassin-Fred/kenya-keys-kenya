@@ -160,13 +160,6 @@ export default function CorePrograms() {
                                 <p className="font-outfit text-lg md:text-xl text-gray-700 leading-relaxed font-bold">
                                     Kenya Keys is an educational NGO founded by the community—focused on providing great education, good vibes, student success, and a love for the future.
                                 </p>
-
-                                <Link
-                                    href="/about"
-                                    className="inline-block bg-[#00529B] text-white font-bold font-outfit px-10 py-4 rounded-full hover:bg-[#003d75] transition-all uppercase tracking-wider shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-                                >
-                                    Learn More
-                                </Link>
                             </div>
                         </motion.div>
                     </div>
