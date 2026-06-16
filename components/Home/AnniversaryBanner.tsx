@@ -4,51 +4,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
-const Confetti = ({ color, style, delay = 0 }: { color: string; style: React.CSSProperties; delay?: number }) => (
-    <motion.div
-        initial={{ y: -20, opacity: 0, rotate: 0 }}
-        animate={{ 
-            y: [0, 10, 0], 
-            opacity: [0.7, 1, 0.7],
-            rotate: [0, 15, -15, 0]
-        }}
-        transition={{ 
-            duration: 3 + Math.random() * 2, 
-            repeat: Infinity, 
-            delay,
-            ease: "easeInOut" 
-        }}
-        className="absolute z-10 w-2 h-2 md:w-3 md:h-3"
-        style={{ ...style, backgroundColor: color }}
-    />
-);
-
-const TriangleConfetti = ({ color, style, delay = 0 }: { color: string; style: React.CSSProperties; delay?: number }) => (
-    <motion.div
-        initial={{ y: -20, opacity: 0, rotate: 0 }}
-        animate={{ 
-            y: [0, 15, 0], 
-            opacity: [0.7, 1, 0.7],
-            rotate: [0, 45, -45, 0]
-        }}
-        transition={{ 
-            duration: 4 + Math.random() * 2, 
-            repeat: Infinity, 
-            delay,
-            ease: "easeInOut" 
-        }}
-        className="absolute z-10"
-        style={{ 
-            ...style,
-            width: 0,
-            height: 0,
-            borderLeft: '6px solid transparent',
-            borderRight: '6px solid transparent',
-            borderBottom: `10px solid ${color}`,
-        }}
-    />
-);
-
 export default function AnniversaryBanner() {
     return (
         <section className="relative w-full max-w-[1100px] mx-auto px-4 md:px-0 py-16 overflow-visible">
@@ -94,17 +49,8 @@ export default function AnniversaryBanner() {
 
                 {/* Right Side Image with Protrusion */}
                 <div className="relative w-full md:w-[45%] h-[280px] md:h-auto mt-8 md:mt-0">
-                    <div className="relative h-full md:absolute md:top-[-30px] md:bottom-[-30px] md:left-0 md:right-0 bg-black p-2 overflow-hidden z-20">
+                    <div className="relative h-full md:absolute md:h-auto md:top-[-40px] md:bottom-[-40px] md:left-0 md:right-0 bg-black p-2 overflow-hidden z-20">
                         <div className="relative w-full h-full overflow-hidden">
-                            {/* Floating Confetti over Image */}
-                            <Confetti color="#40e0d0" style={{ top: '20%', left: '10%' }} delay={0.2} />
-                            <Confetti color="#FF69B4" style={{ top: '40%', left: '15%' }} delay={0.5} />
-                            <Confetti color="#FFD700" style={{ top: '15%', left: '30%' }} delay={0.8} />
-                            <TriangleConfetti color="#40e0d0" style={{ top: '60%', left: '80%' }} delay={0.3} />
-                            <TriangleConfetti color="#FF69B4" style={{ top: '30%', left: '70%' }} delay={1.1} />
-                            <Confetti color="#0000FF" style={{ top: '75%', left: '60%' }} delay={0.1} />
-                            <Confetti color="#40e0d0" style={{ top: '85%', left: '40%' }} delay={0.9} />
-                            
                             <Image 
                                 src="/WhatsApp Image 2026-04-19 at 20.33.27 (5).jpeg"
                                 alt="Kenya Keys 20 Year Impact"
