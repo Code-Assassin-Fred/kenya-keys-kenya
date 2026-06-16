@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function AnniversaryBanner() {
     return (
@@ -40,9 +41,12 @@ export default function AnniversaryBanner() {
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-                            <button className="bg-[#001D4A] text-white px-10 py-3.5 rounded-full font-bold font-outfit text-sm md:text-base hover:bg-opacity-90 transition-all cursor-pointer whitespace-nowrap shadow-lg">
+                            <Link 
+                                href="/donate"
+                                className="inline-block bg-[#001D4A] text-white px-10 py-3.5 rounded-full font-bold font-outfit text-sm md:text-base hover:bg-opacity-90 transition-all cursor-pointer whitespace-nowrap shadow-lg text-center"
+                            >
                                 Support our mission
-                            </button>
+                            </Link>
                         </div>
                     </motion.div>
                 </div>
