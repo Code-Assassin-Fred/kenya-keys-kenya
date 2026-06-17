@@ -10,19 +10,19 @@ const newsItems = [
         title: "Celebrating 20 Years of Impact",
         date: "March 2024",
         excerpt: "Kenya Keys marks two decades of life-changing educational support. From our first 14 students to over 1,000 sponsored alumni.",
-        image: "/image2.png"
+        image: "/image2.webp"
     },
     {
         title: "Community Education Center Opening",
         date: "January 2024",
         excerpt: "The milestone was marked with the opening of the CEC, a 15,000 sq ft building housing a public library and computer lab.",
-        image: "/new illuminate.png"
+        image: "/new illuminate.webp"
     },
     {
         title: "Hope Springs Program Expands",
         date: "November 2023",
         excerpt: "Our mentorship program for girls reaches new communities, providing vital health and leadership education.",
-        image: "/image5.png"
+        image: "/image5.webp"
     }
 ];
 

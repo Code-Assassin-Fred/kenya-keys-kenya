@@ -2,12 +2,20 @@
 
 import React from 'react';
 import { motion } from "framer-motion";
+import Image from 'next/image';
 
 export default function Hero() {
     return (
         <section className="relative h-[450px] w-full flex items-center bg-[#FFB800] overflow-hidden">
-            <div className="absolute inset-0 opacity-10">
-                <div className="absolute inset-0 bg-[url('/image2.png')] bg-cover bg-center grayscale" />
+            <div className="absolute inset-0 opacity-10 z-0">
+                <Image 
+                    src="/image2.webp"
+                    alt="Kenya Keys core education programs background"
+                    fill
+                    priority
+                    sizes="100vw"
+                    className="object-cover grayscale"
+                />
             </div>
 
             <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 w-full relative z-10">

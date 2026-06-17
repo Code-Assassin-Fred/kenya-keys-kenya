@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const signals = [
     {
@@ -27,9 +28,12 @@ export default function TrustSignals() {
         <section className="relative w-full py-24 overflow-hidden bg-black text-white">
             {/* Background Image with Cinematic Overlay */}
             <div className="absolute inset-0 z-0">
-                <div 
-                    className="absolute inset-0 bg-cover bg-center opacity-40 scale-105"
-                    style={{ backgroundImage: "url('/image4.png')" }}
+                <Image 
+                    src="/image4.webp"
+                    alt="Kenya Keys community education support in rural Kwale County"
+                    fill
+                    sizes="100vw"
+                    className="object-cover opacity-40"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/60 to-black/85" />
             </div>

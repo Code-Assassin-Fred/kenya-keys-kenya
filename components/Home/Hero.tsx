@@ -2,8 +2,8 @@
 
 import React from 'react';
 import { motion } from "framer-motion";
-
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 const CountUp = ({ end, duration = 2000, suffix = "" }: { end: number; duration?: number; suffix?: string }) => {
     const [count, setCount] = React.useState(0);
     const [isInView, setIsInView] = React.useState(false);
@@ -101,12 +101,16 @@ export default function Hero() {
                         initial={{ scale: 1.1, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
                         transition={{ duration: 1.5, ease: "easeOut" }}
-                        className="absolute inset-0 bg-cover bg-center bg-no-repeat z-10 clip-hero-curve"
-                        style={{
-                            backgroundImage: "url('/image6.png')",
-                        }}
+                        className="absolute inset-0 z-10 clip-hero-curve overflow-hidden"
                     >
-
+                        <Image
+                            src="/image6.webp"
+                            alt="Kenya Keys secondary school and university students learning in Kwale County classroom"
+                            fill
+                            priority
+                            sizes="(max-width: 768px) 100vw, 55vw"
+                            className="object-cover"
+                        />
                     </motion.div>
                 </div>
                 {/* Right Side: Content - Overlapping the blue area */}

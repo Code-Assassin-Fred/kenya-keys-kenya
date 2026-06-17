@@ -4,14 +4,14 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 const images = [
-    { id: 1, src: '/hero.png', alt: 'Future Leaders' },
-    { id: 2, src: '/student-portrait.png', alt: 'Education for All' },
-    { id: 3, src: '/image7.png', alt: 'Community Success' },
-    { id: 4, src: '/image2.png', alt: 'Learning Journey' },
-    { id: 5, src: '/image3.png', alt: 'Global Impact' },
-    { id: 6, src: '/image4.png', alt: 'New Opportunities' },
-    { id: 7, src: '/image5.png', alt: 'Student Success' },
-    { id: 8, src: '/image6.png', alt: 'Youth Empowerment' },
+    { id: 1, src: '/hero.webp', alt: 'Future Leaders' },
+    { id: 2, src: '/image1.webp', alt: 'Education for All' },
+    { id: 3, src: '/image7.webp', alt: 'Community Success' },
+    { id: 4, src: '/image2.webp', alt: 'Learning Journey' },
+    { id: 5, src: '/image3.webp', alt: 'Global Impact' },
+    { id: 6, src: '/image4.webp', alt: 'New Opportunities' },
+    { id: 7, src: '/image5.webp', alt: 'Student Success' },
+    { id: 8, src: '/image6.webp', alt: 'Youth Empowerment' },
 ];
 
 export function GalleryOverview() {

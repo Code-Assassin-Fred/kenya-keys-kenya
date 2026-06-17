@@ -1,19 +1,20 @@
 "use client"
 
 import { motion } from 'framer-motion';
-
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Closure() {
     return (
         <section className="relative bg-[#0072CE]">
             <div className="relative w-full h-screen overflow-hidden rounded-tr-[120px] md:rounded-tr-[240px]">
                 {/* Background Image */}
-                <div
-                    className="absolute inset-0 bg-cover bg-center"
-                    style={{
-                        backgroundImage: `url('/image5.png')`,
-                    }}
+                <Image 
+                    src="/image5.webp"
+                    alt="Kenya Keys students studying together, supported by educational programs"
+                    fill
+                    sizes="100vw"
+                    className="object-cover opacity-40"
                 />
 
                 {/* Deeper, cinematic dark overlay similar to Hero */}

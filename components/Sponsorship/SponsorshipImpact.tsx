@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Book, GraduationCap, Coffee, Home, Users } from 'lucide-react';
+import Image from 'next/image';
 
 const impactItems = [
     {
@@ -46,7 +47,13 @@ export default function SponsorshipImpact() {
                             className="relative"
                         >
                             <div className="relative aspect-[3/4] rounded-[40px] overflow-hidden shadow-2xl z-10 border-[12px] border-white">
-                                <img src="/image15.png" alt="Student Impact" className="object-cover w-full h-full" />
+                                <Image 
+                                    src="/image15.webp" 
+                                    alt="Kenya Keys sponsored student studying with support from education sponsorship program" 
+                                    fill
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                    className="object-cover" 
+                                />
                             </div>
                             
                             {/* Accent Circle */}

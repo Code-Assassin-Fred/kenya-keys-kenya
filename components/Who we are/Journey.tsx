@@ -18,7 +18,7 @@ export default function Journey() {
                         >
                             <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl">
                                 <Image 
-                                    src="/image4.png" 
+                                    src="/image4.webp" 
                                     alt="Students in Kenya" 
                                     fill 
                                     className="object-cover"

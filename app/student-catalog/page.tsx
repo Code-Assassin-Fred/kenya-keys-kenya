@@ -1,64 +1,60 @@
-'use client';
-
-import React, { useState } from 'react';
+import type { Metadata } from "next";
 import Navbar from "@/components/Home/Navbar";
 import Footer from "@/components/Home/Footer";
 import PageHero from "@/components/shared/PageHero";
-import StudentGrid from "@/components/Sponsorship/StudentGrid";
+import StudentCatalogBody from "@/components/Sponsorship/StudentCatalogBody";
 import CTABanner from "@/components/shared/CTABanner";
-import InterestModal from "@/components/shared/InterestModal";
+import JsonLd, { createBreadcrumbSchema } from "@/components/seo/JsonLd";
+
+export const metadata: Metadata = {
+    title: "Sponsor a Student - Kenya Keys Student Catalog",
+    description: "Meet the bright and motivated secondary and university students in rural Kenya awaiting sponsorship. Browse their profiles and help unlock their potential.",
+    keywords: [
+        "sponsor a student", "Kenya Keys student catalog", "educational sponsorship Kenya",
+        "sponsor education rural Kenya", "support student in Kwale County", "sponsor high school student Kenya",
+        "sponsor university student Kenya", "donate to student education"
+    ],
+    alternates: {
+        canonical: "https://kenyakeys-pbokenya.org/student-catalog",
+    },
+    openGraph: {
+        title: "Sponsor a Student - Kenya Keys Student Catalog",
+        description: "Meet the bright and motivated secondary and university students in rural Kenya awaiting sponsorship. Support a student's education today.",
+        url: "https://kenyakeys-pbokenya.org/student-catalog",
+    },
+};
 
 export default function StudentCatalogPage() {
-    const [isModalOpen, setIsModalOpen] = useState(false);
-
     return (
         <div className="min-h-screen bg-white">
             <Navbar />
             <main>
+                <JsonLd data={createBreadcrumbSchema([
+                    { name: "Home", url: "https://kenyakeys-pbokenya.org" },
+                    { name: "Sponsorship", url: "https://kenyakeys-pbokenya.org/sponsorship-overview" },
+                    { name: "Student Catalog", url: "https://kenyakeys-pbokenya.org/student-catalog" },
+                ])} />
                 <PageHero 
                     title="STUDENT CATALOG"
                     subtitle="Meet the bright, motivated high school and university students currently awaiting sponsorship. Each profile tells a story of resilience and potential."
                     bgColor="bg-[#00529B]"
                     accentColor="#FFB800"
-                    bgImage="/image17.png"
+                    bgImage="/image17.webp"
                     breadcrumb={[{ label: "Sponsorship", href: "/sponsorship-overview" }, { label: "Catalog", href: "/student-catalog" }]}
                 />
                 
-                {/* Student catalog grid */}
-                <StudentGrid />
-                
-                {/* Can't decide section (placed below the catalog) */}
-                <section className="py-12 bg-blue-50 border-b border-blue-100">
-                    <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 flex flex-col md:flex-row items-center justify-between gap-8">
-                        <div className="max-w-2xl text-center md:text-left">
-                            <h3 className="text-2xl font-black text-[#1D366D] font-oswald uppercase mb-2">Can't decide?</h3>
-                            <p className="text-gray-600 font-outfit">Choose "Greatest Need" and our Kenyan teams will match your sponsorship to the student currently facing the most urgent barriers to their education.</p>
-                        </div>
-                        <button 
-                            onClick={() => setIsModalOpen(true)}
-                            className="bg-[#FFB800] text-[#1D366D] px-10 py-4 rounded-full font-black font-outfit uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-xl whitespace-nowrap text-center cursor-pointer"
-                        >
-                            Sponsor Greatest Need
-                        </button>
-                    </div>
-                </section>
+                <StudentCatalogBody />
                 
                 <CTABanner 
                     title="HOW SPONSORSHIP WORKS"
                     description="From selecting a student to receiving reports and writing letters, discover the full journey of becoming a Kenya Keys sponsor."
                     buttonText="Sponsorship Overview"
                     buttonHref="/sponsorship-overview"
-                    bgImage="/image8.png"
+                    bgImage="/image8.webp"
                 />
             </main>
             <Footer />
-
-            <InterestModal 
-                isOpen={isModalOpen}
-                onClose={() => setIsModalOpen(false)}
-                type="sponsorship"
-                targetName="Greatest Need"
-            />
         </div>
     );
 }
+

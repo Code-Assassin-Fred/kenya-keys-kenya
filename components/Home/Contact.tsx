@@ -202,9 +202,10 @@ export default function Contact() {
                     {/* Bottom: Large Image - Cut off by bottom border */}
                     <div className="flex-1 relative min-h-[320px] rounded-t-3xl rounded-b-none overflow-hidden shadow-xl group">
                         <Image
-                            src="/image4.png"
-                            alt="Kenya Keys Interior"
+                            src="/image4.webp"
+                            alt="Kenya Keys Community Education Center interior in Taru, Kwale County"
                             fill
+                            sizes="(max-width: 768px) 100vw, 50vw"
                             className="object-cover group-hover:scale-105 transition-all duration-700"
                         />
                     </div>

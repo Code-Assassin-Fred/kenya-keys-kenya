@@ -18,7 +18,7 @@ export default function CEC() {
                             transition={{ duration: 0.8 }}
                             className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10"
                         >
-                            <Image src="/new illuminate.png" alt="CEC Building" fill className="object-cover" />
+                            <Image src="/new illuminate.webp" alt="Kenya Keys Community Education Center building in Taru Kenya" fill className="object-cover" />
                         </motion.div>
                     </div>
 

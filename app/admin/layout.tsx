@@ -101,7 +101,7 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
                 <div className="p-6 flex items-center justify-start border-b border-[#1d2939] h-24">
                     <Link href="/admin" className="flex items-center w-full">
                         <img 
-                            src="/Kenya Keys Logo With Background.png" 
+                            src="/Kenya Keys Logo With Background.webp" 
                             alt="Kenya Keys Logo" 
                             className="h-14 w-auto object-contain rounded-lg shadow-sm" 
                         />

@@ -8,18 +8,18 @@ import Image from 'next/image';
 const MotionImage = motion(Image);
 
 const galleryImages = [
-    { src: "/image2.png", alt: "Students in classroom" },
-    { src: "/image4.png", alt: "Library study session" },
-    { src: "/image6.png", alt: "Community meeting" },
-    { src: "/image7.png", alt: "Graduation celebration" },
-    { src: "/image8.png", alt: "Computer lab learning" },
-    { src: "/image9.png", alt: "New school construction" },
-    { src: "/image10.png", alt: "Team photo in Kenya" },
-    { src: "/image11.png", alt: "Mentorship session" },
-    { src: "/image12.png", alt: "Outdoor learning" },
-    { src: "/image13.png", alt: "Students with books" },
-    { src: "/image14.png", alt: "Vocational training" },
-    { src: "/image15.png", alt: "Kenya Keys campus" }
+    { src: "/image2.webp", alt: "Kenya Keys students in classroom learning session" },
+    { src: "/image4.webp", alt: "Kenya Keys library study session in rural Kenya" },
+    { src: "/image6.webp", alt: "Kenya Keys community education meeting" },
+    { src: "/image7.webp", alt: "Kenya Keys student graduation celebration ceremony" },
+    { src: "/image8.webp", alt: "Kenya Keys computer lab digital literacy learning" },
+    { src: "/image9.webp", alt: "Kenya Keys new school construction project" },
+    { src: "/image10.webp", alt: "Kenya Keys education team photo in Kenya" },
+    { src: "/image11.webp", alt: "Kenya Keys student mentorship session" },
+    { src: "/image12.webp", alt: "Kenya Keys outdoor education program learning" },
+    { src: "/image13.webp", alt: "Kenya Keys sponsored students with textbooks" },
+    { src: "/image14.webp", alt: "Kenya Keys vocational training program" },
+    { src: "/image15.webp", alt: "Kenya Keys Community Education Center campus" }
 ];
 
 export default function PhotoGallery() {

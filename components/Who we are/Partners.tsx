@@ -3,9 +3,9 @@
 import Image from 'next/image';
 
 const partners = [
-    { name: 'Kenya National Library', logo: '/Patners/Kenya National Library.png' },
-    { name: 'Ministry of Education', logo: '/Patners/Ministry of education.png' },
-    { name: 'Loghorn Publishers', logo: '/Patners/Loghorn.png' },
+    { name: 'Kenya National Library', logo: '/Patners/Kenya National Library.webp' },
+    { name: 'Ministry of Education', logo: '/Patners/Ministry of education.webp' },
+    { name: 'Loghorn Publishers', logo: '/Patners/Loghorn.webp' },
     { name: 'Erido Computers Mombasa', logo: '/Patners/Erido Computers.jpg' },
     { name: 'Undugu Mentorship Initiative', logo: '/Patners/Undugu Mentorship Initiative.jpg' },
 ];

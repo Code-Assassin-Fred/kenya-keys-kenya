@@ -2,15 +2,20 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export default function DonateHero() {
     return (
         <section className="relative h-[60vh] min-h-[500px] w-full flex items-center bg-[#1D366D] overflow-hidden">
             {/* Background Image with Cinematic Overlay */}
             <div className="absolute inset-0 z-0">
-                <div 
-                    className="absolute inset-0 bg-cover bg-center opacity-40 scale-105"
-                    style={{ backgroundImage: "url('/image16.png')" }}
+                <Image 
+                    src="/image16.webp"
+                    alt="Donate to Kenya Keys students' education"
+                    fill
+                    priority
+                    sizes="100vw"
+                    className="object-cover opacity-40"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1D366D] via-[#1D366D]/40 to-transparent" />
             </div>

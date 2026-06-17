@@ -142,8 +142,8 @@ export default function Navbar() {
                 {/* Logo Section */}
                 <Link href="/" className="flex items-center">
                     <img
-                        src="/Kenya Keys Logo.png"
-                        alt="Kenya Keys Logo"
+                        src="/Kenya Keys Logo.webp"
+                        alt="Kenya Keys Education NGO Logo"
                         className="h-24 lg:h-45 w-auto object-contain"
                     />
                 </Link>

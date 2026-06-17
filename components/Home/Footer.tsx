@@ -46,9 +46,9 @@ export default function Footer() {
                     <div>
                         <h3 className="text-white text-xl font-semibold mb-6 font-outfit">Support Us</h3>
                         <ul className="space-y-3 font-outfit">
-                            <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Student Catalog</a></li>
-                            <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Donation Packages</a></li>
-                            <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Education Fund</a></li>
+                            <li><a href="/student-catalog" className="text-gray-300 hover:text-white transition-colors">Student Catalog</a></li>
+                            <li><a href="/donate" className="text-gray-400 hover:text-white transition-colors">Donation Packages</a></li>
+                            <li><a href="/donate/ways-to-give" className="text-gray-400 hover:text-white transition-colors">Education Fund</a></li>
                             <li><a href="/impact#stats" className="text-gray-400 hover:text-white transition-colors">Impact & Metrics</a></li>
                             {/** Impact Reports temporarily hidden per director request */}
                             {/** <li><a href="/impact#reports" className="text-gray-400 hover:text-white transition-colors">Impact Reports</a></li> */}
@@ -90,8 +90,8 @@ export default function Footer() {
                 <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                     <p className="text-gray-400 text-sm font-outfit">© 2026 KenyaKeys. All rights reserved.</p>
                     <div className="flex gap-6 font-outfit">
-                        <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</a>
-                        <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">Terms of Service</a>
+                        <a href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</a>
+                        <a href="/terms-of-service" className="text-gray-400 hover:text-white transition-colors text-sm">Terms of Service</a>
                     </div>
                 </div>
             </div>

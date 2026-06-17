@@ -10,7 +10,7 @@ const programs = [
         title: "Secondary School Sponsorship",
         description: "Empowering bright minds with the resources they need to complete their secondary education through comprehensive support and mentorship.",
         category: "Impact Stories",
-        image: "/image16.png",
+        image: "/image16.webp",
         href: "/programs/secondary-sponsorship"
     },
     {
@@ -18,7 +18,7 @@ const programs = [
         title: "Girls' Empowerment",
         description: "Breaking barriers for girls through leadership training, health education, and dedicated scholarship programs for success.",
         category: "Impact Stories",
-        image: "/image11.png",
+        image: "/image11.webp",
         href: "/programs/girls-empowerment"
     },
     {
@@ -26,7 +26,7 @@ const programs = [
         title: "College & Vocational",
         description: "Supporting the transition to higher education or trade schools, ensuring career readiness and long-term economic independence.",
         category: "Impact Stories",
-        image: "/WhatsApp Image 2026-04-19 at 20.39.13.jpeg",
+        image: "/WhatsApp Image 2026-04-19 at 20.39.13.webp",
         href: "/programs/college-vocational"
     }
 ];
@@ -63,7 +63,7 @@ export default function CorePrograms() {
                                 <div className="relative aspect-[16/10] overflow-hidden mb-6">
                                     <Image
                                         src={program.image}
-                                        alt={program.title}
+                                        alt={`Kenya Keys ${program.title} program - students in rural Kenya`}
                                         fill
                                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                                     />
@@ -133,8 +133,8 @@ export default function CorePrograms() {
                         >
                             <div className="relative w-[240px] h-[240px] sm:w-[280px] sm:h-[280px] md:w-[400px] md:h-[400px] rounded-full overflow-hidden border-4 border-white shadow-2xl">
                                 <Image
-                                    src="/new illuminate.png"
-                                    alt="Vision for Kenya"
+                                    src="/new illuminate.webp"
+                                    alt="Kenya Keys Community Education Center empowering students in Taru, Kenya"
                                     fill
                                     className="object-cover"
                                 />

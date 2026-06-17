@@ -38,7 +38,7 @@ export const leadershipData: LeadershipProfile[] = [
         name: "Joseph M. Mwengea",
         role: "Founder, CEO and Director",
         isFounder: true,
-        image: "/Leadership and Staff/Joseph Mwengea Director.png",
+        image: "/Leadership and Staff/Joseph Mwengea Director.webp",
         bio: [
             "Joseph Mwengea is the Co-founder and Executive Director of Kenya Keys, a non-profit organisation offering scholarship to needy and bright students in Kwale County and other rural parts of Kenya.",
             "He holds several accolades among them a Masters of Business Administration (Project Management) from Kenyatta University. He holds a Bachelor of Education (Special Education) Second-Class upper Division from Kenyatta University. He also has a Diploma in Education Management (DEM) from Kenya Education Management Institute (KEMI), Diploma in Special Needs from Kenya Institute of Special Education (KISE). Certificate in School Development Planning from Ministry of Education and Centre for British Teachers. He also holds Certificate in Teacher Education (PTE) from Machakos Teachers Training College.",

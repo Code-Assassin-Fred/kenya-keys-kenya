@@ -56,9 +56,10 @@ export default function AnniversaryBanner() {
                     <div className="relative h-full md:absolute md:h-auto md:top-[-40px] md:bottom-[-40px] md:left-0 md:right-0 bg-black p-2 overflow-hidden z-20">
                         <div className="relative w-full h-full overflow-hidden">
                             <Image 
-                                src="/WhatsApp Image 2026-04-19 at 20.33.27 (5).jpeg"
-                                alt="Kenya Keys 20 Year Impact"
+                                src="/WhatsApp Image 2026-04-19 at 20.33.27 (5).webp"
+                                alt="Kenya Keys 20 years of impact - sponsoring education in rural Kenya"
                                 fill
+                                sizes="(max-width: 768px) 100vw, 45vw"
                                 className="object-cover"
                                 priority
                             />

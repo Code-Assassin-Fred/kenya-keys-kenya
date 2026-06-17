@@ -30,8 +30,15 @@ export default function Hero() {
     return (
         <section id="hero" className="relative h-[500px] w-full flex items-center bg-[#00529B] overflow-hidden">
             {/* Background Pattern/Overlay */}
-            <div className="absolute inset-0 opacity-20">
-                <div className="absolute inset-0 bg-[url('/hero.png')] bg-cover bg-center mix-blend-overlay" />
+            <div className="absolute inset-0 opacity-20 z-0">
+                <Image
+                    src="/hero.webp"
+                    alt="Kenya Keys organization hero background"
+                    fill
+                    priority
+                    sizes="100vw"
+                    className="object-cover mix-blend-overlay"
+                />
             </div>
 
             <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 w-full relative z-10">
