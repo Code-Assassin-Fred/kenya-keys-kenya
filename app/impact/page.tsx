@@ -28,23 +28,16 @@ export const metadata: Metadata = {
     },
 };
 
-const videoSchemas = [
+import { videoStories } from "@/lib/videosData";
+
+const videoSchemas = videoStories.map(story => 
     createVideoSchema({
-        name: "Kenya Keys Laptop Distribution to University Students",
-        description: "Kenya Keys distributes 100 donated laptops to college and university students in rural Kenya, providing essential digital tools for academic success.",
-        contentUrl: "https://storage.googleapis.com/kenyakeysvideos/Program%20Videos/Laptop%20Distribution_Updated.mp4",
-    }),
-    createVideoSchema({
-        name: "Kenya Keys Mobile Library — Bringing Books to Rural Schools",
-        description: "Kenya Keys takes its mobile library to a primary school 20 kilometers away, helping children improve reading skills and explore their potential.",
-        contentUrl: "https://storage.googleapis.com/kenyakeysvideos/Program%20Videos/Mobile%20Library_Updated.mp4",
-    }),
-    createVideoSchema({
-        name: "Kenya Keys Sponsored Student Journey to Medical College",
-        description: "A Kenya Keys sponsored student shares how sponsorship transformed his journey from financial hardship to pursuing a diploma in orthopedic and trauma medicine.",
-        contentUrl: "https://storage.googleapis.com/kenyakeysvideos/Student%20Stories/James%20Mbandi%20Updated_Updated.mp4",
-    }),
-];
+        name: story.title,
+        description: story.description,
+        contentUrl: story.url,
+        uploadDate: story.uploadDate
+    })
+);
 
 export default function ImpactPage() {
     return (
