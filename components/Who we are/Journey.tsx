@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function Journey() {
     return (
-        <section id="journey" className="py-20 bg-white">
+        <section id="founder-story" className="py-20 bg-white">
             <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
                 <div className="flex flex-col md:flex-row items-center gap-12 md:gap-20">
                     <div className="w-full md:w-1/2">
@@ -38,17 +38,17 @@ export default function Journey() {
                             transition={{ duration: 0.6 }}
                         >
                             <h2 className="text-3xl md:text-5xl font-black text-[#333] font-oswald uppercase leading-none mb-8 tracking-tight">
-                                OUR <span className="text-[#00529B]">JOURNEY</span>
+                                OUR <span className="text-[#00529B]">FOUNDER STORY</span> & JOURNEY
                             </h2>
                             <div className="space-y-6 text-gray-700 font-outfit text-lg leading-relaxed">
                                 <p>
-                                    In 2005, a critical challenge was identified in Taru, Kenya: 95% of children were dropping out of school after middle school due to an inability to pay school fees. In the region, extreme poverty and illiteracy were the norm, threatening the future of generations.
+                                    In 2005, during a visit to Taru, Kenya, our founder <span className="font-bold text-[#00529B]">Rinda Hayes</span> confronted a stark reality: 95% of children were forced to drop out after middle school because they could not afford school fees. In a community where extreme poverty and illiteracy were the norm, the future of these youth was severely constrained.
                                 </p>
                                 <p>
-                                    Recognizing this urgent need, <span className="font-bold text-[#00529B]">Principal Joseph Mwengea</span> led a local initiative to identify and sponsor 14 high-achieving students. From this small but powerful beginning, a vision emerged to unlock potential through education.
+                                    Deeply moved by the circumstances, Rinda collaborated with <span className="font-bold text-[#00529B]">Principal Joseph Mwengea</span> to find a path forward. Together, they identified and sponsored a pilot group of 14 high-achieving students. From this humble beginning, a vision emerged to unlock potential through education.
                                 </p>
                                 <p>
-                                    Twenty years later, Kenya Keys has sponsored the education of over 1,000 students, transforming lives and creating a ripple effect of hope throughout the community, led entirely by Kenyan professionals and community leaders.
+                                    Over the past twenty years, this spark has grown into a powerful legacy. Today, Kenya Keys has sponsored the education of 934 students, opening doors to bright futures and driving lasting community-wide impact.
                                 </p>
                             </div>
                         </motion.div>

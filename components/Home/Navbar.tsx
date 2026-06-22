@@ -18,6 +18,7 @@ export default function Navbar() {
             href: '/who-we-are',
             children: [
                 { label: 'Our Mission', href: '/who-we-are#hero' },
+                { label: 'Founder Story', href: '/who-we-are#founder-story' },
                 { label: 'Leadership Team', href: '/who-we-are#leadership' },
                 { label: 'Partners', href: '/who-we-are#partners' },
             ],
