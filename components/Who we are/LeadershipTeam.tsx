@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
@@ -32,7 +32,7 @@ const staffMembers = [
     { name: "Mwanaisha Mwayama", role: "Librarian", image: "/Leadership and Staff/Mwanaisha+Mwayama.webp" },
 ];
 
-const MemberCard = ({ member, index }: { member: any, index: number }) => {
+const MemberCard = ({ member, index, isActive }: { member: any, index: number, isActive: boolean }) => {
     const cardContent = (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -41,11 +41,23 @@ const MemberCard = ({ member, index }: { member: any, index: number }) => {
             className={`group relative ${member.slug ? 'cursor-pointer' : ''}`}
         >
             <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-gray-100 shadow-md group-hover:shadow-xl transition-all duration-500">
-                {/* Image styling: grayscale to color on hover */}
+                {/* Glowing animated scanline */}
+                {isActive && (
+                    <motion.div
+                        initial={{ top: '0%' }}
+                        animate={{ top: '100%' }}
+                        transition={{ duration: 2.0, ease: 'easeInOut' }}
+                        className="absolute inset-x-0 h-[2px] bg-[#009bba] shadow-[0_0_15px_#009bba] z-20 pointer-events-none"
+                    />
+                )}
+
+                {/* Image styling: grayscale, transitions to color when isActive is true */}
                 <img
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-cover grayscale brightness-110 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
+                    className={`w-full h-full object-cover brightness-110 group-hover:scale-105 transition-all duration-700 ease-out ${
+                        isActive ? 'grayscale-0' : 'grayscale'
+                    }`}
                     onError={(e) => {
                         const target = e.target as HTMLImageElement;
                         target.src = "https://via.placeholder.com/400x500?text=No+Image";
@@ -66,9 +78,13 @@ const MemberCard = ({ member, index }: { member: any, index: number }) => {
                 </div>
 
                 {/* Decorative Corner */}
-                <div className="absolute top-0 right-0 w-12 h-12 bg-white/10 backdrop-blur-md flex items-center justify-center rounded-bl-2xl transition-all duration-300 group-hover:bg-[#009bba]">
+                <div className={`absolute top-0 right-0 w-12 h-12 bg-white/10 backdrop-blur-md flex items-center justify-center rounded-bl-2xl transition-all duration-300 ${
+                    isActive ? 'bg-[#009bba]' : 'group-hover:bg-[#009bba]'
+                }`}>
                     {member.slug ? (
-                        <div className="w-1 h-1 bg-white rounded-full group-hover:scale-150 transition-transform" />
+                        <div className={`w-1 h-1 bg-white rounded-full transition-transform ${
+                            isActive ? 'scale-150' : 'group-hover:scale-150'
+                        }`} />
                     ) : (
                         <div className="w-1 h-1 bg-gray-400 rounded-full" />
                     )}
@@ -89,6 +105,41 @@ const MemberCard = ({ member, index }: { member: any, index: number }) => {
 };
 
 export default function LeadershipTeam() {
+    const [activeBoardIdx, setActiveBoardIdx] = useState<number | null>(null);
+    const [activeStaffIdx, setActiveStaffIdx] = useState<number | null>(null);
+
+    useEffect(() => {
+        const runBoardScan = () => {
+            const randomIdx = Math.floor(Math.random() * boardMembers.length);
+            setActiveBoardIdx(randomIdx);
+            setTimeout(() => {
+                setActiveBoardIdx(null);
+            }, 2000);
+        };
+
+        const runStaffScan = () => {
+            const randomIdx = Math.floor(Math.random() * staffMembers.length);
+            setActiveStaffIdx(randomIdx);
+            setTimeout(() => {
+                setActiveStaffIdx(null);
+            }, 2000);
+        };
+
+        // Offset start times for variety
+        const boardTimeout = setTimeout(runBoardScan, 1000);
+        const staffTimeout = setTimeout(runStaffScan, 3000);
+
+        const boardInterval = setInterval(runBoardScan, 5000);
+        const staffInterval = setInterval(runStaffScan, 5500);
+
+        return () => {
+            clearTimeout(boardTimeout);
+            clearTimeout(staffTimeout);
+            clearInterval(boardInterval);
+            clearInterval(staffInterval);
+        };
+    }, []);
+
     return (
         <section id="leadership" className="py-24 bg-white">
             <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
@@ -111,7 +162,12 @@ export default function LeadershipTeam() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                         {boardMembers.map((member, idx) => (
-                            <MemberCard key={member.name + idx} member={member} index={idx} />
+                            <MemberCard 
+                                key={member.name + idx} 
+                                member={member} 
+                                index={idx} 
+                                isActive={activeBoardIdx === idx} 
+                            />
                         ))}
                     </div>
                 </div>
@@ -134,7 +190,12 @@ export default function LeadershipTeam() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                         {staffMembers.map((member, idx) => (
-                            <MemberCard key={member.name + idx} member={member} index={idx} />
+                            <MemberCard 
+                                key={member.name + idx} 
+                                member={member} 
+                                index={idx} 
+                                isActive={activeStaffIdx === idx} 
+                            />
                         ))}
                     </div>
                 </div>

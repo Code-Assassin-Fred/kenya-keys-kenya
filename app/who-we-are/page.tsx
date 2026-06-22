@@ -5,6 +5,7 @@ import Hero from "@/components/Who we are/Hero";
 import Mission from "@/components/Who we are/Mission";
 import LeadershipTeam from "@/components/Who we are/LeadershipTeam";
 import Journey from "@/components/Who we are/Journey";
+import Timeline from "@/components/Who we are/Timeline";
 import Values from "@/components/Who we are/Values";
 import Partners from "@/components/Who we are/Partners";
 import Contact from "@/components/Home/Contact";
@@ -44,6 +45,7 @@ export default function WhoWeArePage() {
                 <Mission />
                 <LeadershipTeam />
                 <Journey />
+                <Timeline />
                 <Values />
                 <Partners />
                 <Contact />
