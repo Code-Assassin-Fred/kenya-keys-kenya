@@ -32,7 +32,34 @@ const staffMembers = [
     { name: "Mwanaisha Mwayama", role: "Librarian", image: "/Leadership and Staff/Mwanaisha+Mwayama.webp" },
 ];
 
-const MemberCard = ({ member, index, isActive }: { member: any, index: number, isActive: boolean }) => {
+const MemberCard = ({ member, index }: { member: any, index: number }) => {
+    const [isScanning, setIsScanning] = useState(false);
+
+    useEffect(() => {
+        // Stagger the initial start of each card using a random offset (0 to 6 seconds)
+        const initialDelay = Math.random() * 6000;
+        
+        let intervalId: NodeJS.Timeout;
+        
+        const triggerScan = () => {
+            setIsScanning(true);
+            setTimeout(() => {
+                setIsScanning(false);
+            }, 2000); // scan animation takes 2 seconds
+        };
+
+        const timeoutId = setTimeout(() => {
+            triggerScan();
+            // Repeat the scan every 8 seconds
+            intervalId = setInterval(triggerScan, 8000);
+        }, initialDelay);
+
+        return () => {
+            clearTimeout(timeoutId);
+            if (intervalId) clearInterval(intervalId);
+        };
+    }, []);
+
     const cardContent = (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -42,7 +69,7 @@ const MemberCard = ({ member, index, isActive }: { member: any, index: number, i
         >
             <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-gray-100 shadow-md group-hover:shadow-xl transition-all duration-500">
                 {/* Glowing animated scanline */}
-                {isActive && (
+                {isScanning && (
                     <motion.div
                         initial={{ top: '0%' }}
                         animate={{ top: '100%' }}
@@ -51,12 +78,12 @@ const MemberCard = ({ member, index, isActive }: { member: any, index: number, i
                     />
                 )}
 
-                {/* Image styling: grayscale, transitions to color when isActive is true */}
+                {/* Image styling: grayscale, transitions to color when isScanning is true */}
                 <img
                     src={member.image}
                     alt={member.name}
                     className={`w-full h-full object-cover brightness-110 group-hover:scale-105 transition-all duration-700 ease-out ${
-                        isActive ? 'grayscale-0' : 'grayscale'
+                        isScanning ? 'grayscale-0' : 'grayscale'
                     }`}
                     onError={(e) => {
                         const target = e.target as HTMLImageElement;
@@ -79,11 +106,11 @@ const MemberCard = ({ member, index, isActive }: { member: any, index: number, i
 
                 {/* Decorative Corner */}
                 <div className={`absolute top-0 right-0 w-12 h-12 bg-white/10 backdrop-blur-md flex items-center justify-center rounded-bl-2xl transition-all duration-300 ${
-                    isActive ? 'bg-[#009bba]' : 'group-hover:bg-[#009bba]'
+                    isScanning ? 'bg-[#009bba]' : 'group-hover:bg-[#009bba]'
                 }`}>
                     {member.slug ? (
                         <div className={`w-1 h-1 bg-white rounded-full transition-transform ${
-                            isActive ? 'scale-150' : 'group-hover:scale-150'
+                            isScanning ? 'scale-150' : 'group-hover:scale-150'
                         }`} />
                     ) : (
                         <div className="w-1 h-1 bg-gray-400 rounded-full" />
@@ -105,41 +132,6 @@ const MemberCard = ({ member, index, isActive }: { member: any, index: number, i
 };
 
 export default function LeadershipTeam() {
-    const [activeBoardIdx, setActiveBoardIdx] = useState<number | null>(null);
-    const [activeStaffIdx, setActiveStaffIdx] = useState<number | null>(null);
-
-    useEffect(() => {
-        const runBoardScan = () => {
-            const randomIdx = Math.floor(Math.random() * boardMembers.length);
-            setActiveBoardIdx(randomIdx);
-            setTimeout(() => {
-                setActiveBoardIdx(null);
-            }, 2000);
-        };
-
-        const runStaffScan = () => {
-            const randomIdx = Math.floor(Math.random() * staffMembers.length);
-            setActiveStaffIdx(randomIdx);
-            setTimeout(() => {
-                setActiveStaffIdx(null);
-            }, 2000);
-        };
-
-        // Offset start times for variety
-        const boardTimeout = setTimeout(runBoardScan, 1000);
-        const staffTimeout = setTimeout(runStaffScan, 3000);
-
-        const boardInterval = setInterval(runBoardScan, 5000);
-        const staffInterval = setInterval(runStaffScan, 5500);
-
-        return () => {
-            clearTimeout(boardTimeout);
-            clearTimeout(staffTimeout);
-            clearInterval(boardInterval);
-            clearInterval(staffInterval);
-        };
-    }, []);
-
     return (
         <section id="leadership" className="py-24 bg-white">
             <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
@@ -152,10 +144,9 @@ export default function LeadershipTeam() {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
                         >
-                            <h2 className="text-[#00529B] font-black text-sm uppercase tracking-[0.4em] font-outfit mb-4">Kenya Leadership</h2>
                             <h3 className="text-3xl md:text-5xl font-black text-[#1A1A1A] font-oswald uppercase tracking-tight">Board of <span className="text-[#009bba]">Directors</span></h3>
                             <p className="mt-8 text-gray-600 font-outfit max-w-2xl mx-auto text-lg leading-relaxed">
-                                We believe in local leadership. Essential decisions are made by the Kenyan Board of Directors and staff, giving the community crucial ownership, accountability, and leadership.
+                                We believe in local leadership. Essential decisions are made by our Board of Directors and staff, giving the community crucial ownership, accountability, and leadership.
                             </p>
                         </motion.div>
                     </div>
@@ -166,7 +157,6 @@ export default function LeadershipTeam() {
                                 key={member.name + idx} 
                                 member={member} 
                                 index={idx} 
-                                isActive={activeBoardIdx === idx} 
                             />
                         ))}
                     </div>
@@ -180,10 +170,9 @@ export default function LeadershipTeam() {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
                         >
-                            <h2 className="text-[#00529B] font-black text-sm uppercase tracking-[0.4em] font-outfit mb-4">Our Dedicated Team</h2>
                             <h3 className="text-3xl md:text-5xl font-black text-[#1A1A1A] font-oswald uppercase tracking-tight">Meet Our <span className="text-[#009bba]">Staff</span></h3>
                             <p className="mt-8 text-gray-600 font-outfit max-w-2xl mx-auto text-lg leading-relaxed">
-                                Our Kenyan staff make essential decisions about and implement our student services, giving the community crucial ownership, accountability, and leadership.
+                                Our staff members make essential decisions about and implement our student services, giving the community crucial ownership, accountability, and leadership.
                             </p>
                         </motion.div>
                     </div>
@@ -194,7 +183,6 @@ export default function LeadershipTeam() {
                                 key={member.name + idx} 
                                 member={member} 
                                 index={idx} 
-                                isActive={activeStaffIdx === idx} 
                             />
                         ))}
                     </div>
