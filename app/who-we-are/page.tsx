@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Home/Navbar";
 import Footer from "@/components/Home/Footer";
 import Hero from "@/components/Who we are/Hero";
-import DualImageHero from "@/components/Who we are/DualImageHero";
+
 import Mission from "@/components/Who we are/Mission";
 import LeadershipTeam from "@/components/Who we are/LeadershipTeam";
+import DualImageHero from "@/components/Who we are/DualImageHero";
 import Journey from "@/components/Who we are/Journey";
 import Timeline from "@/components/Who we are/Timeline";
 import Values from "@/components/Who we are/Values";
@@ -43,9 +44,9 @@ export default function WhoWeArePage() {
                     { name: "About Kenya Keys", url: "https://kenyakeys-pbokenya.org/who-we-are" },
                 ])} />
                 <Hero />
-                <DualImageHero />
                 <Mission />
                 <LeadershipTeam />
+                <DualImageHero />
                 <Journey />
                 <Timeline />
                 <Values />

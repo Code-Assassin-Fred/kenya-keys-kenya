@@ -52,10 +52,10 @@ export default function Timeline() {
         if (scrollContainerRef.current) {
             const { scrollLeft, clientWidth } = scrollContainerRef.current;
             const scrollAmount = 360; // Card width + gap
-            const targetScroll = direction === 'left' 
-                ? scrollLeft - scrollAmount 
+            const targetScroll = direction === 'left'
+                ? scrollLeft - scrollAmount
                 : scrollLeft + scrollAmount;
-            
+
             scrollContainerRef.current.scrollTo({
                 left: targetScroll,
                 behavior: 'smooth'
@@ -69,13 +69,10 @@ export default function Timeline() {
                 {/* Header Section */}
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12">
                     <div>
-                        <p className="text-[#009bba] font-bold text-sm uppercase tracking-widest font-outfit mb-3">Our History</p>
-                        <h2 className="text-3xl md:text-5xl font-black text-[#333] font-oswald uppercase leading-none tracking-tight">
-                            THE ROAD TO <span className="text-[#00529B]">TODAY</span>
-                        </h2>
+                        <p className="text-[#009bba] font-bold text-sm uppercase tracking-widest font-outfit mb-1">The road to today</p>
                     </div>
                     {/* Navigation Buttons */}
-                    <div className="flex gap-3 mt-6 md:mt-0">
+                    <div className="flex gap-3 mt-2 md:mt-0">
                         <button
                             onClick={() => scroll('left')}
                             className="p-3 rounded-full bg-white hover:bg-[#00529B] border border-gray-200 hover:border-[#00529B] text-[#333] hover:text-white transition-all shadow-md group"
@@ -97,7 +94,7 @@ export default function Timeline() {
                 <div
                     ref={scrollContainerRef}
                     className="flex gap-8 overflow-x-auto pb-10 pt-4 scrollbar-none snap-x snap-mandatory cursor-grab active:cursor-grabbing"
-                    style={{ 
+                    style={{
                         scrollbarWidth: 'none',
                         msOverflowStyle: 'none'
                     }}
