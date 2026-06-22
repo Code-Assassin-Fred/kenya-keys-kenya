@@ -50,8 +50,7 @@ export default function Footer() {
                             <li><a href="/donate" className="text-gray-400 hover:text-white transition-colors">Donation Packages</a></li>
                             <li><a href="/donate/ways-to-give" className="text-gray-400 hover:text-white transition-colors">Education Fund</a></li>
                             <li><a href="/impact#stats" className="text-gray-400 hover:text-white transition-colors">Impact & Metrics</a></li>
-                            {/** Impact Reports temporarily hidden per director request */}
-                            {/** <li><a href="/impact#reports" className="text-gray-400 hover:text-white transition-colors">Impact Reports</a></li> */}
+                            <li><a href="/impact#reports" className="text-gray-400 hover:text-white transition-colors">Impact Reports</a></li>
                             <li><a href="/news" className="text-gray-400 hover:text-white transition-colors">Latest News</a></li>
                         </ul>
                     </div>

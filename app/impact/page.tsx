@@ -4,7 +4,7 @@ import Footer from "@/components/Home/Footer";
 import Hero from "@/components/Impact/Hero";
 import Stories from "@/components/Impact/Stories";
 import Stats from "@/components/Impact/Stats";
-// import Reports from "@/components/Impact/Reports";
+import Reports from "@/components/Impact/Reports";
 import Contact from "@/components/Home/Contact";
 import JsonLd, { createBreadcrumbSchema, createVideoSchema } from "@/components/seo/JsonLd";
 
@@ -54,8 +54,7 @@ export default function ImpactPage() {
                 <Hero />
                 <Stories />
                 <Stats />
-                {/** Reports section temporarily removed per director request */}
-                {/** <Reports /> */}
+                <Reports />
                 <Contact />
             </main>
             <Footer />

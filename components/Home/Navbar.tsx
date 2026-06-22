@@ -45,8 +45,7 @@ export default function Navbar() {
             children: [
                 { label: 'Success Stories', href: '/impact#stories' },
                 { label: 'Metrics & Data', href: '/impact#stats' },
-                // Reports item removed per director request
-                // { label: 'Reports', href: '/impact#reports' },
+                { label: 'Reports', href: '/impact#reports' },
             ],
         },
         {
