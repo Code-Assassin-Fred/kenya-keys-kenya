@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function Journey() {
     return (
-        <section id="founder-story" className="py-20 bg-white">
+        <section className="py-20 bg-white">
             <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
                 <div className="flex flex-col md:flex-row items-center gap-12 md:gap-20">
                     <div className="w-full md:w-1/2">
@@ -38,7 +38,7 @@ export default function Journey() {
                             transition={{ duration: 0.6 }}
                         >
                             <h2 className="text-2xl md:text-4xl font-black text-[#333] font-oswald uppercase leading-none mb-8 tracking-tight">
-                                OUR <span className="text-[#00529B]">FOUNDER STORY</span> & JOURNEY
+                                OUR <span className="text-[#00529B]">STORY</span>
                             </h2>
                             <div className="space-y-6 text-gray-700 font-outfit text-lg leading-relaxed">
                                 <p>

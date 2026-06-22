@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Home/Navbar";
 import Footer from "@/components/Home/Footer";
 import Hero from "@/components/Who we are/Hero";
+import DualImageHero from "@/components/Who we are/DualImageHero";
 import Mission from "@/components/Who we are/Mission";
 import LeadershipTeam from "@/components/Who we are/LeadershipTeam";
 import Journey from "@/components/Who we are/Journey";
@@ -12,7 +13,7 @@ import Contact from "@/components/Home/Contact";
 import JsonLd, { createBreadcrumbSchema } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
-    title: "About Kenya Keys — Our Founder Story, Mission, & Leadership",
+    title: "About Kenya Keys — Our Story, Mission, & Leadership",
     description: "Discover the inspiring story of Kenya Keys. From our founder Rinda Hayes sponsoring 14 students in Taru in 2005 to supporting 934 students today. Learn about our mission, leadership team, and local partners empowering Kwale County through education.",
     keywords: [
         "Kenya Keys about", "Kenya Keys mission", "Kenya Keys leadership", "Kenya Keys partners",
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
         canonical: "https://kenyakeys-pbokenya.org/who-we-are",
     },
     openGraph: {
-        title: "About Kenya Keys — Our Founder Story, Mission, & Leadership",
+        title: "About Kenya Keys — Our Story, Mission, & Leadership",
         description: "From our founder Rinda Hayes sponsoring 14 students in Taru in 2005 to supporting 934 students today, read the inspiring journey of Kenya Keys.",
         url: "https://kenyakeys-pbokenya.org/who-we-are",
     },
@@ -42,6 +43,7 @@ export default function WhoWeArePage() {
                     { name: "About Kenya Keys", url: "https://kenyakeys-pbokenya.org/who-we-are" },
                 ])} />
                 <Hero />
+                <DualImageHero />
                 <Mission />
                 <LeadershipTeam />
                 <Journey />

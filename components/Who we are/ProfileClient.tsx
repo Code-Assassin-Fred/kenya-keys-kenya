@@ -28,8 +28,8 @@ export default function ProfileClient({ profile }: { profile: LeadershipProfile 
                         transition={{ duration: 0.8 }}
                         className="lg:col-span-4"
                     >
-                        <div className={`relative rounded-[2rem] overflow-hidden bg-gray-100 ${isFounder ? 'border-4 border-[#00529B]/20 shadow-2xl p-2' : ''}`}>
-                             <div className="aspect-[3/4] relative rounded-[1.5rem] overflow-hidden shadow-inner">
+                        <div className={`relative rounded-none overflow-hidden bg-gray-100 ${isFounder ? 'border-4 border-[#00529B]/20 shadow-2xl p-2' : ''}`}>
+                             <div className="aspect-[3/4] relative rounded-none overflow-hidden shadow-inner">
                                 <img 
                                     src={profile.image} 
                                     alt={profile.name}
