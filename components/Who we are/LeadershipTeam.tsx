@@ -67,7 +67,7 @@ const MemberCard = ({ member, index }: { member: any, index: number }) => {
             transition={{ duration: 0.5, delay: index * 0.05 }}
             className={`group relative ${member.slug ? 'cursor-pointer' : ''}`}
         >
-            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-gray-100 shadow-md group-hover:shadow-xl transition-all duration-500">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-none bg-gray-100 shadow-md group-hover:shadow-xl transition-all duration-500">
                 {/* Glowing animated scanline */}
                 {isScanning && (
                     <motion.div
@@ -96,25 +96,16 @@ const MemberCard = ({ member, index }: { member: any, index: number }) => {
 
                 {/* Text Overlay */}
                 <div className="absolute inset-x-0 bottom-0 p-6 flex flex-col justify-end">
-                    <h4 className="text-white font-oswald text-xl uppercase tracking-tight leading-none mb-1 group-hover:text-[#FFB800] transition-colors duration-300">
+                    <h4 className={`font-oswald text-xl font-bold uppercase tracking-tight leading-none mb-1 transition-all duration-300 ${
+                        member.slug 
+                            ? 'text-[#009bba] underline decoration-[#009bba]/70 underline-offset-4' 
+                            : 'text-white'
+                    }`}>
                         {member.name}
                     </h4>
                     <p className="text-gray-300 font-outfit text-[11px] uppercase tracking-[0.2em] font-bold group-hover:text-white transition-colors">
                         {member.role}
                     </p>
-                </div>
-
-                {/* Decorative Corner */}
-                <div className={`absolute top-0 right-0 w-12 h-12 bg-white/10 backdrop-blur-md flex items-center justify-center rounded-bl-2xl transition-all duration-300 ${
-                    isScanning ? 'bg-[#009bba]' : 'group-hover:bg-[#009bba]'
-                }`}>
-                    {member.slug ? (
-                        <div className={`w-1 h-1 bg-white rounded-full transition-transform ${
-                            isScanning ? 'scale-150' : 'group-hover:scale-150'
-                        }`} />
-                    ) : (
-                        <div className="w-1 h-1 bg-gray-400 rounded-full" />
-                    )}
                 </div>
             </div>
         </motion.div>
