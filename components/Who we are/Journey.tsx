@@ -17,10 +17,10 @@ export default function Journey() {
                             className="relative"
                         >
                             <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl">
-                                <Image 
-                                    src="/image4.webp" 
-                                    alt="Students in Kenya" 
-                                    fill 
+                                <Image
+                                    src="/image4.webp"
+                                    alt="Students in Kenya"
+                                    fill
                                     className="object-cover"
                                 />
                             </div>
@@ -37,7 +37,7 @@ export default function Journey() {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
                         >
-                            <h2 className="text-3xl md:text-5xl font-black text-[#333] font-oswald uppercase leading-none mb-8 tracking-tight">
+                            <h2 className="text-2xl md:text-4xl font-black text-[#333] font-oswald uppercase leading-none mb-8 tracking-tight">
                                 OUR <span className="text-[#00529B]">FOUNDER STORY</span> & JOURNEY
                             </h2>
                             <div className="space-y-6 text-gray-700 font-outfit text-lg leading-relaxed">

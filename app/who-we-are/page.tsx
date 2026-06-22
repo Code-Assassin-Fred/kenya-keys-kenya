@@ -11,20 +11,22 @@ import Contact from "@/components/Home/Contact";
 import JsonLd, { createBreadcrumbSchema } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
-    title: "About Kenya Keys — Our Mission, Leadership & Partners",
-    description: "Learn about Kenya Keys, a registered PBO and education NGO in Taru, Kwale County, Kenya. Meet our leadership team, discover our mission to unlock potential through education, and see our partners. Kenya Keys has been empowering rural Kenya through education since 2006.",
+    title: "About Kenya Keys — Our Founder Story, Mission, & Leadership",
+    description: "Discover the inspiring story of Kenya Keys. From our founder Rinda Hayes sponsoring 14 students in Taru in 2005 to supporting 934 students today. Learn about our mission, leadership team, and local partners empowering Kwale County through education.",
     keywords: [
         "Kenya Keys about", "Kenya Keys mission", "Kenya Keys leadership", "Kenya Keys partners",
         "education NGO Kwale County", "NGO Taru Kenya", "best education NGOs in Kenya",
         "Kenya Keys PBO", "education nonprofit Kenya", "Coast Kenya education NGO",
         "Mombasa education NGO", "who is Kenya Keys", "Kenya Keys team",
+        "Rinda Hayes founder", "Kenya Keys founder story", "Principal Joseph Mwengea",
+        "Taru school fee sponsorship", "history of Kenya Keys", "grassroots education NGO"
     ],
     alternates: {
         canonical: "https://kenyakeys-pbokenya.org/who-we-are",
     },
     openGraph: {
-        title: "About Kenya Keys — Education NGO in Kenya",
-        description: "Kenya Keys is a grassroots education NGO in Kwale County, Kenya. Meet our leadership team, discover our mission, and learn how we empower students in rural Kenya.",
+        title: "About Kenya Keys — Our Founder Story, Mission, & Leadership",
+        description: "From our founder Rinda Hayes sponsoring 14 students in Taru in 2005 to supporting 934 students today, read the inspiring journey of Kenya Keys.",
         url: "https://kenyakeys-pbokenya.org/who-we-are",
     },
 };
