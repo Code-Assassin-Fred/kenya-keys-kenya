@@ -8,7 +8,7 @@ import LeadershipTeam from "@/components/Who we are/LeadershipTeam";
 import DualImageHero from "@/components/Who we are/DualImageHero";
 import Journey from "@/components/Who we are/Journey";
 import Timeline from "@/components/Who we are/Timeline";
-import Values from "@/components/Who we are/Values";
+
 import FounderProfiles from "@/components/Who we are/FounderProfiles";
 import Partners from "@/components/Who we are/Partners";
 import Contact from "@/components/Home/Contact";
@@ -51,7 +51,6 @@ export default function WhoWeArePage() {
                 <Journey />
                 <FounderProfiles />
                 <Timeline />
-                <Values />
                 <Partners />
                 <Contact />
             </main>

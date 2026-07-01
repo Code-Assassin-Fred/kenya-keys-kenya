@@ -226,6 +226,17 @@ export default function FounderProfiles() {
         <section className="py-24 bg-white">
             <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
 
+                {/* Section sub-header */}
+                <motion.p
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    viewport={{ once: true }}
+                    className="text-[#009bba] font-bold text-sm uppercase tracking-widest font-outfit mb-16"
+                >
+                    The People Behind Kenya Keys
+                </motion.p>
+
                 {/* Founder Cards */}
                 <div className="space-y-32">
                     {founders.map((founder) => (
