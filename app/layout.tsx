@@ -128,8 +128,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://kenyakeys-pbokenya.org",
     languages: {
-      "en-KE": "https://kenyakeys-pbokenya.org",
-      "en-US": "https://kenyakeys-pbokenya.org"
+      "en": "https://kenyakeys-pbokenya.org",
+      "x-default": "https://kenyakeys-pbokenya.org",
     }
   },
   category: "education",
