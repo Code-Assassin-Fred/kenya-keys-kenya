@@ -215,13 +215,6 @@ function FounderText({ founder }: { founder: FounderCard }) {
                     </p>
                 ))}
             </div>
-
-            {/* Contribution Columns */}
-            <div className="mt-10 pt-8 border-t border-gray-200 grid grid-cols-1 md:grid-cols-2 gap-10">
-                {founder.columns.map((col, idx) => (
-                    <ContributionList key={idx} column={col} />
-                ))}
-            </div>
         </motion.div>
     );
 }
@@ -235,17 +228,29 @@ export default function FounderProfiles() {
 
                 {/* Founder Cards */}
                 <div className="space-y-32">
-                    {founders.map((founder, idx) => (
-                        <div
-                            key={founder.name}
-                            className={`flex flex-col ${
+                    {founders.map((founder) => (
+                        <div key={founder.name}>
+                            <div className={`flex flex-col ${
                                 founder.imagePosition === 'left'
                                     ? 'lg:flex-row'
                                     : 'lg:flex-row-reverse'
-                            } items-start gap-12 lg:gap-16`}
-                        >
-                            <FounderImage founder={founder} />
-                            <FounderText founder={founder} />
+                            } items-start gap-12 lg:gap-16`}>
+                                <FounderImage founder={founder} />
+                                <FounderText founder={founder} />
+                            </div>
+
+                            {/* Full-width Contribution Columns */}
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: 0.25 }}
+                                viewport={{ once: true }}
+                                className="mt-12 pt-8 border-t border-gray-200 grid grid-cols-1 md:grid-cols-2 gap-10"
+                            >
+                                {founder.columns.map((col, idx) => (
+                                    <ContributionList key={idx} column={col} />
+                                ))}
+                            </motion.div>
                         </div>
                     ))}
                 </div>
