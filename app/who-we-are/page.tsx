@@ -9,6 +9,7 @@ import DualImageHero from "@/components/Who we are/DualImageHero";
 import Journey from "@/components/Who we are/Journey";
 import Timeline from "@/components/Who we are/Timeline";
 import Values from "@/components/Who we are/Values";
+import FounderProfiles from "@/components/Who we are/FounderProfiles";
 import Partners from "@/components/Who we are/Partners";
 import Contact from "@/components/Home/Contact";
 import JsonLd, { createBreadcrumbSchema } from "@/components/seo/JsonLd";
@@ -48,6 +49,7 @@ export default function WhoWeArePage() {
                 <LeadershipTeam />
                 <DualImageHero />
                 <Journey />
+                <FounderProfiles />
                 <Timeline />
                 <Values />
                 <Partners />
