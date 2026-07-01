@@ -6,13 +6,57 @@ import {
   getCountryFromIp,
 } from "./lib/geo";
 
+// Known search engine bot User-Agent patterns
+const SEARCH_ENGINE_BOTS = [
+  "googlebot",
+  "bingbot",
+  "slurp",        // Yahoo
+  "duckduckbot",
+  "baiduspider",
+  "yandexbot",
+  "sogou",
+  "exabot",
+  "facebot",
+  "ia_archiver",  // Alexa
+  "apis-google",
+  "mediapartners-google",
+  "adsbot-google",
+  "feedfetcher-google",
+  "google-inspectiontool",
+];
+
+/**
+ * Check if the request is from a known search engine crawler.
+ */
+function isSearchEngineBot(userAgent: string | null): boolean {
+  if (!userAgent) return false;
+  const ua = userAgent.toLowerCase();
+  return SEARCH_ENGINE_BOTS.some((bot) => ua.includes(bot));
+}
+
+// SEO-critical paths that must NEVER be geo-blocked
+const SEO_BYPASS_PATHS = ["/robots.txt", "/sitemap.xml", "/favicon.ico"];
+
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+  const userAgent = request.headers.get("user-agent");
 
-  // 1. Explicitly bypass geo-blocking for /blocked and static assets/files
+  // 0. ALWAYS allow search engine bots through — never geo-block crawlers
+  if (isSearchEngineBot(userAgent)) {
+    const requestHeaders = new Headers(request.headers);
+    requestHeaders.set("x-pathname", pathname);
+    return NextResponse.next({
+      request: {
+        headers: requestHeaders,
+      },
+    });
+  }
+
+  // 1. Explicitly bypass geo-blocking for /blocked, static assets, and SEO-critical paths
   if (
     pathname.startsWith("/blocked") ||
     pathname.startsWith("/_next") ||
+    SEO_BYPASS_PATHS.includes(pathname) ||
     pathname.includes(".")
   ) {
     const requestHeaders = new Headers(request.headers);

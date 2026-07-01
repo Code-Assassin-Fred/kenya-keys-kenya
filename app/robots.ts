@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/admin/', '/blocked'],
+        disallow: ['/api/', '/admin/', '/blocked', '/_next/'],
       },
     ],
     sitemap: 'https://kenyakeys-pbokenya.org/sitemap.xml',
