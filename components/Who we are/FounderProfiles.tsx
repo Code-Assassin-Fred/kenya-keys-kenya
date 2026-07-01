@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Check } from 'lucide-react';
 
-/* ─── Founder Data ─── */
+/* Founder Data */
 
 interface ContributionItem {
     title: string;
@@ -32,12 +32,12 @@ const founders: FounderCard[] = [
         name: 'Joseph Mwengea',
         role: 'Co-Founder, CEO & Director',
         image: '/Leadership and Staff/Joseph Mwengea Director.webp',
-        imageAlt: 'Joseph Mwengea — Co-Founder, CEO & Director of Kenya Keys',
+        imageAlt: 'Joseph Mwengea, Co-Founder, CEO & Director of Kenya Keys',
         imagePosition: 'right',
         bio: [
-            'Joseph Mwengea was born and raised in the rural village of Mbitini, Ikutha location, in Kitui South — a recognized drought-prone, arid and semi-arid region where there is barely enough rain to support farming. At an early age, he walked six kilometres barefoot to access primary school. A devastating famine in 1984 forced his father to migrate for work, but he passed away two years later, leaving the family under the care of Joseph\'s mother and three sisters.',
-            'Despite extreme hardship, Joseph became the only one in his family to reach high school — funding his education through construction-site labour and the compassion of a school principal who wrote off his fees and guided him to Machakos Teachers Training College. These experiences ignited a lifelong conviction: that education can break the cycle of poverty.',
-            'After being posted as a teacher in Kwale District, Joseph rose to become Headteacher of Bahakwenu Primary School, where he witnessed firsthand how qualified students failed to join high school simply because they could not pay the fees. It was here he met Rinda Hayes, and together they co-founded Kenya Keys in 2005 — beginning with the first cohort of 14 sponsored students.',
+            'Joseph Mwengea was born and raised in the rural village of Mbitini, Ikutha location, in Kitui South, a recognized drought-prone, arid and semi-arid region where there is barely enough rain to support farming. At an early age, he walked six kilometres barefoot to access primary school. A devastating famine in 1984 forced his father to migrate for work, but he passed away two years later, leaving the family under the care of Joseph\'s mother and three sisters.',
+            'Despite extreme hardship, Joseph became the only one in his family to reach high school, funding his education through construction-site labour and the compassion of a school principal who wrote off his fees and guided him to Machakos Teachers Training College. These experiences ignited a lifelong conviction: that education can break the cycle of poverty.',
+            'After being posted as a teacher in Kwale District, Joseph rose to become Headteacher of Bahakwenu Primary School, where he witnessed firsthand how qualified students failed to join high school simply because they could not pay the fees. It was here he met Rinda Hayes, and together they co-founded Kenya Keys in 2005, beginning with the first cohort of 14 sponsored students.',
         ],
         columns: [
             {
@@ -84,12 +84,12 @@ const founders: FounderCard[] = [
         name: 'Rinda & Brant Hayes',
         role: 'Co-Founders',
         image: '/WhatsApp Image 2026-04-19 at 20.34.26.webp',
-        imageAlt: 'Rinda and Brant Hayes — Co-Founders of Kenya Keys',
+        imageAlt: 'Rinda and Brant Hayes, Co-Founders of Kenya Keys',
         imagePosition: 'left',
         bio: [
-            'Rinda Hayes\'s heart was struck by the extreme poverty she witnessed while visiting Kwale County — bright students who qualified for high school but could never report because their families simply could not afford the fees. Their dreams were being shut down before they even began. Together with Joseph Mwengea, she co-founded Kenya Keys in 2005, beginning by sponsoring the first cohort of 14 students into public high schools where children had been learning under trees, sitting on bare soil.',
-            'Two years later, her husband Brant Hayes joined the effort and became the backbone supporting their growing initiative. Together, the Hayes family dedicated themselves to the conviction that education unlocks potential and that poverty — however complex and dehumanizing — can be overcome through sustained, community-rooted investment in young people.',
-            'It didn\'t take long for Rinda and Brant to realize that supporting students from poor households required more than sponsorships alone; it demanded improving the very schools those students attended. Kenya Keys expanded into infrastructure projects — building classrooms, libraries, and toilet facilities — and later introduced health and hygiene programmes providing girls with sanitary pads for safe, dignified, and uninterrupted school days.',
+            'Rinda Hayes\'s heart was struck by the extreme poverty she witnessed while visiting Kwale County, where bright students qualified for high school but could never report because their families simply could not afford the fees. Their dreams were being shut down before they even began. Together with Joseph Mwengea, she co-founded Kenya Keys in 2005, beginning by sponsoring the first cohort of 14 students into public high schools where children had been learning under trees, sitting on bare soil.',
+            'Two years later, her husband Brant Hayes joined the effort and became the backbone supporting their growing initiative. Together, the Hayes family dedicated themselves to the conviction that education unlocks potential and that poverty, however complex and dehumanizing, can be overcome through sustained, community-rooted investment in young people.',
+            'It didn\'t take long for Rinda and Brant to realize that supporting students from poor households required more than sponsorships alone; it demanded improving the very schools those students attended. Kenya Keys expanded into infrastructure projects, building classrooms, libraries, and toilet facilities, and later introduced health and hygiene programmes providing girls with sanitary pads for safe, dignified, and uninterrupted school days.',
         ],
         columns: [
             {
@@ -130,7 +130,7 @@ const founders: FounderCard[] = [
     },
 ];
 
-/* ─── Sub-components ─── */
+/* Sub-components */
 
 function ContributionList({ column }: { column: ContributionColumn }) {
     return (
@@ -219,7 +219,7 @@ function FounderText({ founder }: { founder: FounderCard }) {
     );
 }
 
-/* ─── Main Component ─── */
+/* Main Component */
 
 export default function FounderProfiles() {
     return (
@@ -269,3 +269,4 @@ export default function FounderProfiles() {
         </section>
     );
 }
+
