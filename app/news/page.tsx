@@ -7,22 +7,25 @@ import Contact from "@/components/Home/Contact";
 import JsonLd, { createBreadcrumbSchema } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
-    title: "News & Community Stories | Kenya Keys NGO",
-    description: "Stay updated with the latest news, success stories, and educational updates from Kenya Keys, an NGO working in Taru, Kwale County, Kenya.",
+    title: "News & Community Stories — Kenya Keys PBO Kenya NGO",
+    description: "Stay updated with the latest news, success stories, and educational updates from Kenya Keys PBO Kenya, an NGO working in Taru, Kwale County, Kenya.",
     keywords: [
         "Kenya Keys news",
         "Kenya Keys updates",
         "education NGO updates Kenya",
         "Taru Kwale County news",
         "rural Kenyan education news",
-        "community impact stories Kenya"
+        "community impact stories Kenya",
+        "Kenya Keys PBO",
+        "Taru school updates",
+        "Kenya Keys photogallery"
     ],
     alternates: {
         canonical: "https://kenyakeys-pbokenya.org/news",
     },
     openGraph: {
-        title: "News & Community Stories | Kenya Keys NGO",
-        description: "Stay updated with the latest news, success stories, and educational updates from Kenya Keys in Kwale County, Kenya.",
+        title: "News & Community Stories — Kenya Keys PBO Kenya NGO",
+        description: "Stay updated with the latest news, success stories, and educational updates from Kenya Keys PBO Kenya in Kwale County, Kenya.",
         url: "https://kenyakeys-pbokenya.org/news",
     }
 };

@@ -8,12 +8,12 @@ export default function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
                     {/* Brand Section */}
                     <div>
-                        <h2 className="text-white text-3xl font-bold mb-6 font-playfair uppercase italic tracking-tighter">KenyaKeys</h2>
+                        <h2 className="text-white text-3xl font-bold mb-6 font-playfair uppercase italic tracking-tighter">Kenya Keys PBO Kenya</h2>
                         <p className="text-gray-300 leading-relaxed mb-6 font-outfit">
-                            Kenya Keys is a Reg-REFYOZ-pbo, we are a non-profit organization.
+                            Kenya Keys PBO Kenya is a registered Public Benefit Organisation (PBO) and grassroots education NGO in Kwale County, Kenya.
                         </p>
                         <p className="text-gray-300 leading-relaxed mb-4 font-outfit">
-                            Unlocking potential through education. We empower students and communities in rural Kenya to build a brighter future for themselves.
+                            Unlocking potential through education. We empower students and communities in rural Kwale County, Kenya to build a brighter future for themselves.
                         </p>
                         {/* Social Icons */}
                         <div className="flex gap-4 mt-6">
@@ -76,10 +76,10 @@ export default function Footer() {
                                 </a>
                             </div>
                             <div>
-                                <a href="mailto:info@kenyakeyspbo-kenya.org" className="text-gray-300 hover:text-white transition-colors underline decoration-[#C5E672] decoration-2 underline-offset-4">info@kenyakeys-pbokenya.org</a>
+                                <a href="mailto:info@kenyakeys-pbokenya.org" className="text-gray-300 hover:text-white transition-colors underline decoration-[#C5E672] decoration-2 underline-offset-4">info@kenyakeys-pbokenya.org</a>
                             </div>
                             <div>
-                                <a href="mailto:joseph@kenyakeyspbo-kenya.org" className="text-gray-300 hover:text-white transition-colors underline decoration-[#C5E672] decoration-2 underline-offset-4">joseph@kenyakeys-pbokenya.org</a>
+                                <a href="mailto:joseph@kenyakeys-pbokenya.org" className="text-gray-300 hover:text-white transition-colors underline decoration-[#C5E672] decoration-2 underline-offset-4">joseph@kenyakeys-pbokenya.org</a>
                             </div>
                         </div>
                     </div>

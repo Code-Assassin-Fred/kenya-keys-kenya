@@ -9,21 +9,22 @@ import Contact from "@/components/Home/Contact";
 import JsonLd, { createBreadcrumbSchema, createVideoSchema } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
-    title: "Kenya Keys Impact — Student Success Stories & Education Metrics",
-    description: "See how Kenya Keys has sponsored 1,000+ students with a 100% secondary school graduation rate since 2022. Watch real student success stories, alumni testimonials, and explore measurable impact data from Kenya Keys education programs in rural Kenya.",
+    title: "Kenya Keys Impact — Student Success Stories & Education Metrics in Kenya",
+    description: "See how Kenya Keys PBO Kenya has sponsored 1,000+ students with a 100% secondary school graduation rate since 2022. Watch real student success stories, read alumni testimonials, and explore measurable impact data from Kwale County.",
     keywords: [
         "Kenya Keys impact", "Kenya Keys success stories", "Kenya Keys students",
         "education impact Kenya", "student success stories Kenya", "Kenya Keys alumni",
         "100% graduation rate Kenya", "education metrics Kenya", "Kenya Keys results",
         "sponsored students Kenya", "education outcomes rural Kenya",
-        "Kenya Keys video stories", "student testimonials Kenya",
+        "Kenya Keys video stories", "student testimonials Kenya", "Kenya Keys PBO",
+        "education statistics Kwale County", "rural student graduation rates Kenya"
     ],
     alternates: {
         canonical: "https://kenyakeys-pbokenya.org/impact",
     },
     openGraph: {
         title: "Kenya Keys Impact — 1,000+ Students Sponsored in Rural Kenya",
-        description: "Watch real student success stories and explore measurable impact from Kenya Keys education programs. 1,000+ students sponsored, 100% graduation rate.",
+        description: "Watch real student success stories and explore measurable impact from Kenya Keys PBO Kenya education programs. 1,000+ students sponsored, 100% graduation rate.",
         url: "https://kenyakeys-pbokenya.org/impact",
     },
 };

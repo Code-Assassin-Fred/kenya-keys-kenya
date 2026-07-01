@@ -8,19 +8,20 @@ import CTABanner from "@/components/shared/CTABanner";
 import JsonLd, { createBreadcrumbSchema, createFaqSchema } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
-    title: "Sponsor a Student in Kenya - Kenya Keys NGO",
-    description: "Sponsor secondary and university students in Kwale County, rural Kenya. Support tuition, boarding, supplies, and mentorship to unlock their potential.",
+    title: "Sponsor a Student in Kenya — Kenya Keys PBO Kenya Education NGO",
+    description: "Sponsor secondary and university students in Kwale County, rural Kenya. Support tuition, boarding, supplies, and academic mentorship to unlock their potential with Kenya Keys PBO Kenya.",
     keywords: [
         "sponsor a student in Kenya", "Kenya Keys student sponsorship", "education sponsorship NGO Kenya",
         "sponsor high school student Kenya", "rural Kenya education NGO", "Kwale County student sponsorship",
-        "education nonprofit Kenya", "Kenya Keys sponsorship", "support educational opportunities"
+        "education nonprofit Kenya", "Kenya Keys sponsorship", "support educational opportunities",
+        "Kenya Keys PBO", "sponsor secondary student Kenya", "how to sponsor a child Kenya"
     ],
     alternates: {
         canonical: "https://kenyakeys-pbokenya.org/sponsorship-overview",
     },
     openGraph: {
-        title: "Sponsor a Student in Kenya - Kenya Keys NGO",
-        description: "Empower a high-achieving student in rural Kenya by removing the financial barriers to their education and future success.",
+        title: "Sponsor a Student in Kenya — Kenya Keys PBO Kenya",
+        description: "Empower a high-achieving student in rural Kenya by removing the financial barriers to their education and future success with Kenya Keys PBO Kenya.",
         url: "https://kenyakeys-pbokenya.org/sponsorship-overview",
     },
 };

@@ -8,21 +8,22 @@ import Contact from "@/components/Home/Contact";
 import JsonLd, { createBreadcrumbSchema } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
-    title: "Kenya Keys Programs — Student Sponsorship, Girls' Empowerment & ICT Education",
-    description: "Explore Kenya Keys' education programs in rural Kenya: student scholarships and sponsorships, girls' empowerment, health and hygiene support, ICT integration, library and literacy support, schools infrastructure, and business skills training in Kwale County.",
+    title: "Kenya Keys Programs — Student Sponsorship, Girls' Empowerment & ICT Education in Kenya",
+    description: "Explore Kenya Keys PBO Kenya's education programs in rural Kwale County: secondary school student sponsorships, college & vocational scholarships, girls' empowerment, health support, library & literacy resources, and ICT training.",
     keywords: [
         "Kenya Keys programs", "student sponsorship Kenya", "girls empowerment Kenya",
         "ICT education Kenya", "education programs Kenya", "scholarship programs Kenya",
         "school infrastructure Kenya", "library support Kenya", "health hygiene education Kenya",
         "Kenya Keys scholarships", "rural school programs Kenya", "education charity programs Kenya",
-        "Kenya Keys education", "mentorship programs Kenya",
+        "Kenya Keys education", "mentorship programs Kenya", "Kenya Keys PBO",
+        "college vocational sponsorships Kenya", "Kwale education NGO programs", "secondary school fee support"
     ],
     alternates: {
         canonical: "https://kenyakeys-pbokenya.org/programs",
     },
     openGraph: {
         title: "Kenya Keys Programs — Education Programs in Rural Kenya",
-        description: "Discover Kenya Keys' education programs: student scholarships, girls' empowerment, ICT education, library support, and school infrastructure in Kwale County, Kenya.",
+        description: "Discover Kenya Keys PBO Kenya's education programs: student scholarships, girls' empowerment, ICT education, library support, and school infrastructure in Kwale County, Kenya.",
         url: "https://kenyakeys-pbokenya.org/programs",
     },
 };

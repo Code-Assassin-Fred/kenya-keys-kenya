@@ -8,20 +8,21 @@ import TrustSignals from "@/components/Donate/TrustSignals";
 import JsonLd, { donateActionSchema, createBreadcrumbSchema, createFaqSchema } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
-    title: "Donate to Education in Kenya — Support Kenya Keys Students",
-    description: "Make a donation to Kenya Keys and directly fund education for students in rural Kenya. Donate via M-Pesa, bank transfer, or online. See your impact through transparent reporting and student success stories. Every donation removes barriers to education.",
+    title: "Donate to Education in Kenya — Support Kenya Keys PBO Kenya Students",
+    description: "Make a donation to Kenya Keys PBO Kenya and directly fund education for students in rural Kwale County, Kenya. Donate via M-Pesa, bank transfer, or online. See your impact through transparent reporting and student success stories. Every donation removes barriers to education.",
     keywords: [
         "Kenya Keys donate", "donate to education Kenya", "donate to children education Kenya",
         "donate to NGO Kenya", "education charity Kenya", "Kenya Keys donation",
         "support rural education Kenya", "donate M-Pesa NGO Kenya", "education fund Kenya",
-        "sponsor education Kenya", "charitable donations Kenya",
+        "sponsor education Kenya", "charitable donations Kenya", "Kenya Keys PBO",
+        "Kenya Keys Kwale donation", "M-Pesa donation education NGO", "education PBO donation"
     ],
     alternates: {
         canonical: "https://kenyakeys-pbokenya.org/donate",
     },
     openGraph: {
-        title: "Donate to Education in Kenya — Kenya Keys",
-        description: "Support Kenya Keys by donating to education in rural Kenya. Your donation sponsors students, builds schools, and provides essential resources. Donate today.",
+        title: "Donate to Education in Kenya — Kenya Keys PBO Kenya",
+        description: "Support Kenya Keys PBO Kenya by donating to education in rural Kenya. Your donation sponsors students, builds schools, and provides essential resources. Donate today.",
         url: "https://kenyakeys-pbokenya.org/donate",
     },
 };

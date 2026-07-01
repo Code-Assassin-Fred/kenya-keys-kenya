@@ -7,18 +7,19 @@ import CTABanner from "@/components/shared/CTABanner";
 import JsonLd, { createBreadcrumbSchema } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
-    title: "Sponsor a Student - Kenya Keys Student Catalog",
-    description: "Meet the bright and motivated secondary and university students in rural Kenya awaiting sponsorship. Browse their profiles and help unlock their potential.",
+    title: "Sponsor a Student — Kenya Keys Student Catalog PBO Kenya",
+    description: "Meet the bright and motivated secondary and university students in rural Kwale County, Kenya awaiting sponsorship. Browse their profiles and support their education with Kenya Keys PBO Kenya.",
     keywords: [
         "sponsor a student", "Kenya Keys student catalog", "educational sponsorship Kenya",
         "sponsor education rural Kenya", "support student in Kwale County", "sponsor high school student Kenya",
-        "sponsor university student Kenya", "donate to student education"
+        "sponsor university student Kenya", "donate to student education", "Kenya Keys PBO",
+        "Kenya student directory", "Kenya Keys secondary school student profiles"
     ],
     alternates: {
         canonical: "https://kenyakeys-pbokenya.org/student-catalog",
     },
     openGraph: {
-        title: "Sponsor a Student - Kenya Keys Student Catalog",
+        title: "Sponsor a Student — Kenya Keys Student Catalog PBO Kenya",
         description: "Meet the bright and motivated secondary and university students in rural Kenya awaiting sponsorship. Support a student's education today.",
         url: "https://kenyakeys-pbokenya.org/student-catalog",
     },

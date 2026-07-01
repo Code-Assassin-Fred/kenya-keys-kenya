@@ -23,6 +23,18 @@ const SEARCH_ENGINE_BOTS = [
   "adsbot-google",
   "feedfetcher-google",
   "google-inspectiontool",
+  "ahrefsbot",
+  "semrushbot",
+  "mj12bot",
+  "petalbot",
+  "applebot",
+  "linkedinbot",
+  "chatgpt-user",
+  "gptbot",
+  "claudebot",
+  "anthropic-ai",
+  "facebookexternalhit",
+  "twitterbot"
 ];
 
 /**

@@ -125,14 +125,14 @@ export default function Hero() {
                             variants={itemVariants}
                             className="text-2xl md:text-[32px] lg:text-[40px] font-[900] text-[#001D4A] tracking-[-0.01em] font-oswald uppercase leading-[1.1] mb-8"
                         >
-                            Empowering Rural Kenya Through Education
+                            Kenya Keys PBO Kenya — Empowering Rural Kenya Through Education
                         </motion.h1>
 
                         <motion.p
                             variants={itemVariants}
                             className="text-lg md:text-xl text-gray-700 mb-10 leading-relaxed font-outfit max-w-sm"
                         >
-                            Kenya Keys provides essential resources and sponsorships to unlock the potential of students in underserved communities. Join us in building a future where every child has the opportunity to lead and thrive.
+                            Kenya Keys PBO Kenya provides essential resources and student sponsorships to unlock the potential of high-achieving youth in rural Kwale County. Join our education NGO in building a future where every student has the opportunity to learn, lead, and thrive.
                         </motion.p>
 
                         <motion.div

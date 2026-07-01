@@ -3,8 +3,11 @@ import Navbar from "@/components/Home/Navbar";
 import Footer from "@/components/Home/Footer";
 
 export const metadata: Metadata = {
-    title: "Privacy Policy | Kenya Keys NGO",
-    description: "Privacy Policy for Kenya Keys, a registered Public Benefit Organisation (PBO) in Kenya. Learn how we handle donor data, sponsorships, and personal information.",
+    title: "Privacy Policy — Kenya Keys PBO Kenya NGO",
+    description: "Privacy Policy for Kenya Keys PBO Kenya, a registered Public Benefit Organisation (PBO) in Kenya. Learn how we handle donor data, student sponsorships, and personal information.",
+    keywords: [
+        "Kenya Keys privacy policy", "Kenya Keys PBO data protection", "sponsorship privacy Kenya", "PBO donor policy"
+    ],
     alternates: {
         canonical: "https://kenyakeys-pbokenya.org/privacy-policy",
     },

@@ -3,8 +3,11 @@ import Navbar from "@/components/Home/Navbar";
 import Footer from "@/components/Home/Footer";
 
 export const metadata: Metadata = {
-    title: "Terms of Service | Kenya Keys NGO",
-    description: "Terms of Service for Kenya Keys, a registered Public Benefit Organisation (PBO) in Kenya. Governance rules for donor sponsorships and program usage.",
+    title: "Terms of Service — Kenya Keys PBO Kenya NGO",
+    description: "Terms of Service for Kenya Keys PBO Kenya, a registered Public Benefit Organisation (PBO) in Kenya. Governance rules for donor sponsorships and program usage.",
+    keywords: [
+        "Kenya Keys terms of service", "Kenya Keys PBO rules", "student sponsorship terms", "PBO legal agreement"
+    ],
     alternates: {
         canonical: "https://kenyakeys-pbokenya.org/terms-of-service",
     },

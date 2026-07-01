@@ -158,7 +158,7 @@ export default function CorePrograms() {
 
                             <div className="space-y-8">
                                 <p className="font-outfit text-lg md:text-xl text-gray-700 leading-relaxed font-bold">
-                                    Kenya Keys is an educational NGO founded by the community—focused on providing great education, good vibes, student success, and a love for the future.
+                                    Kenya Keys PBO Kenya is a grassroots educational NGO founded by the community in Taru—focused on providing student sponsorship, secondary school scholarships, student success, and local community leadership in Kwale County.
                                 </p>
                             </div>
                         </motion.div>

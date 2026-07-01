@@ -12,17 +12,16 @@ export default function JsonLd({ data }: { data: Record<string, unknown> }) {
   );
 }
 
-// Pre-built schema objects for Kenya Keys
-
+// Pre-built schema objects for Kenya Keys PBO Kenya
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "NGO",
-  "name": "Kenya Keys",
-  "alternateName": ["Kenya Keys PBO Kenya", "KenyaKeys", "Kenya Keys NGO"],
+  "name": "Kenya Keys PBO Kenya",
+  "alternateName": ["Kenya Keys PBO", "Kenya Keys NGO", "KenyaKeys", "Kenya Keys Taru"],
   "url": "https://kenyakeys-pbokenya.org",
   "logo": "https://kenyakeys-pbokenya.org/Kenya Keys Logo.webp",
   "image": "https://kenyakeys-pbokenya.org/Kenya Keys Logo With Background.webp",
-  "description": "Kenya Keys is a grassroots education NGO and registered PBO in Kenya dedicated to sponsoring high-achieving students in rural Kenya, removing barriers to education, and building local leadership in Kwale County.",
+  "description": "Kenya Keys PBO Kenya is a grassroots education NGO and registered Public Benefit Organisation (PBO) in Kenya dedicated to sponsoring high-achieving students in rural Kenya, removing barriers to education, and building local leadership in Kwale County.",
   "foundingDate": "2006",
   "address": {
     "@type": "PostalAddress",
@@ -64,20 +63,58 @@ export const organizationSchema = {
     "Rural education",
     "Girls empowerment",
     "ICT in education",
-    "Scholarship programs Kenya"
+    "Scholarship programs Kenya",
+    "Public Benefit Organisation Kenya",
+    "Taru Kwale County NGO"
   ]
+};
+
+export const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "NGO",
+  "name": "Kenya Keys PBO Kenya",
+  "image": "https://kenyakeys-pbokenya.org/Kenya Keys Logo With Background.webp",
+  "@id": "https://kenyakeys-pbokenya.org/#localbusiness",
+  "url": "https://kenyakeys-pbokenya.org",
+  "telephone": "+254724783436",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Along Nairobi-Mombasa Highway",
+    "addressLocality": "Taru",
+    "addressRegion": "Kwale County",
+    "postalCode": "80120",
+    "addressCountry": "KE"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "-3.8344",
+    "longitude": "39.1417"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "opens": "08:00",
+    "closes": "17:00"
+  }
 };
 
 export const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "Kenya Keys — Education NGO in Kenya",
+  "name": "Kenya Keys PBO Kenya — Education NGO in Kenya",
   "alternateName": "Kenya Keys PBO Kenya",
   "url": "https://kenyakeys-pbokenya.org",
-  "description": "Kenya Keys is a grassroots education NGO sponsoring students in rural Kenya. Donate to education in Kenya or sponsor a student today.",
+  "description": "Kenya Keys PBO Kenya is a grassroots education NGO sponsoring students in rural Kenya. Donate to education in Kenya or sponsor a student today.",
   "publisher": {
     "@type": "NGO",
-    "name": "Kenya Keys"
+    "name": "Kenya Keys PBO Kenya"
   }
 };
 
