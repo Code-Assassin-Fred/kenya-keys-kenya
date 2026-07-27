@@ -17,7 +17,7 @@ export default function DualImageHero() {
                     className="relative w-full md:w-1/2 h-1/2 md:h-full group overflow-hidden cursor-pointer"
                 >
                     <Image
-                        src="/Acacia sunset.jpg"
+                        src="/Acacia newj.jpeg"
                         alt="Acacia tree silhouette against a golden Kenyan sunset"
                         fill
                         sizes="(max-width: 768px) 100vw, 50vw"
@@ -36,7 +36,7 @@ export default function DualImageHero() {
                     className="relative w-full md:w-1/2 h-1/2 md:h-full group overflow-hidden cursor-pointer"
                 >
                     <Image
-                        src="/Baobab sunset.jpg"
+                        src="/Baobab newj1.jpeg"
                         alt="Baobab tree against a vibrant Kenyan sunset sky"
                         fill
                         sizes="(max-width: 768px) 100vw, 50vw"
