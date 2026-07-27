@@ -42,7 +42,7 @@ export default function Journey() {
                             </h2>
                             <div className="space-y-6 text-gray-700 font-outfit text-lg leading-relaxed">
                                 <p>
-                                    In 2005, Joseph Mwengea and Rinda Hayes co-founded Kenya Keys with a shared conviction: that education unlocks the potential and opportunities within every rural boy and girl. Two years later, Rinda's husband, Brant Hayes, joined their efforts, becoming the operational backbone supporting their growing initiative.
+                                    In 2005, Joseph Mwengea and Rinda Hayes co-founded Kenya Keys with a shared conviction: that education unlocks the potential and opportunities within every rural boy and girl. Two years later, Rinda's husband, Brent Hayes, joined their efforts, becoming the operational backbone supporting their growing initiative.
                                 </p>
                                 <p>
                                     Witnessing how the lack of a high school education trapped youth in cycles of poverty, they dedicated themselves to expanding access to secondary learning. They understood that poverty is a complex, dehumanizing force, and that overcoming it requires equally thoughtful, long-term educational opportunities.
