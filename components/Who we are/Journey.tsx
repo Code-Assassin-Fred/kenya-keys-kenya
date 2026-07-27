@@ -18,15 +18,11 @@ export default function Journey() {
                         >
                             <div className="relative aspect-square rounded-none overflow-hidden shadow-2xl">
                                 <Image
-                                    src="/WhatsApp Image 2026-04-19 at 20.34.27.webp"
+                                    src="/New our story.png"
                                     alt="Students in Kenya"
                                     fill
                                     className="object-cover"
                                 />
-                            </div>
-                            <div className="absolute -bottom-6 -right-6 bg-[#FFB800] p-8 rounded-none shadow-xl hidden md:block">
-                                <p className="text-[#00529B] font-black text-4xl font-oswald">2005</p>
-                                <p className="text-[#333] font-bold text-sm uppercase tracking-wider font-outfit">The Beginning</p>
                             </div>
                         </motion.div>
                     </div>
