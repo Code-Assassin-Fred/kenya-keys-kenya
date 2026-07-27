@@ -181,7 +181,7 @@ export default function AdminLoginPage() {
             {/* Left Side — Image (60%) */}
             <div className="w-[60%] min-h-screen relative hidden md:block">
                 <Image
-                    src="/WhatsApp Image 2026-04-19 at 20.33.27 (5).jpeg"
+                    src="/WhatsApp Image 2026-04-19 at 20.33.27 (5).webp"
                     alt="Kenya Keys community"
                     fill
                     className="object-cover"
