@@ -55,7 +55,7 @@ const founders: FounderCard[] = [
                     },
                     {
                         title: 'Donor Engagement',
-                        description: 'Built and nurtured relationships with donors and supporters to sustain and grow Kenya Keys\' impact across rural communities.',
+                        description: 'Building and nurturing relationships with donors and supporters to sustain and grow Kenya Keys\' impact across rural communities.',
                     },
                     {
                         title: 'Development & Partnerships',
@@ -63,11 +63,11 @@ const founders: FounderCard[] = [
                     },
                     {
                         title: 'Education & Mentorship',
-                        description: 'Leveraged over 30 years as a public-school educator to mentor students and build community trust for Kenya Keys.',
+                        description: 'Leverages over 30 years as a public-school educator to mentor students and build community trust for Kenya Keys.',
                     },
                     {
                         title: 'Student Selection Leadership',
-                        description: 'Led the student selection process, ensuring scholarships reach the most deserving and vulnerable learners.',
+                        description: 'Leads the student selection process, ensuring scholarships reach the most deserving and vulnerable learners.',
                     },
                 ],
             },
@@ -84,7 +84,7 @@ const founders: FounderCard[] = [
                     },
                     {
                         title: 'Transformative Change',
-                        description: 'Believes in transformative change for rural communities.',
+                        description: 'Building pathways out of poverty for communities in rural Kenya',
                     },
                 ],
             },
@@ -111,7 +111,7 @@ const founders: FounderCard[] = [
                     },
                     {
                         title: 'Operational Backbone',
-                        description: 'Brent Hayes joined in 2007, providing critical logistical, operational, and financial support that enabled the organisation to scale.',
+                        description: 'Brent championed the provision of critical logistical, operational, and financial support that enabled the organisation to scale.',
                     },
                     {
                         title: 'Infrastructure & Programme Expansion',
@@ -131,8 +131,8 @@ const founders: FounderCard[] = [
                         description: 'Introduced programmes providing sanitary pads to ensure girls attend school safely, with dignity, and without interruption.',
                     },
                     {
-                        title: 'Locally-Led Transition',
-                        description: 'Helped establish the foundation for Kenya Keys to transition to full local Kenyan leadership and community ownership.',
+                        title: 'Leadership Development',
+                        description: 'Pioneered leadership for Kenya Keys Alumni students and payback initiatives',
                     },
                 ],
             },
@@ -268,7 +268,7 @@ export default function FounderProfiles() {
                                     viewport={{ once: true }}
                                     className="mt-10 w-full"
                                 >
-                                    <p className="text-[#996515] font-outfit text-lg md:text-xl leading-relaxed italic py-2">
+                                    <p className="text-[#996515] font-outfit font-bold text-lg md:text-xl leading-relaxed italic py-2">
                                         {founder.quote}
                                     </p>
                                 </motion.div>
