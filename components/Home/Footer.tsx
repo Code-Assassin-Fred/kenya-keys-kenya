@@ -10,7 +10,7 @@ export default function Footer() {
                     <div>
                         <h2 className="text-white text-3xl font-bold mb-6 font-playfair uppercase italic tracking-tighter">Kenya Keys PBO Kenya</h2>
                         <p className="text-gray-300 leading-relaxed mb-2 font-outfit">
-                            Kenya Keys PBO Kenya is a registered Public Benefit Organisation (PBO) and grassroots education NGO in Kwale County, Kenya.
+                            Kenya Keys PBO Kenya is a registered Public Benefit Organisation (PBO) in Kenya.
                         </p>
                         <p className="text-gray-400 text-sm mb-6 font-outfit">
                             Charity ID: NGO-REFYOZ
