@@ -16,7 +16,7 @@ export default function Footer() {
                             Charity ID: NGO-REFYOZ
                         </p>
                         <p className="text-gray-300 leading-relaxed mb-4 font-outfit">
-                            Unlocking potential through education. We empower students and communities in rural Kwale County, Kenya to build a brighter future for themselves.
+                            Unlocking potential through education. We empower students and communities in rural Kenya to build a brighter future for themselves.
                         </p>
                         {/* Social Icons */}
                         <div className="flex gap-4 mt-6">
