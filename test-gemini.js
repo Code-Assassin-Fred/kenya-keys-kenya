@@ -1,47 +1,44 @@
-const { GoogleGenerativeAI } = require("@google/generative-ai");
-const fs = require("fs");
-const path = require("path");
+const path = require('path');
+const dotenv = require('dotenv');
+const { GoogleGenAI } = require('@google/genai');
 
-function loadEnv() {
-    try {
-        const envPath = path.join(__dirname, ".env.local");
-        const content = fs.readFileSync(envPath, "utf-8");
-        content.split("\n").forEach(line => {
-            const parts = line.split("=");
-            if (parts.length >= 2) {
-                const key = parts[0].trim();
-                const value = parts.slice(1).join("=").trim();
-                process.env[key] = value;
-            }
-        });
-    } catch (e) {
-        console.error("Failed to load .env.local", e);
-    }
-}
+// Load environment variables. First check .env.local, then fallback to .env
+dotenv.config({ path: path.join(__dirname, '.env.local') });
+dotenv.config({ path: path.join(__dirname, '.env') });
 
-loadEnv();
-
-async function main() {
+async function run() {
     const apiKey = process.env.GEMINI_API_KEY;
     if (!apiKey) {
-        console.error("No API key found in .env.local");
-        return;
+        console.error("Error: GEMINI_API_KEY is not defined in your environment variables.");
+        process.exit(1);
     }
 
-    const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+    console.log("Initializing GoogleGenAI client with GEMINI_API_KEY...");
+    const ai = new GoogleGenAI({ apiKey });
 
-    try {
-        const history = [
-            { role: "user", parts: [{ text: "Hello" }] },
-            { role: "model", parts: [{ text: "Hello! How can I help you today regarding Kenya Keys?" }] }
-        ];
-        const chat = model.startChat({ history });
-        const result = await chat.sendMessage("Hi!");
-        console.log("Success:", result.response.text());
-    } catch (error) {
-        console.error("Error from API:", error.message);
+    // Attempt to use gemini-2.5-flash as requested. If not available, fall back to gemini-3.6-flash.
+    const models = ['gemini-2.5-flash', 'gemini-3.6-flash'];
+    let lastError = null;
+
+    for (const modelName of models) {
+        try {
+            console.log(`Sending prompt to ${modelName} model...`);
+            const response = await ai.models.generateContent({
+                model: modelName,
+                contents: 'Say hello in one sentence',
+            });
+
+            console.log(`\nResponse from Gemini API (using ${modelName}):`);
+            console.log(response.text.trim());
+            return; // Success!
+        } catch (error) {
+            console.warn(`Warning: Failed to call model ${modelName}: ${error.message}\n`);
+            lastError = error;
+        }
     }
+
+    console.error("Error calling Gemini API on all attempted models:", lastError);
+    process.exit(1);
 }
 
-main();
+run();

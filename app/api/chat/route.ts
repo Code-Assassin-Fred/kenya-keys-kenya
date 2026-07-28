@@ -1,4 +1,4 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenAI } from "@google/genai";
 import { NextResponse } from "next/server";
 import fs from "fs/promises";
 import path from "path";
@@ -30,10 +30,25 @@ export async function POST(req: Request) {
             return NextResponse.json({ error: "Failed to load knowledge base" }, { status: 500 });
         }
 
-        const genAI = new GoogleGenerativeAI(apiKey);
-        const model = genAI.getGenerativeModel({
-            model: "gemini-2.5-flash",
-            systemInstruction: `You are the Kenya Keys Virtual Assistant, a warm and helpful digital representative of Kenya Keys, a nonprofit educational organization. 
+        const ai = new GoogleGenAI({ apiKey });
+
+        // Extract the last message and history
+        const lastMessage = messages[messages.length - 1].content;
+        const history = messages.slice(0, -1).map((m: any) => ({
+            role: m.role === "user" ? "user" : "model",
+            parts: [{ text: m.content }],
+        }));
+
+        // Gemini API requires the history to start with a 'user' role.
+        // The frontend initializes with an 'assistant' greeting, so we remove it.
+        if (history.length > 0 && history[0].role === "model") {
+            history.shift();
+        }
+
+        const chat = ai.chats.create({
+            model: "gemini-3.6-flash",
+            config: {
+                systemInstruction: `You are the Kenya Keys Virtual Assistant, a warm and helpful digital representative of Kenya Keys, a nonprofit educational organization. 
       
       Your Identity:
       - Name: Kenya Keys Virtual Assistant (or simply Kenya Keys AI).
@@ -49,28 +64,12 @@ export async function POST(req: Request) {
       4. If you don't know an answer, politely suggest they reach out via the Contact section of the website.
       5. Keep responses concise and engaging.
       6. Do NOT mention you are an AI model from Google or that you are using a JSON file. Speak as a dedicated part of the Kenya Keys team.`
-        });
-
-        // Extract the last message and history
-        const lastMessage = messages[messages.length - 1].content;
-        const history = messages.slice(0, -1).map((m: any) => ({
-            role: m.role === "user" ? "user" : "model",
-            parts: [{ text: m.content }],
-        }));
-
-        // Gemini API requires the history to start with a 'user' role.
-        // The frontend initializes with an 'assistant' greeting, so we remove it.
-        if (history.length > 0 && history[0].role === "model") {
-            history.shift();
-        }
-
-        const chat = model.startChat({
+            },
             history: history,
         });
 
-        const result = await chat.sendMessage(lastMessage);
-        const response = await result.response;
-        const text = response.text();
+        const result = await chat.sendMessage({ message: lastMessage });
+        const text = result.text;
 
         return NextResponse.json({ role: "assistant", content: text });
     } catch (error: any) {
