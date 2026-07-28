@@ -33,6 +33,7 @@ async function main() {
 
     try {
         const history = [
+            { role: "user", parts: [{ text: "Hello" }] },
             { role: "model", parts: [{ text: "Hello! How can I help you today regarding Kenya Keys?" }] }
         ];
         const chat = model.startChat({ history });

@@ -48,9 +48,9 @@ export const organizationSchema = {
     }
   ],
   "sameAs": [
-    "https://www.facebook.com/profile.php?id=61590875852245",
-    "https://www.instagram.com/kenyakeyspbo_kenya/",
-    "https://x.com/KenyaKeys_Kenya",
+    "https://www.facebook.com/profile.php?id=61592515594553",
+    "https://www.instagram.com/kenyakeys_pbo/",
+    "https://x.com/KenyaKeys_PBO",
     "https://wa.me/254724783436"
   ],
   "areaServed": {
