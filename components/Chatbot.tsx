@@ -7,6 +7,7 @@ import { MessageCircle, X, Send, User, Bot, Loader2 } from "lucide-react";
 interface Message {
     role: "user" | "assistant";
     content: string;
+    isError?: boolean;
 }
 
 import { usePathname } from "next/navigation";
@@ -58,7 +59,7 @@ export default function Chatbot() {
             console.error("Chat error:", error);
             setMessages((prev) => [
                 ...prev,
-                { role: "assistant", content: `Error: ${error.message}. Please check your connection or API key.` },
+                { role: "assistant", content: error.message || "Something went wrong. Please try again later.", isError: true },
             ]);
         } finally {
             setIsLoading(false);
@@ -74,7 +75,7 @@ export default function Chatbot() {
                         animate={{ opacity: 1, scale: 1, y: 0, x: 0 }}
                         exit={{ opacity: 0, scale: 0.9, y: 50, x: 20 }}
                         transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                        className="mb-4 w-[350px] sm:w-[400px] h-[450px] bg-white/95 backdrop-blur-xl rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.15)] flex flex-col overflow-hidden border border-white/20"
+                        className="mb-4 w-[350px] sm:w-[400px] h-[450px] bg-white rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.15)] flex flex-col overflow-hidden border border-gray-200"
                     >
                         {/* Header */}
                         <div className="bg-[#1a1a1a] text-white p-6 flex items-center justify-between">
@@ -95,7 +96,7 @@ export default function Chatbot() {
                             </div>
                             <button
                                 onClick={() => setIsOpen(false)}
-                                className="p-2 hover:bg-white/10 rounded-xl transition-all active:scale-95"
+                                className="p-2 hover:bg-gray-700 rounded-xl transition-all active:scale-95"
                             >
                                 <X size={20} />
                             </button>
@@ -113,7 +114,9 @@ export default function Chatbot() {
                                     <div
                                         className={`max-w-[85%] p-4 rounded-2xl text-[13.5px] leading-relaxed ${m.role === "user"
                                             ? "bg-[#1a1a1a] text-white rounded-tr-none shadow-md shadow-black/10"
-                                            : "bg-white text-gray-800 shadow-sm border border-gray-100 rounded-tl-none font-medium"
+                                            : m.isError
+                                                ? "bg-red-50 text-red-700 shadow-sm border border-red-200 rounded-tl-none font-medium"
+                                                : "bg-white text-gray-800 shadow-sm border border-gray-100 rounded-tl-none font-medium"
                                             }`}
                                     >
                                         {m.content}
